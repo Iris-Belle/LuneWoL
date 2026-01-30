@@ -3,27 +3,25 @@
 public partial class PressureModeOne : ModPlayer
 {
     public bool WasDrowningLastFrame { get; set; }
-    
+
     public Vector2 EntryPoint { get; set; }
     public Vector2 ExitPoint { get; set; }
 
     public bool InWaterBody { get; set; }
     public bool IsDrowning { get; set; }
 
-    private const float ReEntryRadius = 240f;
-
     public void CheckWaterDepth()
     {
-        bool currentlyDrowning = Collision.DrownCollision(LP.position, LP.width, LP.height, LP.gravDir);
+        bool currentlyDrowning = Collision.DrownCollision(Main.LocalPlayer.position, Main.LocalPlayer.width, Main.LocalPlayer.height, Main.LocalPlayer.gravDir);
 
         if (currentlyDrowning && !WasDrowningLastFrame && !InWaterBody)
         {
             InWaterBody = true;
-            EntryPoint = LP.position;
+            EntryPoint = Main.LocalPlayer.position;
         }
         else if (!currentlyDrowning && WasDrowningLastFrame)
         {
-            ExitPoint = LP.position;
+            ExitPoint = Main.LocalPlayer.position;
 
             if (ExitPoint.Y < EntryPoint.Y)
                 EntryPoint = ExitPoint;
@@ -31,16 +29,16 @@ public partial class PressureModeOne : ModPlayer
             InWaterBody = true;
         }
 
-        if (!currentlyDrowning && InWaterBody && Vector2.Distance(LP.position, ExitPoint) <= ReEntryRadius)
+        if (!currentlyDrowning && InWaterBody && Vector2.Distance(Main.LocalPlayer.position, ExitPoint) <= 240f)
             InWaterBody = true;
 
-        if (!currentlyDrowning && InWaterBody && Vector2.Distance(LP.position, ExitPoint) >= ReEntryRadius)
+        if (!currentlyDrowning && InWaterBody && Vector2.Distance(Main.LocalPlayer.position, ExitPoint) >= 240f)
             InWaterBody = false;
 
-        if (!InWaterBody && Vector2.Distance(LP.position, ExitPoint) > ReEntryRadius)
+        if (!InWaterBody && Vector2.Distance(Main.LocalPlayer.position, ExitPoint) > 240f)
         {
-            EntryPoint = LP.position;
-            ExitPoint = LP.position;
+            EntryPoint = Main.LocalPlayer.position;
+            ExitPoint = Main.LocalPlayer.position;
         }
 
         WasDrowningLastFrame = currentlyDrowning;

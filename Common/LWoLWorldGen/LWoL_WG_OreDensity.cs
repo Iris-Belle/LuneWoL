@@ -1,4 +1,5 @@
-﻿namespace LuneWoL.Common.LWoLWorldGen;
+﻿
+namespace LuneWoL.Common.LWoLWorldGen;
 
 internal class LWoL_WG : ModSystem
 {
@@ -93,7 +94,8 @@ internal class LWoL_WG : ModSystem
     #region ore meth
     private static int PreHardSS(int num)
     {
-        if (LuneWoL.LWoLAdvancedServerSettings.OreDensityCfg.PrehardmodeOreAmountPercent == 100) return num;
+        if (LuneWoL.LWoLAdvancedServerSettings.OreDensityCfg.PrehardmodeOreAmountPercent == 100)
+            return num;
 
         num = (int)(num * (float)LuneWoL.LWoLAdvancedServerSettings.OreDensityCfg.PrehardmodeOreAmountPercent / 100);
         return num;
@@ -101,7 +103,8 @@ internal class LWoL_WG : ModSystem
 
     private static double PreHardDensity(double num)
     {
-        if (LuneWoL.LWoLAdvancedServerSettings.OreDensityCfg.PrehardmodeOreDensityPercent == 100) return num;
+        if (LuneWoL.LWoLAdvancedServerSettings.OreDensityCfg.PrehardmodeOreDensityPercent == 100)
+            return num;
 
         num = num * LuneWoL.LWoLAdvancedServerSettings.OreDensityCfg.PrehardmodeOreDensityPercent / 100;
         return num;
@@ -111,7 +114,8 @@ internal class LWoL_WG : ModSystem
     #region gems meth
     internal static int GemSS(int num)
     {
-        if (LuneWoL.LWoLAdvancedServerSettings.OreDensityCfg.GemStoneAmountPercent == 100) return num;
+        if (LuneWoL.LWoLAdvancedServerSettings.OreDensityCfg.GemStoneAmountPercent == 100)
+            return num;
 
         num = (int)(num * (float)LuneWoL.LWoLAdvancedServerSettings.OreDensityCfg.GemStoneAmountPercent / 100);
         return num;
@@ -119,7 +123,8 @@ internal class LWoL_WG : ModSystem
 
     internal static double GemDensity(double num)
     {
-        if (LuneWoL.LWoLAdvancedServerSettings.OreDensityCfg.GemStoneDensityPercent == 100) return num;
+        if (LuneWoL.LWoLAdvancedServerSettings.OreDensityCfg.GemStoneDensityPercent == 100)
+            return num;
 
         num = num * LuneWoL.LWoLAdvancedServerSettings.OreDensityCfg.GemStoneDensityPercent / 100;
         return num;
@@ -129,7 +134,8 @@ internal class LWoL_WG : ModSystem
     #region Slush meth
     private static int SlushSS(int num)
     {
-        if (LuneWoL.LWoLAdvancedServerSettings.OreDensityCfg.SlushAmountPercent == 100) return num;
+        if (LuneWoL.LWoLAdvancedServerSettings.OreDensityCfg.SlushAmountPercent == 100)
+            return num;
 
         num = (int)(num * (float)LuneWoL.LWoLAdvancedServerSettings.OreDensityCfg.SlushAmountPercent / 100);
         return num;
@@ -137,7 +143,8 @@ internal class LWoL_WG : ModSystem
 
     private static double SlushDensity(double num)
     {
-        if (LuneWoL.LWoLAdvancedServerSettings.OreDensityCfg.SlushDensityPercent == 100) return num;
+        if (LuneWoL.LWoLAdvancedServerSettings.OreDensityCfg.SlushDensityPercent == 100)
+            return num;
 
         num = num * LuneWoL.LWoLAdvancedServerSettings.OreDensityCfg.SlushDensityPercent / 100;
         return num;
@@ -147,7 +154,8 @@ internal class LWoL_WG : ModSystem
     #region Silt meth
     private static int SiltSS(int num)
     {
-        if (LuneWoL.LWoLAdvancedServerSettings.OreDensityCfg.SiltAmountPercent == 100) return num;
+        if (LuneWoL.LWoLAdvancedServerSettings.OreDensityCfg.SiltAmountPercent == 100)
+            return num;
 
         num = (int)(num * (float)LuneWoL.LWoLAdvancedServerSettings.OreDensityCfg.SiltAmountPercent / 100);
         return num;
@@ -155,7 +163,8 @@ internal class LWoL_WG : ModSystem
 
     private static double SiltDensity(double num)
     {
-        if (LuneWoL.LWoLAdvancedServerSettings.OreDensityCfg.SiltDensityPercent == 100) return num;
+        if (LuneWoL.LWoLAdvancedServerSettings.OreDensityCfg.SiltDensityPercent == 100)
+            return num;
 
         num = num * LuneWoL.LWoLAdvancedServerSettings.OreDensityCfg.SiltDensityPercent / 100;
         return num;
@@ -401,7 +410,8 @@ internal class LWoL_WG : ModSystem
                     }
                 }
             }
-        };
+        }
+        ;
     }
     public void GenerateGems(GenerationProgress progress)
     {
@@ -438,7 +448,7 @@ internal class LWoL_WG : ModSystem
             {
                 int num2 = WorldGen.genRand.Next(0, Main.maxTilesX);
                 int num3 = WorldGen.genRand.Next((int)Main.worldSurface, Main.maxTilesY);
-                while (Main.tile[num2, num3].TileType != 1)
+                while (Main.tile[num2, num3].TileType != TileID.Stone)
                 {
                     num2 = WorldGen.genRand.Next(0, Main.maxTilesX);
                     num3 = WorldGen.genRand.Next((int)Main.worldSurface, Main.maxTilesY);
@@ -475,7 +485,7 @@ internal class LWoL_WG : ModSystem
                                 }
                                 n--;
                                 WorldGen.KillTile(l, m, noItem: true);
-                                WorldGen.PlaceTile(x, n, type, mute: true, forced: true);
+                                _ = WorldGen.PlaceTile(x, n, type, mute: true, forced: true);
                                 Main.tile[x, n].TileType = type;
                             }
                         }
@@ -512,7 +522,7 @@ internal class LWoL_WG : ModSystem
             {
                 num2 = WorldGen.genRand.Next((int)Main.worldSurface, (int)Main.rockLayer);
             }
-            if (Main.tile[num, num2].WallType != 187 && Main.tile[num, num2].WallType != 216)
+            if (Main.tile[num, num2].WallType != WallID.Sandstone && Main.tile[num, num2].WallType != WallID.HardenedSand)
             {
                 WorldGen.TileRunner(num, num2, WorldGen.genRand.Next(SiltSS(5), SiltSS(12)), WorldGen.genRand.Next(SiltSS(15), SiltSS(50)), 123);
             }
@@ -525,7 +535,7 @@ internal class LWoL_WG : ModSystem
             {
                 num4 = WorldGen.genRand.Next((int)Main.worldSurface, (int)Main.rockLayer);
             }
-            if (Main.tile[num3, num4].WallType != 187 && Main.tile[num3, num4].WallType != 216)
+            if (Main.tile[num3, num4].WallType != WallID.Sandstone && Main.tile[num3, num4].WallType != WallID.HardenedSand)
             {
                 WorldGen.TileRunner(num3, num4, WorldGen.genRand.Next(SiltSS(2), SiltSS(5)), WorldGen.genRand.Next(SiltSS(2), SiltSS(5)), 123);
             }
@@ -552,11 +562,11 @@ internal class LWoL_WG : ModSystem
                 if (j >= num)
                 {
                     WorldGen.KillTile(i, j, false, false, true);
-                    WorldGen.EmptyLiquid(i, j);
+                    _ = WorldGen.EmptyLiquid(i, j);
                 }
                 else
                 {
-                    Main.tile[i, j].TileType = 57;
+                    Main.tile[i, j].TileType = TileID.Ash;
                 }
             }
         }
@@ -576,7 +586,7 @@ internal class LWoL_WG : ModSystem
             {
                 if (!Main.tile[k, l].HasTile)
                 {
-                    WorldGen.PlaceLiquid(k, l, 1, byte.MaxValue);
+                    _ = WorldGen.PlaceLiquid(k, l, 1, byte.MaxValue);
                 }
             }
         }
@@ -651,11 +661,11 @@ internal class LWoL_WG : ModSystem
         {
             if (!Main.tile[num9, Main.maxTilesY - 145].HasTile)
             {
-                WorldGen.PlaceLiquid(num9, Main.maxTilesY - 145, 1, byte.MaxValue);
+                _ = WorldGen.PlaceLiquid(num9, Main.maxTilesY - 145, 1, byte.MaxValue);
             }
             if (!Main.tile[num9, Main.maxTilesY - 144].HasTile)
             {
-                WorldGen.PlaceLiquid(num9, Main.maxTilesY - 144, 1, byte.MaxValue);
+                _ = WorldGen.PlaceLiquid(num9, Main.maxTilesY - 144, 1, byte.MaxValue);
             }
         }
         for (int num10 = 0; num10 < (int)(Main.maxTilesX * Main.maxTilesY * PreHardDensity(0.0008)); num10++)
@@ -723,7 +733,7 @@ internal class LWoL_WG : ModSystem
                 for (int num18 = num14; num18 < Main.maxTilesY; num18++)
                 {
                     WorldGen.KillTile(num13, num18, false, false, true);
-                    WorldGen.PlaceTile(num13, num18, 57);
+                    _ = WorldGen.PlaceTile(num13, num18, 57);
                 }
             }
             Liquid.QuickWater(-2);
@@ -732,9 +742,9 @@ internal class LWoL_WG : ModSystem
                 for (int num20 = Main.maxTilesY - 300; num20 < num15 + 20; num20++)
                 {
                     Main.tile[num19, num20].LiquidAmount = 0;
-                    if (Main.tile[num19, num20].TileType == 57 && Main.tile[num19, num20].HasTile && (!Main.tile[num19 - 1, num20 - 1].HasTile || !Main.tile[num19, num20 - 1].HasTile || !Main.tile[num19 + 1, num20 - 1].HasTile || !Main.tile[num19 - 1, num20].HasTile || !Main.tile[num19 + 1, num20].HasTile || !Main.tile[num19 - 1, num20 + 1].HasTile || !Main.tile[num19, num20 + 1].HasTile || !Main.tile[num19 + 1, num20 + 1].HasTile))
+                    if (Main.tile[num19, num20].TileType == TileID.Ash && Main.tile[num19, num20].HasTile && (!Main.tile[num19 - 1, num20 - 1].HasTile || !Main.tile[num19, num20 - 1].HasTile || !Main.tile[num19 + 1, num20 - 1].HasTile || !Main.tile[num19 - 1, num20].HasTile || !Main.tile[num19 + 1, num20].HasTile || !Main.tile[num19 - 1, num20 + 1].HasTile || !Main.tile[num19, num20 + 1].HasTile || !Main.tile[num19 + 1, num20 + 1].HasTile))
                     {
-                        Main.tile[num19, num20].TileType = 633;
+                        Main.tile[num19, num20].TileType = TileID.AshGrass;
                     }
                 }
             }
@@ -742,9 +752,9 @@ internal class LWoL_WG : ModSystem
             {
                 for (int num22 = Main.maxTilesY - 200; num22 < num15 + 20; num22++)
                 {
-                    if (Main.tile[num21, num22].TileType == 633 && Main.tile[num21, num22].HasTile && !Main.tile[num21, num22 - 1].HasTile && WorldGen.genRand.NextBool(3))
+                    if (Main.tile[num21, num22].TileType == TileID.AshGrass && Main.tile[num21, num22].HasTile && !Main.tile[num21, num22 - 1].HasTile && WorldGen.genRand.NextBool(3))
                     {
-                        WorldGen.TryGrowingTreeByType(634, num21, num22);
+                        _ = WorldGen.TryGrowingTreeByType(634, num21, num22);
                     }
                 }
             }
@@ -757,9 +767,9 @@ internal class LWoL_WG : ModSystem
                 {
                     for (int num24 = Main.maxTilesY - 300; num24 < Main.maxTilesY - 100 + WorldGen.genRand.Next(-1, 2); num24++)
                     {
-                        if (Main.tile[num23, num24].TileType == 57 && Main.tile[num23, num24].HasTile && (!Main.tile[num23 - 1, num24 - 1].HasTile || !Main.tile[num23, num24 - 1].HasTile || !Main.tile[num23 + 1, num24 - 1].HasTile || !Main.tile[num23 - 1, num24].HasTile || !Main.tile[num23 + 1, num24].HasTile || !Main.tile[num23 - 1, num24 + 1].HasTile || !Main.tile[num23, num24 + 1].HasTile || !Main.tile[num23 + 1, num24 + 1].HasTile))
+                        if (Main.tile[num23, num24].TileType == TileID.Ash && Main.tile[num23, num24].HasTile && (!Main.tile[num23 - 1, num24 - 1].HasTile || !Main.tile[num23, num24 - 1].HasTile || !Main.tile[num23 + 1, num24 - 1].HasTile || !Main.tile[num23 - 1, num24].HasTile || !Main.tile[num23 + 1, num24].HasTile || !Main.tile[num23 - 1, num24 + 1].HasTile || !Main.tile[num23, num24 + 1].HasTile || !Main.tile[num23 + 1, num24 + 1].HasTile))
                         {
-                            Main.tile[num23, num24].TileType = 633;
+                            Main.tile[num23, num24].TileType = TileID.AshGrass;
                         }
                     }
                 }
@@ -770,9 +780,9 @@ internal class LWoL_WG : ModSystem
                 {
                     for (int num26 = Main.maxTilesY - 200; num26 < Main.maxTilesY - 50; num26++)
                     {
-                        if (Main.tile[num25, num26].TileType == 633 && Main.tile[num25, num26].HasTile && !Main.tile[num25, num26 - 1].HasTile && WorldGen.genRand.NextBool(3))
+                        if (Main.tile[num25, num26].TileType == TileID.AshGrass && Main.tile[num25, num26].HasTile && !Main.tile[num25, num26 - 1].HasTile && WorldGen.genRand.NextBool(3))
                         {
-                            WorldGen.TryGrowingTreeByType(634, num25, num26);
+                            _ = WorldGen.TryGrowingTreeByType(634, num25, num26);
                         }
                     }
                 }
@@ -785,9 +795,9 @@ internal class LWoL_WG : ModSystem
             {
                 for (int num28 = Main.maxTilesY - 300; num28 < Main.maxTilesY - 100 + WorldGen.genRand.Next(-1, 2); num28++)
                 {
-                    if (Main.tile[num27, num28].TileType == 57 && Main.tile[num27, num28].HasTile && (!Main.tile[num27 - 1, num28 - 1].HasTile || !Main.tile[num27, num28 - 1].HasTile || !Main.tile[num27 + 1, num28 - 1].HasTile || !Main.tile[num27 - 1, num28].HasTile || !Main.tile[num27 + 1, num28].HasTile || !Main.tile[num27 - 1, num28 + 1].HasTile || !Main.tile[num27, num28 + 1].HasTile || !Main.tile[num27 + 1, num28 + 1].HasTile))
+                    if (Main.tile[num27, num28].TileType == TileID.Ash && Main.tile[num27, num28].HasTile && (!Main.tile[num27 - 1, num28 - 1].HasTile || !Main.tile[num27, num28 - 1].HasTile || !Main.tile[num27 + 1, num28 - 1].HasTile || !Main.tile[num27 - 1, num28].HasTile || !Main.tile[num27 + 1, num28].HasTile || !Main.tile[num27 - 1, num28 + 1].HasTile || !Main.tile[num27, num28 + 1].HasTile || !Main.tile[num27 + 1, num28 + 1].HasTile))
                     {
-                        Main.tile[num27, num28].TileType = 633;
+                        Main.tile[num27, num28].TileType = TileID.AshGrass;
                     }
                 }
             }
@@ -795,9 +805,9 @@ internal class LWoL_WG : ModSystem
             {
                 for (int num30 = Main.maxTilesY - 200; num30 < Main.maxTilesY - 50; num30++)
                 {
-                    if (Main.tile[num29, num30].TileType == 633 && Main.tile[num29, num30].HasTile && !Main.tile[num29, num30 - 1].HasTile && WorldGen.genRand.NextBool(3))
+                    if (Main.tile[num29, num30].TileType == TileID.AshGrass && Main.tile[num29, num30].HasTile && !Main.tile[num29, num30 - 1].HasTile && WorldGen.genRand.NextBool(3))
                     {
-                        WorldGen.TryGrowingTreeByType(634, num29, num30);
+                        _ = WorldGen.TryGrowingTreeByType(634, num29, num30);
                     }
                 }
             }
@@ -810,22 +820,21 @@ internal class LWoL_WG : ModSystem
         {
             int num = (!WorldGen.remixWorldGen) ? WorldGen.genRand.Next((int)(Main.worldSurface + Main.rockLayer) / 2, GenVars.lavaLine) : WorldGen.genRand.Next((int)Main.worldSurface, Main.maxTilesY - 300);
             int num2 = WorldGen.genRand.Next(GenVars.snowMinX[num], GenVars.snowMaxX[num]);
-            if (Main.tile[num2, num].HasTile && (Main.tile[num2, num].TileType == 147 || Main.tile[num2, num].TileType == 161 || Main.tile[num2, num].TileType == 162 || Main.tile[num2, num].TileType == 224))
+            if (Main.tile[num2, num].HasTile && (Main.tile[num2, num].TileType == TileID.SnowBlock || Main.tile[num2, num].TileType == TileID.IceBlock || Main.tile[num2, num].TileType == TileID.BreakableIce || Main.tile[num2, num].TileType == TileID.Slush))
             {
                 int num3 = WorldGen.genRand.Next(1, 4);
                 int num4 = WorldGen.genRand.Next(1, 4);
                 int num5 = WorldGen.genRand.Next(1, 4);
                 int num6 = WorldGen.genRand.Next(1, 4);
                 int num7 = WorldGen.genRand.Next(12);
-                int num8 = 0;
-                num8 = (num7 >= 3) ? ((num7 < 6) ? 1 : ((num7 < 8) ? 2 : ((num7 < 10) ? 3 : ((num7 >= 11) ? 5 : 4)))) : 0;
+                int num8 = (num7 >= 3) ? ((num7 < 6) ? 1 : ((num7 < 8) ? 2 : ((num7 < 10) ? 3 : ((num7 >= 11) ? 5 : 4)))) : 0;
                 for (int j = num2 - num3; j < num2 + num4; j++)
                 {
                     for (int k = num - num5; k < num + num6; k++)
                     {
                         if (!Main.tile[j, k].HasTile)
                         {
-                            WorldGen.PlaceTile(j, k, 178, mute: true, forced: false, -1, num8);
+                            _ = WorldGen.PlaceTile(j, k, 178, mute: true, forced: false, -1, num8);
                         }
                     }
                 }
@@ -839,19 +848,18 @@ internal class LWoL_WG : ModSystem
         {
             int num = WorldGen.genRand.Next(20, Main.maxTilesX - 20);
             int num2 = WorldGen.genRand.Next((int)Main.rockLayer, Main.maxTilesY - 300);
-            if (!Main.tile[num, num2].HasTile && Main.tile[num, num2].LiquidType != 1 && !Main.wallDungeon[Main.tile[num, num2].WallType] && Main.tile[num, num2].WallType != 27)
+            if (!Main.tile[num, num2].HasTile && Main.tile[num, num2].LiquidType != LiquidID.Lava && !Main.wallDungeon[Main.tile[num, num2].WallType] && Main.tile[num, num2].WallType != WallID.Planked)
             {
                 int num3 = WorldGen.genRand.Next(12);
-                int num4 = 0;
-                num4 = (num3 >= 3) ? ((num3 < 6) ? 1 : ((num3 < 8) ? 2 : ((num3 < 10) ? 3 : ((num3 >= 11) ? 5 : 4)))) : 0;
-                WorldGen.PlaceTile(num, num2, 178, mute: true, forced: false, -1, num4);
+                int num4 = (num3 >= 3) ? ((num3 < 6) ? 1 : ((num3 < 8) ? 2 : ((num3 < 10) ? 3 : ((num3 >= 11) ? 5 : 4)))) : 0;
+                _ = WorldGen.PlaceTile(num, num2, 178, mute: true, forced: false, -1, num4);
             }
         }
         for (int j = 0; j < GemDensity(Main.maxTilesX); j++)
         {
             int num5 = WorldGen.genRand.Next(20, Main.maxTilesX - 20);
             int num6 = WorldGen.genRand.Next((int)Main.worldSurface, Main.maxTilesY - 300);
-            if (!Main.tile[num5, num6].HasTile && Main.tile[num5, num6].LiquidType != 1 && (Main.tile[num5, num6].WallType == 216 || Main.tile[num5, num6].WallType == 187))
+            if (!Main.tile[num5, num6].HasTile && Main.tile[num5, num6].LiquidType != LiquidID.Lava && (Main.tile[num5, num6].WallType == WallID.HardenedSand || Main.tile[num5, num6].WallType == WallID.Sandstone))
             {
                 int num7 = WorldGen.genRand.Next(1, 4);
                 int num8 = WorldGen.genRand.Next(1, 4);
@@ -863,7 +871,7 @@ internal class LWoL_WG : ModSystem
                     {
                         if (!Main.tile[k, l].HasTile)
                         {
-                            WorldGen.PlaceTile(k, l, 178, mute: true, forced: false, -1, 6);
+                            _ = WorldGen.PlaceTile(k, l, 178, mute: true, forced: false, -1, 6);
                         }
                     }
                 }
@@ -893,9 +901,9 @@ internal class LWoL_WG : ModSystem
             }
             int num4 = possibleChestsToTrapify[WorldGen.genRand.Next(possibleChestsToTrapify.Count)];
             Point origin = new(Main.chest[num4].x, Main.chest[num4].y);
-            deadMansChestBiome.Place(origin, GenVars.structures);
+            _ = deadMansChestBiome.Place(origin, GenVars.structures);
             num2++;
-            possibleChestsToTrapify.Remove(num4);
+            _ = possibleChestsToTrapify.Remove(num4);
         }
         progress.Message = Lang.gen[76].Value + "..Thin Ice";
         progress.Set(1.0 / num);
@@ -935,7 +943,7 @@ internal class LWoL_WG : ModSystem
             num8 *= 2;
             num9 /= 2.0;
         }
-        Point origin2 = default(Point);
+        Point origin2 = default;
         for (int i = 0; i < num8; i++)
         {
             if ((i == 0 && WorldGen.tenthAnniversaryWorldGen) || !(WorldGen.genRand.NextDouble() > num9))
@@ -1083,11 +1091,9 @@ internal class LWoL_WG : ModSystem
             double num19 = Main.maxTilesX * 0.02;
             if (WorldGen.noTrapsWorldGen)
             {
-                num *= 5.0;
             }
             else if (WorldGen.getGoodWorldGen)
             {
-                num *= 2.0;
             }
             for (int j = 0; j < num19; j++)
             {

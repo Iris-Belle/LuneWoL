@@ -1,8 +1,9 @@
-﻿namespace LuneWoL.Common.LWoLSystems;
+﻿
+namespace LuneWoL.Common.LWoLSystems;
 
 public partial class LWoL_Sys : ModSystem
 {
-    //public override void PreUpdateInvasions() => LongerInvasions();
+    public override void PreUpdateInvasions() => LongerInvasions();
 
     public override void AddRecipes()
     {
@@ -14,7 +15,7 @@ public partial class LWoL_Sys : ModSystem
 
     public override void ModifySunLightColor(ref Color tileColor, ref Color backgroundColor)
     {
-        var c = LuneWoL.LWoLServerConfig.Environment;
+        LWoLServerConfig.EnvironmentDented c = LuneWoL.LWoLServerConfig.Environment;
         if (c.DarkerNightsMode != 0)
             DarkerNightsSurfaceLight(ref tileColor, ref backgroundColor);
     }

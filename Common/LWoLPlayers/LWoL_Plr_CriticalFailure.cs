@@ -1,4 +1,5 @@
-﻿namespace LuneWoL.Common.WoL_Plrs;
+﻿
+namespace LuneWoL.Common.WoL_Plrs;
 
 public partial class LWoL_Plr : ModPlayer
 {
@@ -10,7 +11,7 @@ public partial class LWoL_Plr : ModPlayer
 
     public void CritFail(Player player, NPC npc)
     {
-        var Config = LuneWoL.LWoLServerConfig.LPlayer;
+        LWoLServerConfig.PlayerDented Config = LuneWoL.LWoLServerConfig.LPlayer;
 
         if (Config.CritFailMode == 1 || Config.CritFailMode == 2)
         {
@@ -36,13 +37,14 @@ public partial class LWoL_Plr : ModPlayer
 
     public void CritFailDamage(Player player)
     {
-        var Config = LuneWoL.LWoLServerConfig.LPlayer;
+        LWoLServerConfig.PlayerDented Config = LuneWoL.LWoLServerConfig.LPlayer;
 
-        if (Config.CritFailMode == 0) return;
+        if (Config.CritFailMode == 0)
+            return;
 
         if (player.whoAmI == Main.myPlayer && IsCritFail && (Config.CritFailMode == 1 || Config.CritFailMode == 3))
         {
-            player.Hurt(PlayerDeathReason.ByCustomReason(GetText("Status.Death.FailedCrit" + Main.rand.Next(1, 5 + 1)).ToNetworkText(Player.name)), AplyDmgAmt, 0);
+            _ = player.Hurt(PlayerDeathReason.ByCustomReason(GetText("Status.Death.FailedCrit" + Main.rand.Next(1, 5 + 1)).ToNetworkText(Player.name)), AplyDmgAmt, 0);
         }
         if (player.whoAmI == Main.myPlayer && IsCritFail && Config.CritFailMode > 0)
         {

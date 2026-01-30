@@ -1,4 +1,5 @@
-﻿namespace LuneWoL.Common.LWoLGlobalItems;
+﻿
+namespace LuneWoL.Common.LWoLGlobalItems;
 
 public partial class LWoL_Items : GlobalItem
 {
@@ -6,8 +7,8 @@ public partial class LWoL_Items : GlobalItem
 
     public override bool? UseItem(Item item, Player player)
     {
-        var p = player.GetModPlayer<LWoL_Plr>();
-        var plr = LuneWoL.LWoLServerConfig.LPlayer;
+        LWoL_Plr p = player.GetModPlayer<LWoL_Plr>();
+        LWoLServerConfig.PlayerDented plr = LuneWoL.LWoLServerConfig.LPlayer;
 
         if (player.whoAmI == Main.myPlayer && plr.CritFailMode != 0 && p.IsCritFail)
         {
@@ -48,9 +49,10 @@ public partial class LWoL_Items : GlobalItem
 
     public override void SetDefaults(Item item)
     {
-        var equipment = LuneWoL.LWoLServerConfig.Equipment;
+        LWoLServerConfig.EquipmentDented equipment = LuneWoL.LWoLServerConfig.Equipment;
 
-        if (!equipment.NoAccessories) return;
+        if (!equipment.NoAccessories)
+            return;
 
         if (!item.vanity)
         {
@@ -70,7 +72,7 @@ public partial class LWoL_Items : GlobalItem
     }
     public override void GetHealLife(Item item, Player player, bool quickHeal, ref int healValue)
     {
-        var buffs = LuneWoL.LWoLServerConfig.Buffs;
+        LWoLServerConfig.BuffsDented buffs = LuneWoL.LWoLServerConfig.Buffs;
 
         if (buffs.HealingPotionBadPercent > 1 && buffs.HealingPotionBadPercent < 100)
         {
@@ -86,7 +88,7 @@ public partial class LWoL_Items : GlobalItem
 
     public override void PostUpdate(Item item)
     {
-        var itm = LuneWoL.LWoLServerConfig.Items;
+        LWoLServerConfig.ItemsDented itm = LuneWoL.LWoLServerConfig.Items;
 
         if (itm.DespawnItemsTimer >= -1)
         {

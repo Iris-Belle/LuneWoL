@@ -1,3 +1,4 @@
+
 namespace LuneWoL.Common.LWoLNpcs;
 
 public class WoL_NPC_StatChanges : GlobalNPC
@@ -18,29 +19,35 @@ public class WoL_NPC_StatChanges : GlobalNPC
 
     private void ApplyStatChanges(NPC npc)
     {
-        var npcConfig = LuneWoL.LWoLServerStatConfig.NpcConfig;
+        LWoLServerStatConfig.NpcStatDented npcConfig = LuneWoL.LWoLServerStatConfig.NpcConfig;
 
-        if (npcConfig.DisableNPCStatChanges) return;
-        if (npc.CountsAsACritter) return;
-        if (npc.friendly) return;
-        if (npc.boss) return;
+        if (npcConfig.DisableNPCStatChanges)
+            return;
+        if (npc.CountsAsACritter)
+            return;
+        if (npc.friendly)
+            return;
+        if (npc.boss)
+            return;
 
-        npc.damage = npc.damage * (npcConfig.DamagePercent / 100);
-        npc.defense = npc.defense * (npcConfig.DefensePercent / 100);
-        npc.lifeMax = npc.lifeMax * (npcConfig.LifePercent / 100);
+        npc.damage *= npcConfig.DamagePercent / 100;
+        npc.defense *= npcConfig.DefensePercent / 100;
+        npc.lifeMax *= npcConfig.LifePercent / 100;
         npc.life = npc.lifeMax;
     }
 
     private void ApplyBossStatChanges(NPC npc)
     {
-        var bossConfig = LuneWoL.LWoLServerStatConfig.BossConfig;
+        LWoLServerStatConfig.BossStatDented bossConfig = LuneWoL.LWoLServerStatConfig.BossConfig;
 
-        if (bossConfig.DisableBossStatChanges) return;
-        if (!npc.boss) return;
+        if (bossConfig.DisableBossStatChanges)
+            return;
+        if (!npc.boss)
+            return;
 
-        npc.damage = npc.damage * (bossConfig.DamagePercent / 100);
-        npc.defense = npc.defense * (bossConfig.DefensePercent / 100);
-        npc.lifeMax = npc.lifeMax * (bossConfig.LifePercent / 100);
+        npc.damage *= bossConfig.DamagePercent / 100;
+        npc.defense *= bossConfig.DefensePercent / 100;
+        npc.lifeMax *= bossConfig.LifePercent / 100;
         npc.life = npc.lifeMax;
     }
 }

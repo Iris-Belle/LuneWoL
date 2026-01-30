@@ -1,12 +1,14 @@
-﻿namespace LuneWoL.Common.LWoLSystems;
+﻿
+namespace LuneWoL.Common.LWoLSystems;
 
 public partial class LWoL_Sys : ModSystem
 {
     public static void AddMusicBox()
     {
-        if (LuneLib.LuneLib.instance.CalamityModLoaded) return;
+        if (LuneLib.LuneLib.instance.CalamityModLoaded)
+            return;
 
-        Recipe.Create(ItemID.MusicBox).
+        _ = Recipe.Create(ItemID.MusicBox).
             AddIngredient(ItemID.Wood, 6).
             AddIngredient(ItemID.Ruby, 1).
             AddIngredient(ItemID.IronBar, 2).
@@ -16,12 +18,14 @@ public partial class LWoL_Sys : ModSystem
 
     public static void AddCrystalRecipe()
     {
-        var Config = LuneWoL.LWoLServerConfig.LPlayer;
+        LWoLServerConfig.PlayerDented Config = LuneWoL.LWoLServerConfig.LPlayer;
 
-        if (LuneLib.LuneLib.instance.CalamityModLoaded) return;
-        if (Config.DeathPenaltyMode != 0) return;
+        if (LuneLib.LuneLib.instance.CalamityModLoaded)
+            return;
+        if (Config.DeathPenaltyMode != 0)
+            return;
 
-        Recipe.Create(ItemID.LifeCrystal).
+        _ = Recipe.Create(ItemID.LifeCrystal).
             AddIngredient(ItemID.HealingPotion, 1).
             AddIngredient(ItemID.Ruby, 1).
             AddIngredient(ItemID.StoneBlock, 2).
@@ -31,9 +35,10 @@ public partial class LWoL_Sys : ModSystem
 
     public void RecipeMulti()
     {
-        var Config = LuneWoL.LWoLServerConfig.Recipes;
+        LWoLServerConfig.RecipesDented Config = LuneWoL.LWoLServerConfig.Recipes;
 
-        if (Config.RecipePercent == 0) return;
+        if (Config.RecipePercent == 0)
+            return;
 
         float multiplier = 1 + (Config.RecipePercent / 100f);
 
@@ -52,5 +57,4 @@ public partial class LWoL_Sys : ModSystem
             }
         }
     }
-
 }

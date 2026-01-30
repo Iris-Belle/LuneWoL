@@ -1,14 +1,13 @@
-﻿namespace LuneWoL.Common.LWoLSystems;
+﻿
+namespace LuneWoL.Common.LWoLSystems;
 
 public partial class LWoL_Sys : ModSystem
 {
     public void LongerInvasions()
     {
-        var Config = LuneWoL.LWoLServerConfig.NPCs;
+        LWoLServerConfig.NPCsDented Config = LuneWoL.LWoLServerConfig.NPCs;
 
-            Main.NewText($"prgmax {Main.invasionProgressMax}, size {Main.invasionSize}, size {Main.invasionSizeStart} ");
-
-        if (Config.InvasionMultiplier > 1 && Main.invasionType != 0 && RunOneTime("invasion"))
+        if (Config.InvasionMultiplier > 1 && Main.invasionType != 0 && RunOneTime(5))
         {
             Main.invasionSizeStart = Config.InvasionMultiplier switch
             {
@@ -176,7 +175,7 @@ public partial class LWoL_Sys : ModSystem
 
         if (Config.InvasionMultiplier > 1 && Main.invasionType == 0)
         {
-            ResetROT("invasion");
+            ResetROT(5);
         }
     }
 }

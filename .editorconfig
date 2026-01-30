@@ -1,0 +1,5 @@
+root = true
+[*.cs]
+dotnet_diagnostic.global_usings.severity = error
+dotnet_diagnostic.global_usings.file_name = LuneWoL.Usings.cs
+dotnet_diagnostic.global_usings.sort = true

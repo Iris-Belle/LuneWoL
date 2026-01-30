@@ -4,7 +4,8 @@ public partial class LWoL_Plr : ModPlayer
 {
     public async void EnterWorldMessage()
     {
-        if (LuneWoL.LWoLClientConfig.STFUCHAT) return;
+        if (LuneWoL.LWoLClientConfig.STFUCHAT)
+            return;
 
         await Task.Delay(5000);
 

@@ -66,6 +66,30 @@ public class LWoLAdvancedServerSettings : ModConfig
     }
 
     [SeparatePage]
+    public class WaterPoisionDented
+    {
+        [BackgroundColor(155, 170, 205, 255)]
+        public bool JunglePoison { get; set; }
+
+        [BackgroundColor(155, 170, 205, 255)]
+        public bool HallowConfusion { get; set; }
+
+        [BackgroundColor(155, 170, 205, 255)]
+        public bool CrimsonIchor { get; set; }
+
+        [BackgroundColor(155, 170, 205, 255)]
+        public bool CorruptFlames { get; set; }
+
+        public WaterPoisionDented()
+        {
+            JunglePoison = true;
+            HallowConfusion = true;
+            CrimsonIchor = true;
+            CorruptFlames = true;
+        }
+    }
+
+    [SeparatePage]
     public class ServerDepthPressureDented
     {
         [BackgroundColor(120, 135, 180, 255), Range(0, 2000)]
@@ -79,7 +103,6 @@ public class LWoLAdvancedServerSettings : ModConfig
 
         [BackgroundColor(120, 135, 180, 255), Range(0f, 256f), Increment(1f)]
         public float BaseDRRate { get; set; }
-
 
         [BackgroundColor(120, 135, 180, 255)]
         public BreathValuesDented BreathValues { get; set; } = new();
@@ -237,29 +260,30 @@ public class LWoLAdvancedServerSettings : ModConfig
         public OreDensityDented()
         {
             DynamiteVein = true;
-            PrehardmodeOreDensityPercent = 50;
-            PrehardmodeOreAmountPercent = 50;
-            HardmodeOreDensityPercent = 50;
-            HardmodeOreAmountPercent = 50;
-            GemStoneDensityPercent = 50;
-            GemStoneAmountPercent = 50;
-            SiltDensityPercent = 50;
-            SiltAmountPercent = 50;
-            SlushDensityPercent = 50;
-            SlushAmountPercent = 50;
+            PrehardmodeOreDensityPercent = 75;
+            PrehardmodeOreAmountPercent = 75;
+            HardmodeOreDensityPercent = 75;
+            HardmodeOreAmountPercent = 75;
+            GemStoneDensityPercent = 75;
+            GemStoneAmountPercent = 75;
+            SiltDensityPercent = 75;
+            SiltAmountPercent = 75;
+            SlushDensityPercent = 75;
+            SlushAmountPercent = 75;
         }
 
         public override bool Equals(object obj) => obj is OreDensityDented other &&
                HardmodeOreDensityPercent == other.HardmodeOreDensityPercent &&
                HardmodeOreAmountPercent == other.HardmodeOreAmountPercent;
 
-        public override int GetHashCode() =>
-            HashCode.Combine(HardmodeOreDensityPercent, HardmodeOreAmountPercent);
+        public override int GetHashCode() => HashCode.Combine(HardmodeOreDensityPercent, HardmodeOreAmountPercent);
     }
-
 
     [BackgroundColor(155, 170, 205, 200)]
     public DarkerNightsDented DarkerNights = new();
+
+    [BackgroundColor(155, 170, 205, 200)]
+    public WaterPoisionDented WaterPoision = new();
 
     [BackgroundColor(120, 135, 180, 200)]
     public ServerDepthPressureDented ServerDepthPressure = new();

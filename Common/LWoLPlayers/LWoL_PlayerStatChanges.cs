@@ -1,4 +1,5 @@
-﻿namespace LuneWoL.Common.LWoLPlayers;
+﻿
+namespace LuneWoL.Common.LWoLPlayers;
 
 public class LWoL_PlayerStatChanges : ModPlayer
 {
@@ -6,9 +7,10 @@ public class LWoL_PlayerStatChanges : ModPlayer
 
     public void PlrStats()
     {
-        var plrConfig = LuneWoL.LWoLServerStatConfig.PlayerStats;
+        LWoLServerStatConfig.PlayerStatDented plrConfig = LuneWoL.LWoLServerStatConfig.PlayerStats;
 
-        if (plrConfig.DisablePlayerStatChanges) return;
+        if (plrConfig.DisablePlayerStatChanges)
+            return;
 
         #region Vitality
         if (plrConfig.LifePercent != 100)

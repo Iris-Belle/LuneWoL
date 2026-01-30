@@ -1,4 +1,5 @@
-﻿namespace LuneWoL.Common.LWoLWorldGen;
+﻿
+namespace LuneWoL.Common.LWoLWorldGen;
 
 public class JunglePass : GenPass
 {
@@ -51,7 +52,7 @@ public class JunglePass : GenPass
         GenerateHolesInMudWalls();
         GenerateFinishingTouches(progress, oldX, oldY);
     }
-    
+
     private void PlaceGemsAt(int x, int y, ushort baseGem, int gemVariants)
     {
         for (int i = 0; i < GemDensity(6.0) * _worldScale; i++)
@@ -101,7 +102,7 @@ public class JunglePass : GenPass
                 value2 = Utils.Clamp(value2, 10, Main.maxTilesY - 10);
                 if (value2 < 5)
                     value2 = 5;
-                if (Main.tile[value, value2].WallType == 0 && !Main.tile[value, value2].HasTile && Main.tile[value, value2 - 3].WallType == 0 && !Main.tile[value, value2 - 3].HasTile && Main.tile[value, value2 - 1].WallType == 0 && !Main.tile[value, value2 - 1].HasTile && Main.tile[value, value2 - 4].WallType == 0 && !Main.tile[value, value2 - 4].HasTile && Main.tile[value, value2 - 2].WallType == 0 && !Main.tile[value, value2 - 2].HasTile && Main.tile[value, value2 - 5].WallType == 0 && !Main.tile[value, value2 - 5].HasTile)
+                if (Main.tile[value, value2].WallType == WallID.None && !Main.tile[value, value2].HasTile && Main.tile[value, value2 - 3].WallType == WallID.None && !Main.tile[value, value2 - 3].HasTile && Main.tile[value, value2 - 1].WallType == WallID.None && !Main.tile[value, value2 - 1].HasTile && Main.tile[value, value2 - 4].WallType == WallID.None && !Main.tile[value, value2 - 4].HasTile && Main.tile[value, value2 - 2].WallType == WallID.None && !Main.tile[value, value2 - 2].HasTile && Main.tile[value, value2 - 5].WallType == WallID.None && !Main.tile[value, value2 - 5].HasTile)
                     flag = false;
             }
             GenVars.JungleX = (int)vector2D.X;
@@ -155,7 +156,7 @@ public class JunglePass : GenPass
         {
             int num = _random.Next(20, Main.maxTilesX - 20);
             int num2 = _random.Next((int)GenVars.worldSurface + 10, Main.UnderworldLayer);
-            while (Main.tile[num, num2].WallType != 64 && Main.tile[num, num2].WallType != 15)
+            while (Main.tile[num, num2].WallType != WallID.JungleUnsafe && Main.tile[num, num2].WallType != WallID.MudUnsafe)
             {
                 num = _random.Next(20, Main.maxTilesX - 20);
                 num2 = _random.Next((int)GenVars.worldSurface + 10, Main.UnderworldLayer);
@@ -181,7 +182,7 @@ public class JunglePass : GenPass
             progress.Set((80.0 + (j / worldScale * 2.0)) * 0.01);
             num = oldX + _random.Next((int)(-600.0 * worldScale), (int)(600.0 * worldScale));
             num2 = oldY + _random.Next((int)(-200.0 * worldScale), (int)(200.0 * worldScale));
-            while (num < 1 || num >= Main.maxTilesX - 1 || num2 < 1 || num2 >= Main.maxTilesY - 1 || Main.tile[num, num2].TileType != 59)
+            while (num < 1 || num >= Main.maxTilesX - 1 || num2 < 1 || num2 >= Main.maxTilesY - 1 || Main.tile[num, num2].TileType != TileID.Mud)
             {
                 num = oldX + _random.Next((int)(-600.0 * worldScale), (int)(600.0 * worldScale));
                 num2 = oldY + _random.Next((int)(-200.0 * worldScale), (int)(200.0 * worldScale));
@@ -200,7 +201,7 @@ public class JunglePass : GenPass
         {
             num = oldX + _random.Next((int)(-600.0 * worldScale), (int)(600.0 * worldScale));
             num2 = oldY + _random.Next((int)(-200.0 * worldScale), (int)(200.0 * worldScale));
-            while (num < 1 || num >= Main.maxTilesX - 1 || num2 < 1 || num2 >= Main.maxTilesY - 1 || Main.tile[num, num2].TileType != 59)
+            while (num < 1 || num >= Main.maxTilesX - 1 || num2 < 1 || num2 >= Main.maxTilesY - 1 || Main.tile[num, num2].TileType != TileID.Mud)
             {
                 num = oldX + _random.Next((int)(-600.0 * worldScale), (int)(600.0 * worldScale));
                 num2 = oldY + _random.Next((int)(-200.0 * worldScale), (int)(200.0 * worldScale));

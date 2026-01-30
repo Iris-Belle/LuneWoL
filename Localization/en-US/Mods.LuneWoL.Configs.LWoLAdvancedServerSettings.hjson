@@ -14,3 +14,8 @@ OreDensityCfg: {
 	Label: Ore Density
 	Tooltip: ""
 }
+
+WaterPoision: {
+	Label: Water Poision
+	Tooltip: ""
+}

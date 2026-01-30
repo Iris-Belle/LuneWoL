@@ -1,27 +1,29 @@
-﻿using Terraria.Chat;
-using Terraria.Localization;
-
-namespace LuneWoL.Common.LWoLPlayers;
+﻿namespace LuneWoL.Common.LWoLPlayers;
 
 internal class LWoLDepthDamage : ModPlayer
 {
     public static bool NotEnabled => LuneWoL.LWoLServerConfig.Water.DepthPressureMode == 0;
+
     public static bool UsingModeOne => LuneWoL.LWoLServerConfig.Water.DepthPressureMode == 1;
+
     public static bool UsingModeTwo => LuneWoL.LWoLServerConfig.Water.DepthPressureMode == 2;
 
     public int breathCooldown, maxDepth, pressureDamageToApply, reducedDepthDiff;
     public float reducedDepth, lightDepthDiff, tileDiffCalced, tileDiff, entryY;
 
     public PressureModeOne ModeOnePlayer => Player.GetModPlayer<PressureModeOne>();
+
     public SurfacePressurePlayer ModeTwoPlayer => Player.GetModPlayer<SurfacePressurePlayer>();
 
     [JITWhenModsEnabled("LuneLibAssets")] //private mod with copyrighted content. you cant has this, sorry :c
-    public void CopyrightSound() => SoundEngine.PlaySound(DrownSound, Player.Center);
-    public void Sound() => SoundEngine.PlaySound(SoundID.Drown, Player.Center);
+    public void CopyrightSound() => _ = SoundEngine.PlaySound(DrownSound, Player.Center);
+
+    public void Sound() => _ = SoundEngine.PlaySound(SoundID.Drown, Player.Center);
 
     private void DamageChecker()
     {
-        if (NotEnabled) return;
+        if (NotEnabled)
+            return;
 
         if (reducedDepthDiff >= maxDepth)
         {
@@ -37,10 +39,10 @@ internal class LWoLDepthDamage : ModPlayer
 
     private void BreathChecker()
     {
-        var cfg = LuneWoL.LWoLAdvancedServerSettings.ServerDepthPressure;
-        var Bcfg = LuneWoL.LWoLAdvancedServerSettings.ServerDepthPressure.BreathValues;
-        var Tcfg = LuneWoL.LWoLAdvancedServerSettings.ServerDepthPressure.TickValues;
-        var Dcfg = LuneWoL.LWoLAdvancedServerSettings.ServerDepthPressure.DRValues;
+        LWoLAdvancedServerSettings.ServerDepthPressureDented cfg = LuneWoL.LWoLAdvancedServerSettings.ServerDepthPressure;
+        LWoLAdvancedServerSettings.ServerDepthPressureDented.BreathValuesDented Bcfg = LuneWoL.LWoLAdvancedServerSettings.ServerDepthPressure.BreathValues;
+        LWoLAdvancedServerSettings.ServerDepthPressureDented.TICKValuesDented Tcfg = LuneWoL.LWoLAdvancedServerSettings.ServerDepthPressure.TickValues;
+        LWoLAdvancedServerSettings.ServerDepthPressureDented.DRValuesDented Dcfg = LuneWoL.LWoLAdvancedServerSettings.ServerDepthPressure.DRValues;
 
         double depthRatio = tileDiff / (double)maxDepth;
         if (depthRatio < 0.0001)
@@ -127,15 +129,13 @@ internal class LWoLDepthDamage : ModPlayer
             KillPlayer();
     }
 
-
     public void KillPlayer()
     {
         IEntitySource source_Death = Player.GetSource_Death();
         Player.lastDeathPostion = Player.Center;
         Player.lastDeathTime = DateTime.Now;
         Player.showLastDeath = true;
-        bool overFlowing;
-        int num = (int)Utils.CoinsCount(out overFlowing, Player.inventory);
+        int num = (int)Utils.CoinsCount(out bool overFlowing, Player.inventory);
         if (Main.myPlayer == Player.whoAmI)
         {
             Player.lostCoins = num;
@@ -145,7 +145,7 @@ internal class LWoLDepthDamage : ModPlayer
             Main.mapFullscreen = false;
         if (Main.myPlayer == Player.whoAmI)
         {
-            Player.trashItem.SetDefaults(0, noMatCheck: false, null);
+            Player.trashItem.SetDefaults(ItemID.None, noMatCheck: false, null);
             if (Player.difficulty == 0 || Player.difficulty == 3)
                 for (int i = 0; i < 59; i++)
                     if (Player.inventory[i].stack > 0 && ((Player.inventory[i].type >= ItemID.LargeAmethyst && Player.inventory[i].type <= ItemID.LargeDiamond) || Player.inventory[i].type == ItemID.LargeAmber))
@@ -161,15 +161,15 @@ internal class LWoLDepthDamage : ModPlayer
                         Main.item[num2].newAndShiny = false;
                         if (Main.netMode == NetmodeID.MultiplayerClient)
                             NetMessage.SendData(MessageID.SyncItem, -1, -1, null, num2);
-                        Player.inventory[i].SetDefaults(0, noMatCheck: false, null);
+                        Player.inventory[i].SetDefaults(ItemID.None, noMatCheck: false, null);
                     }
-            else if (Player.difficulty == 1)
-                Player.DropItems();
-            else if (Player.difficulty == 2)
-            {
-                Player.DropItems();
-                Player.KillMeForGood();
-            }
+                    else if (Player.difficulty == 1)
+                        Player.DropItems();
+                    else if (Player.difficulty == 2)
+                    {
+                        Player.DropItems();
+                        Player.KillMeForGood();
+                    }
         }
         _ = SoundEngine.PlaySound(in SoundID.PlayerKilled, Player.Center);
         Player.headVelocity.Y = Main.rand.Next(-40, -10) * 0.1f;
@@ -197,15 +197,7 @@ internal class LWoLDepthDamage : ModPlayer
         Player.crystalLeaf = false;
         PlayerDeathReason playerDeathReason = PlayerDeathReason.ByOther(Player.Male ? 14 : 15);
 
-        if (reducedDepthDiff > maxDepth + 50 && LE && Player.OceanMan() && Player.whoAmI == Main.myPlayer)
-        {
-            if (LuneLib.LuneLib.instance.LuneLibAssetsLoaded)
-                CopyrightSound();
-            else
-                Sound();
-            playerDeathReason = PlayerDeathReason.ByCustomReason(GetText("Status.Death.PressureDeathEdith").ToNetworkText(Player.name));
-        }
-        else if (reducedDepthDiff > maxDepth + 50 && Player.LibPlayer().depthwaterPressure && Player.OceanMan() && Player.whoAmI == Main.myPlayer)
+        if (reducedDepthDiff > maxDepth + 50 && Player.LibPlayer().depthwaterPressure && Player.Submerged() && Player.whoAmI == Main.myPlayer)
         {
             if (LuneLib.LuneLib.instance.LuneLibAssetsLoaded)
                 CopyrightSound();
@@ -213,7 +205,7 @@ internal class LWoLDepthDamage : ModPlayer
                 Sound();
             playerDeathReason = PlayerDeathReason.ByCustomReason(GetText("Status.Death.PressureDeathTooDeep").ToNetworkText(Player.name));
         }
-        else if (tileDiff >= 50 && Player.OceanMan() && Player.whoAmI == Main.myPlayer)
+        else if (tileDiff >= 50 && Player.Submerged() && Player.whoAmI == Main.myPlayer)
         {
             if (LuneLib.LuneLib.instance.LuneLibAssetsLoaded)
                 CopyrightSound();
@@ -244,8 +236,8 @@ internal class LWoLDepthDamage : ModPlayer
 
     public int CalcMaxDepth()
     {
-        var cfg = LuneWoL.LWoLAdvancedServerSettings.ServerDepthPressure;
-        var Dcfg = LuneWoL.LWoLAdvancedServerSettings.ServerDepthPressure.DepthValues;
+        LWoLAdvancedServerSettings.ServerDepthPressureDented cfg = LuneWoL.LWoLAdvancedServerSettings.ServerDepthPressure;
+        LWoLAdvancedServerSettings.ServerDepthPressureDented.DepthValuesDented Dcfg = LuneWoL.LWoLAdvancedServerSettings.ServerDepthPressure.DepthValues;
         maxDepth = cfg.BaseMaxDepth;
 
         if (Player.arcticDivingGear)
@@ -263,7 +255,7 @@ internal class LWoLDepthDamage : ModPlayer
 
     public float CalcReducedDepth()
     {
-        var cfg = LuneWoL.LWoLAdvancedServerSettings.ServerDepthPressure.DepthValues;
+        LWoLAdvancedServerSettings.ServerDepthPressureDented.DepthValuesDented cfg = LuneWoL.LWoLAdvancedServerSettings.ServerDepthPressure.DepthValues;
         reducedDepth = 1f;
 
         if (Player.arcticDivingGear)
@@ -275,7 +267,8 @@ internal class LWoLDepthDamage : ModPlayer
 
         if (Player.gills)
             reducedDepth -= cfg.DEPTHGillsAddition;
-        if (reducedDepth <= 0.25f) reducedDepth = 0.25f;
+        if (reducedDepth <= 0.25f)
+            reducedDepth = 0.25f;
 
         return reducedDepth;
     }
@@ -289,7 +282,8 @@ internal class LWoLDepthDamage : ModPlayer
     public int CalcReducedTileDiff()
     {
         reducedDepthDiff = (int)(tileDiff * reducedDepth);
-        if (reducedDepthDiff < 0) reducedDepthDiff = 0;
+        if (reducedDepthDiff < 0)
+            reducedDepthDiff = 0;
         return reducedDepthDiff;
     }
 
@@ -324,7 +318,8 @@ internal class LWoLDepthDamage : ModPlayer
 
     public override void PostUpdateMiscEffects()
     {
-        if (NotEnabled) return;
+        if (NotEnabled)
+            return;
 
         if (Player.whoAmI != Main.myPlayer)
             return;
@@ -334,14 +329,15 @@ internal class LWoLDepthDamage : ModPlayer
 
     public override void PostUpdateEquips()
     {
-        if (NotEnabled) return;
+        if (NotEnabled)
+            return;
 
         if (Player.whoAmI != Main.myPlayer)
             return;
         if (entryY < 0 && UsingModeTwo)
             return;
 
-        if (Player.OceanMan())
+        if (Player.Submerged())
         {
             _ = CalcMaxDepth();
             _ = CalcReducedDepth();
@@ -358,11 +354,12 @@ internal class LWoLDepthDamage : ModPlayer
 
     public override void PostUpdate()
     {
-        if (NotEnabled) return;
+        if (NotEnabled)
+            return;
 
         if (Player.whoAmI != Main.myPlayer)
             return;
-        if (!Player.LibPlayer().LWaterEyes)
+        if (!Player.LibPlayer().WaterEyes)
             return;
         if (entryY < 0 && UsingModeTwo)
             return;

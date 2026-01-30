@@ -1,4 +1,5 @@
-﻿namespace LuneWoL.Common.LWoLSystems;
+﻿
+namespace LuneWoL.Common.LWoLSystems;
 
 public partial class LWoL_Sys : ModSystem
 {
@@ -17,10 +18,11 @@ public partial class LWoL_Sys : ModSystem
 
     public void DarkerNightsSurfaceLight(ref Color tileColor, ref Color backgroundColor)
     {
-        if (Main.dayTime) return;
+        if (Main.dayTime)
+            return;
 
-        var cfg = LuneWoL.LWoLServerConfig.Environment;
-        var Acfg = LuneWoL.LWoLAdvancedServerSettings.DarkerNights;
+        LWoLServerConfig.EnvironmentDented cfg = LuneWoL.LWoLServerConfig.Environment;
+        LWoLAdvancedServerSettings.DarkerNightsDented Acfg = LuneWoL.LWoLAdvancedServerSettings.DarkerNights;
         float moonMultiplier = GetMoonPhaseMultiplier(_currentMoonPhase);
 
         const float nightLength = 32400f;
@@ -28,7 +30,8 @@ public partial class LWoL_Sys : ModSystem
         float t = (float)Main.time;
 
         float minB = cfg.DarkerNightsMode == 2 ? Acfg.MinBrightness : 1f;
-        if (cfg.DarkerNightsMode == 1) minB *= moonMultiplier;
+        if (cfg.DarkerNightsMode == 1)
+            minB *= moonMultiplier;
 
         float brightness = (t <= fadeTicks)
             ? MathHelper.Lerp(1f, minB, t / fadeTicks)
@@ -42,7 +45,7 @@ public partial class LWoL_Sys : ModSystem
 
     private static float GetMoonPhaseMultiplier(int phase)
     {
-        var Acfg = LuneWoL.LWoLAdvancedServerSettings.DarkerNights;
+        LWoLAdvancedServerSettings.DarkerNightsDented Acfg = LuneWoL.LWoLAdvancedServerSettings.DarkerNights;
         return phase switch
         {
             0 => Acfg.MoonPhases.FullMoonMult,
@@ -57,6 +60,5 @@ public partial class LWoL_Sys : ModSystem
         };
     }
 
-    public static Color ToColour(Vector3 v) =>
-        new((int)(v.X * 255), (int)(v.Y * 255), (int)(v.Z * 255));
+    public static Color ToColour(Vector3 v) => new((int)(v.X * 255), (int)(v.Y * 255), (int)(v.Z * 255));
 }

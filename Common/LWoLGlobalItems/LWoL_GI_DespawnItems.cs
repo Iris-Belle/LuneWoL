@@ -1,4 +1,5 @@
-﻿namespace LuneWoL.Common.LWoLGlobalItems;
+﻿
+namespace LuneWoL.Common.LWoLGlobalItems;
 
 public partial class LWoL_Items : GlobalItem
 {
@@ -7,7 +8,7 @@ public partial class LWoL_Items : GlobalItem
     private bool a = true;
     private void DespawnItemsAfterTime(Item item)
     {
-        var Config = LuneWoL.LWoLServerConfig.Items;
+        LWoLServerConfig.ItemsDented Config = LuneWoL.LWoLServerConfig.Items;
 
         if (Config.DespawnItemsTimer > -1)
         {
@@ -19,7 +20,6 @@ public partial class LWoL_Items : GlobalItem
             {
                 Tajmer = Config.DespawnItemsTimer * 60;
             }
-
 
             if (a && Tajmer <= 0)
             {
@@ -35,13 +35,13 @@ public partial class LWoL_Items : GlobalItem
 
     private void DustyDespawn(Item item)
     {
-        var Config = LuneWoL.LWoLServerConfig.Items;
+        LWoLServerConfig.ItemsDented Config = LuneWoL.LWoLServerConfig.Items;
 
         if (Config.DespawnItemsTimer > -1)
         {
             for (int i = 0; i < 30; i++)
             {
-                Dust.NewDust(item.position, 1, 1, DustID.Smoke, 0f, 0f, 100, default, 1f);
+                _ = Dust.NewDust(item.position, 1, 1, DustID.Smoke, 0f, 0f, 100, default, 1f);
             }
         }
     }

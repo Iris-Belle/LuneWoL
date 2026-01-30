@@ -31,8 +31,7 @@ public class LWoLServerConfig : ModConfig
         public override bool Equals(object obj) => obj is PlayerDented other &&
            DeathPenaltyMode == other.DeathPenaltyMode;
 
-        public override int GetHashCode() =>
-            HashCode.Combine(DeathPenaltyMode);
+        public override int GetHashCode() => HashCode.Combine(DeathPenaltyMode);
     }
 
     [SeparatePage]
@@ -83,8 +82,6 @@ public class LWoLServerConfig : ModConfig
     [SeparatePage]
     public class EquipmentDented
     {
-        [BackgroundColor(40, 70, 125, 255)]
-        public bool ArmourRework { get; set; }
 
         [BackgroundColor(40, 70, 125, 255), ReloadRequired]
         public bool DisableAutoReuse { get; set; }
@@ -97,7 +94,6 @@ public class LWoLServerConfig : ModConfig
 
         public EquipmentDented()
         {
-            ArmourRework = false;
             DisableAutoReuse = false;
             NoAccessories = false;
             ReforgeNerf = false;
@@ -107,8 +103,7 @@ public class LWoLServerConfig : ModConfig
                    NoAccessories == other.NoAccessories &&
                    ReforgeNerf == other.ReforgeNerf;
 
-        public override int GetHashCode() =>
-            HashCode.Combine(DisableAutoReuse, NoAccessories, ReforgeNerf);
+        public override int GetHashCode() => HashCode.Combine(DisableAutoReuse, NoAccessories, ReforgeNerf);
     }
 
     [SeparatePage]
@@ -130,8 +125,7 @@ public class LWoLServerConfig : ModConfig
                    RecipePercent == other.RecipePercent &&
                    IgnoreStacksOfOne == other.IgnoreStacksOfOne;
 
-        public override int GetHashCode() =>
-            HashCode.Combine(RecipePercent, IgnoreStacksOfOne);
+        public override int GetHashCode() => HashCode.Combine(RecipePercent, IgnoreStacksOfOne);
     }
 
     [SeparatePage]
@@ -139,7 +133,7 @@ public class LWoLServerConfig : ModConfig
     {
         [BackgroundColor(5, 40, 95, 255), SliderColor(5, 40, 95, 255), Slider, Range(0, 100), Increment(1), ReloadRequired]
         public int OreDestroyChance;
-        
+
         [BackgroundColor(5, 40, 95, 255), ReloadRequired]
         public bool OreDensity;
 
@@ -153,8 +147,7 @@ public class LWoLServerConfig : ModConfig
                    OreDestroyChance == other.OreDestroyChance &&
                    OreDensity == other.OreDensity;
 
-        public override int GetHashCode() =>
-            HashCode.Combine(OreDestroyChance, OreDensity);
+        public override int GetHashCode() => HashCode.Combine(OreDestroyChance, OreDensity);
     }
 
     [SeparatePage]
@@ -195,8 +188,7 @@ public class LWoLServerConfig : ModConfig
                    NoMoneh == other.NoMoneh &&
                    DemonMode == other.DemonMode;
 
-        public override int GetHashCode() =>
-            HashCode.Combine(BuyMult, SellMult, InvasionMultiplier, NeverGoldEnough, NoMoneh, DemonMode);
+        public override int GetHashCode() => HashCode.Combine(BuyMult, SellMult, InvasionMultiplier, NeverGoldEnough, NoMoneh, DemonMode);
     }
 
     [SeparatePage]
@@ -242,8 +234,7 @@ public class LWoLServerConfig : ModConfig
                    DespawnItemsTimer == other.DespawnItemsTimer &&
                    DisableWoLItems == other.DisableWoLItems;
 
-        public override int GetHashCode() =>
-            HashCode.Combine(DespawnItemsTimer, DisableWoLItems);
+        public override int GetHashCode() => HashCode.Combine(DespawnItemsTimer, DisableWoLItems);
     }
 
     [SeparatePage]
@@ -282,7 +273,7 @@ public class LWoLServerConfig : ModConfig
     public WaterDented Water = new();
 
     [BackgroundColor(0, 15, 60, 200)]
-    public ItemsDented Items= new();
+    public ItemsDented Items = new();
 
     [BackgroundColor(0, 20, 40, 200)]
     public CalamityDented CalamityMod = new();

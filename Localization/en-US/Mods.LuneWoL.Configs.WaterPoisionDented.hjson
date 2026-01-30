@@ -1,0 +1,21 @@
+Tooltip: ""
+
+JunglePoison: {
+	Label: Jungle Poison
+	Tooltip: Jungle water will give you the Poison debuff.
+}
+
+HallowConfusion: {
+	Label: Hallow Confusion
+	Tooltip: Hallow water will give you the Confusion debuff.
+}
+
+CrimsonIchor: {
+	Label: Crimson Ichor
+	Tooltip: "Crimson water will give you the Ichor debuff. "
+}
+
+CorruptFlames: {
+	Label: Corrupt Flames
+	Tooltip: Corrupt water will give you the Cursed Flames debuff.
+}
