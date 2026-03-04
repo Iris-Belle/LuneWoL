@@ -1,0 +1,56 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<Import Project="..\tModLoader.targets" />
+
+	<PropertyGroup>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <AdditionalFiles Remove="PressureCheckFolder\bak\**" />
+	  <Compile Remove="PressureCheckFolder\bak\**" />
+	  <EmbeddedResource Remove="PressureCheckFolder\bak\**" />
+	  <None Remove="PressureCheckFolder\bak\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs.WaterPoisionDented.hjson" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="MoveToGlobalUsingsAnalyzer" Version="1.4.0">
+	    <PrivateAssets>all</PrivateAssets>
+	    <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+	  </PackageReference>
+	</ItemGroup>
+
+	<ItemGroup>
+		<Reference Include="LuneLib">
+			<HintPath>..\..\ModReader\LuneLib\LuneLib.dll</HintPath>
+		</Reference>
+		<Reference Include="LuneLibAssets">
+			<HintPath>..\..\ModReader\LuneLibAssets\LuneLibAssets.dll</HintPath>
+		</Reference>
+		<Reference Include="CalamityMod">
+			<HintPath>..\..\ModReader\CalamityMod\CalamityMod.dll</HintPath>
+		</Reference>
+		<Reference Include="InfernumMode">
+			<HintPath>..\..\ModReader\InfernumMode\InfernumMode.dll</HintPath>
+		</Reference>
+		<Reference Include="LuneQOL">
+			<HintPath>..\..\ModReader\LuneQOL\LuneQOL.dll</HintPath>
+		</Reference>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EditorConfigFiles Remove="C:\Users\Iris-Lune\Documents\My Games\Terraria\tModLoader\ModSources\LuneWoL\.editorconfig" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs.WaterPoisionDented.hjson" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Include="C:\Users\Iris-Lune\Documents\My Games\Terraria\tModLoader\ModSources\LuneWoL\.editorconfig" />
+	</ItemGroup>
+	
+</Project>
