@@ -3,17 +3,17 @@ Makes Terraria just a little bit worse to play...
 changelog:
 See the changelog tab on this steam item.
 
+Fully customisable in advanced settings for those who love customising mods to an insane level.
 Everything is disabled by default.
 
 Credits:
-Lune: Programmer, Artist
+Iris: Programmer, Artist, Professional Insane girl
 
 Currently includes:
 
-Critical Fail Mode
 Darker Nights
 Wind Affects Arrows
-Demon Mode (Silly meme :3c)
+Demon Mode (Silly meme)
 Chilly (Freeze in the tundra without protection.)
 Hell Is Hot (On-Fire debuff in Hell without protection.)
 No Evil Daytime (Stops the player from entering evil biomes during night.)
@@ -34,14 +34,13 @@ Invasion Multiplier
 Never Gold Enough
 Less Money From Enemies
 Darker Waters
-Water Depth Pressure
+Water Depth Pressure (deeper you are in a water body the faster you lose breath, you can mimic the abyss effects and expand on them if u want ig idk i spent way too fucking long on this stupid ass feature nobody will ever use or care about)
 Viscous Water
 Water Poison (Biome waters inflict debuffs.)
 Death Penalty (Max HP decreases on each death.)
 Item Despawn Timer
 Disable Items
 Skill Issue Mode (Allows "Coyote Frames" to load.)
-Calamity Rebuff (Removes the nerf on enemies when Revengeance/Death mode is active.)
 
 Please join my discord!
 Discord: https://discord.com/invite/FwmGf6vBu2
