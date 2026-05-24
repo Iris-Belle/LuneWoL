@@ -4,13 +4,18 @@ UpdateIntervalTicks: {
 		'''
 		Time between each check for surface of the water body you're in.
 
-		Lower is better for accuracy but worse performance.
+		Lower is better for faster accuracy but can cause a stutter when entering a waterbody from a low point.
 		'''
 }
 
 ShowSurfaceDebug: {
 	Label: Show Surface Debug
-	Tooltip: Shows you where the surface level of the water body you're in is
+	Tooltip: Shows you where the surface level of the water body you're in is.
+}
+
+DebugText: {
+	Label: Debug Text
+	Tooltip: Shows data about the calculations for the pressure system.
 }
 
 Tooltip: ""

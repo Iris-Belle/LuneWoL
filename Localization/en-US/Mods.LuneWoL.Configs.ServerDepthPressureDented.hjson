@@ -2,19 +2,64 @@ BaseMaxDepth: {
 	Label: Base Max Depth
 	Tooltip:
 		'''
-		The maximum tiles before you start taking damage.
+		The maximum depth in tiles before you take damage  .
 
-		You might wanna increase this if youre using Calamity mod.
+		Increase this to allow diving deeper before taking damage.
 		'''
 }
 
-BaseBreathDrainRate: {
-	Label: Base Breath Drain Amount
+BreathLossPerTile: {
+	Label: Breath Loss Per Tile
+	Tooltip:
+		'''
+		How much breath is lost per tile of depth.
+
+		Increase this to make breath drain faster the deeper you go.
+		'''
+}
+
+TickReductionPerTile: {
+	Label: Tick Rate Reduction Per Tile
+	Tooltip:
+		'''
+		How much the breath drain tick rate is reduced per tile of depth.
+
+		Lower tick rate means breath drains more frequently.
+		'''
+}
+
+LifeLossPerTile: {
+	Label: Life Loss Per Tile
+	Tooltip: How much life is removed after you go past max depth.
+}
+
+LifeLossTileInterval: {
+	Label: Life Loss Tile Interval
+	Tooltip:
+		'''
+		How many tiles between each life loss step.
+
+		Decrease this to make pressure damage escalate faster past max depth.
+		'''
+}
+
+LifeLossPerInterval: {
+	Label: Life Loss Per Interval
+	Tooltip:
+		'''
+		How much pressure damage is added per step past the max depth.
+
+		Increase this to take more damage past the max depth.
+		'''
+}
+
+BaseBreathAmount: {
+	Label: Base Breath Amount
 	Tooltip:
 		'''
 		The base amount of breath you can hold.
 
-		Increase this to hold you breath for longer.
+		Increase this to hold your breath for longer.
 		'''
 }
 
@@ -22,25 +67,41 @@ BaseTickRate: {
 	Label: Base Tick Rate
 	Tooltip:
 		'''
-		This is the base rate of which breath gets depleted.
+		This is the base rate at which breath gets depleted.
 
-		Increasing this will make your breath deplete slower.
+		Higher values mean more time between each breath drain tick.
 		'''
 }
 
-BaseDRRate: {
-	Label: Base Drowning Damage Amount
+BaseLifelossRate: {
+	Label: Base Pressure Damage Amount
 	Tooltip:
 		'''
-		This is the base amount of drowning damage you take.
+		This is the base amount of pressure damage you take at the max depth line.
 
-		Increase this to take more damage.
+		Increase this to take more damage instantly past the max depth.
 		'''
 }
 
-TickValues: {
-	Label: Tick Values
-	Tooltip: ""
+DepthDarknessIntensity: {
+	Label: Depth Darkness Intensity
+	Tooltip:
+		'''
+		This sets how dark it can get at depth.
+
+		Increase this to make it darker.
+		Values past 1 make it get darker faster.
+		'''
+}
+
+BaseStepSize: {
+	Label: Base Step Size
+	Tooltip: How large the gap between each step will be (in tiles).
+}
+
+StairValues: {
+	Label: Step Values
+	Tooltip: Stacks ontop of the base value
 }
 
 BreathValues: {
@@ -48,14 +109,34 @@ BreathValues: {
 	Tooltip: ""
 }
 
-DepthValues: {
-	Label: Depth Values
+TickValues: {
+	Label: Tick Values
 	Tooltip: ""
 }
 
-DRValues: {
+MaxDepthValues: {
+	Label: Max Depth Values
 	Tooltip: ""
-	Label: Drowning Damage Reduction Values
+}
+
+LifeResistValues: {
+	Label: Lifeloss Resist Values
+	Tooltip: ""
+}
+
+ApplyCalamityPreset: {
+	Label: Calamity Preset
+	Tooltip: DOUBLE CLICK ME
+}
+
+ApplyVanillaPreset: {
+	Label: Vanilla Preset
+	Tooltip: DOUBLE CLICK ME
+}
+
+Headers: {
+	Presets: Presets (double click to fully apply)
+	Tweaks: Tweaks
 }
 
 Tooltip: ""

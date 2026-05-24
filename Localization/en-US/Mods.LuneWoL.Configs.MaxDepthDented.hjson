@@ -1,0 +1,41 @@
+MaxDepthGills: {
+	Label: Depth Gills
+	Tooltip: ""
+}
+
+MaxDepthMerman: {
+	Label: Depth Merman
+	Tooltip: ""
+}
+
+MaxDepthDivingHelm: {
+	Label: Depth Diving Helm
+	Tooltip: ""
+}
+
+MaxDepthDivingGear: {
+	Label: Depth Diving Gear
+	Tooltip: ""
+}
+
+MaxDepthJellyfishDivingGear: {
+	Label: Depth Jellyfish Diving Gear
+	Tooltip: ""
+}
+
+MaxDepthArcticDivingGear: {
+	Label: Depth Arctic Diving Gear
+	Tooltip: ""
+}
+
+MaxDepthAbyssalDivingGear: {
+	Label: Abyssal Diving Gear Addition
+	Tooltip: ""
+}
+
+MaxDepthAbyssalDivingSuit: {
+	Label: Abyssal Diving Suit Addition
+	Tooltip: ""
+}
+
+Tooltip: Increasing this will allow the player to go deeper before taking damage while they have one of the effects.

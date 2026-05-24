@@ -35,27 +35,11 @@ public partial class LWoL_Plr : ModPlayer
 
     public override void PostUpdate()
     {
-        LWoLServerConfig.PlayerDented Config = LuneWoL.LWoLServerConfig.LPlayer;
-
-        if (DmgPlrBcCrit && Config.CritFailMode > 0)
-        {
-            CritFailDamage(Player);
-        }
-
         ResetDeathPenalty();
 
         // https://steamcommunity.com/sharedfiles/filedetails/?id=2395507804
     }
 
-    public override void OnHitNPC(NPC npc, NPC.HitInfo hit, int damageDone)
-    {
-        LWoLServerConfig.PlayerDented Config = LuneWoL.LWoLServerConfig.LPlayer;
-
-        if (!IsCritFail && Config.CritFailMode != 0)
-        {
-            CritFail(Player, npc);
-        }
-    }
     public override bool PreKill(double damage, int hitDirection, bool pvp, ref bool playSound, ref bool genDust, ref PlayerDeathReason damageSource)
     {
         if (Player.LibPlayer().CrimtuptionzoneNight && Player.whoAmI == Main.myPlayer)

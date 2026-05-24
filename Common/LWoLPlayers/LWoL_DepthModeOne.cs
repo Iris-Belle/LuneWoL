@@ -1,6 +1,6 @@
 ﻿namespace LuneWoL.Common.LWoLPlayers;
 
-public partial class PressureModeOne : ModPlayer
+public partial class DepthModeOne : ModPlayer
 {
     public bool WasDrowningLastFrame { get; set; }
 
@@ -19,21 +19,21 @@ public partial class PressureModeOne : ModPlayer
             InWaterBody = true;
             EntryPoint = Main.LocalPlayer.position;
         }
+        else if (currentlyDrowning && InWaterBody && Main.LocalPlayer.position.Y < EntryPoint.Y)
+        {
+            EntryPoint = Main.LocalPlayer.position;
+        }
         else if (!currentlyDrowning && WasDrowningLastFrame)
         {
             ExitPoint = Main.LocalPlayer.position;
-
-            if (ExitPoint.Y < EntryPoint.Y)
-                EntryPoint = ExitPoint;
-
             InWaterBody = true;
         }
 
-        if (!currentlyDrowning && InWaterBody && Vector2.Distance(Main.LocalPlayer.position, ExitPoint) <= 240f)
-            InWaterBody = true;
-
-        if (!currentlyDrowning && InWaterBody && Vector2.Distance(Main.LocalPlayer.position, ExitPoint) >= 240f)
-            InWaterBody = false;
+        if (!currentlyDrowning && InWaterBody)
+        {
+            if (Vector2.Distance(Player.position, ExitPoint) >= 240f)
+                InWaterBody = false;
+        }
 
         if (!InWaterBody && Vector2.Distance(Main.LocalPlayer.position, ExitPoint) > 240f)
         {

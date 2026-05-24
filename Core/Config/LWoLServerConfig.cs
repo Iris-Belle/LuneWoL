@@ -17,15 +17,11 @@ public class LWoLServerConfig : ModConfig
     [SeparatePage]
     public class PlayerDented
     {
-        [BackgroundColor(155, 170, 205, 255), SliderColor(155, 170, 205, 255), Slider, DrawTicks, Range(0, 4)]
-        public int CritFailMode { get; set; }
-
         [BackgroundColor(155, 170, 205, 255), SliderColor(155, 170, 205, 255), Slider, DrawTicks, Range(0, 3), ReloadRequired]
         public int DeathPenaltyMode { get; set; }
 
         public PlayerDented()
         {
-            CritFailMode = 0;
             DeathPenaltyMode = 0;
         }
         public override bool Equals(object obj) => obj is PlayerDented other &&
@@ -237,15 +233,6 @@ public class LWoLServerConfig : ModConfig
         public override int GetHashCode() => HashCode.Combine(DespawnItemsTimer, DisableWoLItems);
     }
 
-    [SeparatePage]
-    public class CalamityDented
-    {
-        [BackgroundColor(0, 20, 40, 255)]
-        public bool DifficultyRebuff { get; set; }
-
-        public CalamityDented() => DifficultyRebuff = false;
-    }
-
     #region new()
 
     [BackgroundColor(155, 170, 205, 200)]
@@ -274,9 +261,6 @@ public class LWoLServerConfig : ModConfig
 
     [BackgroundColor(0, 15, 60, 200)]
     public ItemsDented Items = new();
-
-    [BackgroundColor(0, 20, 40, 200)]
-    public CalamityDented CalamityMod = new();
 
     #endregion
 

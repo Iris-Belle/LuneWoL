@@ -18,13 +18,14 @@ public partial class LWoL_Plr : ModPlayer
             Player.lifeRegenTime = 0;
             totalNegativeLifeRegen += negativeLifeRegenToApply;
         }
+        LuneLib.Common.Players.LuneLibPlayer.LibPlayer pLib = Player.LibPlayer();
 
         spacedout = 50 -
-            (WearingAstroHelm ? 10 : 0) -
-            (WearingAstraliteVisor ? 15 : 0) -
-            (IsWearingFishBowl ? 10 : 0);
+            (pLib.WearingAstroHelm ? 10 : 0) -
+            (pLib.WearingAstraliteVisor ? 15 : 0) -
+            (pLib.IsWearingFishBowl ? 10 : 0);
 
-        ApplyDoTDebuff(Player.LibPlayer().SpaceVacuum, spacedout, WearingFullAstralite || WearingFullAstro);
+        ApplyDoTDebuff(Player.LibPlayer().SpaceVacuum, spacedout, pLib.WearingFullAstralite || pLib.WearingFullAstro);
 
         ApplyDoTDebuff(Player.LibPlayer().depthwaterPressure, Player.LibPlayer().currentDepthPressure, IrisPlayer);
 

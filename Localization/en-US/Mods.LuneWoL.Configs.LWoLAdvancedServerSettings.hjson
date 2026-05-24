@@ -1,4 +1,4 @@
-DisplayName: 3. [Server] Advanced Settings
+DisplayName: 3. [Server] Advanced Config
 
 DarkerNights: {
 	Label: Darker Nights
@@ -18,4 +18,9 @@ OreDensityCfg: {
 WaterPoision: {
 	Label: Water Poision
 	Tooltip: ""
+}
+
+DarkWaters: {
+	Tooltip: ""
+	Label: Dark Waters
 }

@@ -44,8 +44,3 @@ Items: {
 	Label: Items
 	Tooltip: ""
 }
-
-CalamityMod: {
-	Label: Calamity Mod
-	Tooltip: ""
-}

@@ -1,26 +1,46 @@
-BREATHGillsAddition: {
-	Label: Breath Gills Addition
-	Tooltip: Increasing this will allow the player to hold their breathe underwater for longer while they have this effect.
+BreathlossGills: {
+	Label: Gills Breathloss Multiplier
+	Tooltip: ""
 }
 
-BREATHDivingHelmAddition: {
-	Label: Breath Diving Helm Addition
-	Tooltip: Increasing this will allow the player to hold their breathe underwater for longer while they have this effect.
+BreathlossMerman: {
+	Label: Merman Breathloss Multiplier
+	Tooltip: ""
 }
 
-BREATHDivingGearAddition: {
-	Label: Breath Diving Gear Addition
-	Tooltip: Increasing this will allow the player to hold their breathe underwater for longer while they have this effect.
+BreathlossDivingHelm: {
+	Label: Diving Helm Breathloss Multiplier
+	Tooltip: ""
 }
 
-BREATHArcticGearAddition: {
-	Label: Breath Arctic Gear Addition
-	Tooltip: Increasing this will allow the player to hold their breathe underwater for longer while they have this effect.
+BreathlossDivingGear: {
+	Label: Diving Gear Breathloss Multiplier
+	Tooltip: ""
 }
 
-BREATHMermanAddition: {
-	Label: Breath Merman Addition
-	Tooltip: Increasing this will allow the player to hold their breathe underwater for longer while they have this effect.
+BreathlossJellyfishDivingGear: {
+	Label: Jellyfish Diving Gear Breathloss Multiplier
+	Tooltip: ""
 }
 
-Tooltip: ""
+BreathlossArcticDivingGear: {
+	Label: Arctic Diving Gear Breathloss Multiplier
+	Tooltip: ""
+}
+
+BreathlossAbyssalDivingGear: {
+	Label: Abyssal Diving Gear Breathloss Multiplier
+	Tooltip: ""
+}
+
+BreathlossAbyssalDivingSuit: {
+	Label: Abyssal Diving Suit Breathloss Multiplier
+	Tooltip: ""
+}
+
+Tooltip:
+	'''
+	how much of the player's breath is lost every tick while they have one of these effects.
+
+	increasing this will make the player lose breath faster.
+	'''

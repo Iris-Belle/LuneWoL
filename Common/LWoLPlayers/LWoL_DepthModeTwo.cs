@@ -1,7 +1,6 @@
-﻿
-namespace LuneWoL.Common.LWoLPlayers;
+﻿namespace LuneWoL.Common.LWoLPlayers;
 
-public class SurfacePressurePlayer : ModPlayer
+public class DepthModeTwo : ModPlayer
 {
 
     private int _updateTimer;
@@ -226,7 +225,7 @@ public class SurfacePressurePlayer : ModPlayer
             );
 
             Player player = Main.LocalPlayer;
-            SurfacePressurePlayer modPlayer = player.GetModPlayer<SurfacePressurePlayer>();
+            DepthModeTwo modPlayer = player.GetModPlayer<DepthModeTwo>();
 
             if (modPlayer.IsInWaterPool)
             {

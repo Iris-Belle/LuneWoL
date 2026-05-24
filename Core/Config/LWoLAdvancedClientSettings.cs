@@ -14,9 +14,13 @@ public class LWoLAdvancedClientSettings : ModConfig
         [BackgroundColor(35, 115, 145, 255)]
         public bool ShowSurfaceDebug { get; set; }
 
+        [BackgroundColor(35, 115, 145, 255)]
+        public bool DebugText { get; set; }
+
         public ClientDepthPressureDented()
         {
             UpdateIntervalTicks = 30;
+            ShowSurfaceDebug = false;
             ShowSurfaceDebug = false;
         }
     }

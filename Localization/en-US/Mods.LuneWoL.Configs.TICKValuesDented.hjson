@@ -1,26 +1,46 @@
-TICKGillsAddition: {
-	Label: Tick Rate Gills
-	Tooltip: Increase this to make it take longer for breath to be removed while having this effect.
+TickRateGills: {
+	Label: Gills Tick Rate Multiplier
+	Tooltip: ""
 }
 
-TICKDivingHelmAddition: {
-	Label: Tick Rate Diving Helm
-	Tooltip: Increase this to make it take longer for breath to be removed while having this effect.
+TickRateMerman: {
+	Label: Merman Tick Rate Multiplier
+	Tooltip: ""
 }
 
-TICKDivingGearAddition: {
-	Label: Tick Rate Diving Gear
-	Tooltip: Increase this to make it take longer for breath to be removed while having this effect.
+TickRateDivingHelm: {
+	Label: Diving Helm Tick Rate Multiplier
+	Tooltip: ""
 }
 
-TICKArcticGearAddition: {
-	Label: Tick Rate Arctic Gear
-	Tooltip: Increase this to make it take longer for breath to be removed while having this effect.
+TickRateDivingGear: {
+	Label: Diving Gear Tick Rate Multiplier
+	Tooltip: ""
 }
 
-TICKMermanAddition: {
-	Label: Tick Rate Merman
-	Tooltip: Increase this to make it take longer for breath to be removed while having this effect.
+TickRateJellyfishDivingGear: {
+	Label: Jellyfish Diving Gear Tick Rate Multiplier
+	Tooltip: ""
 }
 
-Tooltip: ""
+TickRateArcticDivingGear: {
+	Label: Arctic Diving Gear Tick Rate Multiplier
+	Tooltip: ""
+}
+
+TickRateAbyssalDivingGear: {
+	Label: Abyssal Diving Gear Tick Rate Multiplier
+	Tooltip: ""
+}
+
+TickRateAbyssalDivingSuit: {
+	Label: Abyssal Diving Suit Tick Rate Multiplier
+	Tooltip: ""
+}
+
+Tooltip:
+	'''
+	The tick rate is how often the players breath depletes while they have one of these effects.
+
+	Increasing this will make the player lose breath slower.
+	'''

@@ -1,0 +1,11 @@
+DarkWaterIntensity: {
+	Label: Effect Intensity
+	Tooltip:
+		'''
+		How strong the effect should be.
+
+		Higher values will make the it darker.
+		'''
+}
+
+Tooltip: ""

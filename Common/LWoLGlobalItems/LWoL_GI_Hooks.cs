@@ -5,20 +5,12 @@ public partial class LWoL_Items : GlobalItem
 {
     public override bool InstancePerEntity => true;
 
+    public bool Using;
+    public bool wasUsed;
+
     public override bool? UseItem(Item item, Player player)
     {
-        LWoL_Plr p = player.GetModPlayer<LWoL_Plr>();
         LWoLServerConfig.PlayerDented plr = LuneWoL.LWoLServerConfig.LPlayer;
-
-        if (player.whoAmI == Main.myPlayer && plr.CritFailMode != 0 && p.IsCritFail)
-        {
-            if (plr.CritFailMode == 1)
-            {
-                p.AplyDmgAmt = player.GetWeaponDamage(item);
-            }
-
-            p.DmgPlrBcCrit = true;
-        }
 
         if (item.type == ItemID.LifeCrystal && plr.DeathPenaltyMode == 1)
         {
@@ -43,10 +35,9 @@ public partial class LWoL_Items : GlobalItem
                 LWoL_Plr.DeathFlag1 = true;
             }
         }
-
+        
         return base.UseItem(item, player);
     }
-
     public override void SetDefaults(Item item)
     {
         LWoLServerConfig.EquipmentDented equipment = LuneWoL.LWoLServerConfig.Equipment;
@@ -85,7 +76,6 @@ public partial class LWoL_Items : GlobalItem
             healValue = 0;
         }
     }
-
     public override void PostUpdate(Item item)
     {
         LWoLServerConfig.ItemsDented itm = LuneWoL.LWoLServerConfig.Items;

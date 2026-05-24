@@ -1,0 +1,46 @@
+StairGills: {
+	Label: Gills Step Size
+	Tooltip: ""
+}
+
+StairMerman: {
+	Label: Merman Step Size
+	Tooltip: ""
+}
+
+StairDivingHelm: {
+	Label: Diving Helm Step Size
+	Tooltip: ""
+}
+
+StairDivingGear: {
+	Label: Diving Gear Step Size
+	Tooltip: ""
+}
+
+StairJellyfishDivingGear: {
+	Label: Jellyfish Diving Gear Step Size
+	Tooltip: ""
+}
+
+StairArcticDivingGear: {
+	Label: Arctic Diving Gear Step Size
+	Tooltip: ""
+}
+
+StairAbyssalDivingGear: {
+	Label: Abyssal Diving Gear Step Size
+	Tooltip: ""
+}
+
+StairAbyssalDivingSuit: {
+	Label: Abyssal Diving Suit Step Size
+	Tooltip: ""
+}
+
+Tooltip:
+	'''
+	The depth calculations use a step function, these values define how large the gap between steps should be.
+
+	These values stack ontop of the base step while the player has one of the effects.
+	'''

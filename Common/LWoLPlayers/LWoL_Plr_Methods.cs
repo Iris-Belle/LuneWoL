@@ -3,10 +3,17 @@ namespace LuneWoL.Common.WoL_Plrs;
 
 public partial class LWoL_Plr : ModPlayer
 {
+    public void ApplyZoneBuff(int buffId, int duration = 180)
+    {
+        Main.buffNoTimeDisplay[buffId] = true;
+        Player.AddBuff(buffId, duration, true, false);
+        if (Player.buffTime[buffId] > duration)
+            Player.buffTime[buffId] = duration;
+    }
+
     public void ApplySpaceVacuum()
     {
-        LWoLServerConfig.EnvironmentDented Config = LuneWoL.LWoLServerConfig.Environment;
-        if (!Config.SpacePain)
+        if (!LuneWoL.LWoLServerConfig.Environment.SpacePain)
             return;
         if (Player.whoAmI != Main.myPlayer)
             return;
@@ -21,9 +28,7 @@ public partial class LWoL_Plr : ModPlayer
 
     public void HellIsHot()
     {
-        LWoLServerConfig.EnvironmentDented Config = LuneWoL.LWoLServerConfig.Environment;
-
-        if (!Config.HellIsHot)
+        if (!LuneWoL.LWoLServerConfig.Environment.HellIsHot)
             return;
         if (!Player.ZoneUnderworldHeight)
             return;
@@ -35,9 +40,7 @@ public partial class LWoL_Plr : ModPlayer
 
     public void ViscousWater()
     {
-        LWoLServerConfig.WaterDented Config = LuneWoL.LWoLServerConfig.Water;
-
-        if (Player.Submerged() && Config.SlowWater && !IrisPlayer)
+        if (Player.Submerged() && LuneWoL.LWoLServerConfig.Water.SlowWater && !IrisPlayer)
         {
             if (Player.velocity.Length() > 5f)
             {
@@ -48,59 +51,36 @@ public partial class LWoL_Plr : ModPlayer
 
     public void PoisonedWater()
     {
-        LWoLServerConfig.WaterDented Config = LuneWoL.LWoLServerConfig.Water;
-        LWoLAdvancedServerSettings.WaterPoisionDented AConfig = LuneWoL.LWoLAdvancedServerSettings.WaterPoision;
+        LWoLAdvancedServerSettings.WaterPoisionDented cfg = LuneWoL.LWoLAdvancedServerSettings.WaterPoision;
 
-        if (!Config.WaterPoison)
+        if (!LuneWoL.LWoLServerConfig.Water.WaterPoison)
             return;
         if (!Player.wet || Player.lavaWet || Player.honeyWet)
             return;
-        if (!IrisPlayer)
+        if (IrisPlayer)
             return;
 
-        if (Player.ZoneCrimson && AConfig.CrimsonIchor)
+        if (Player.ZoneCrimson && cfg.CrimsonIchor)
         {
-            Main.buffNoTimeDisplay[BuffID.Ichor] = true;
-            Player.AddBuff(BuffID.Ichor, 180, true, false);
-            if (Player.buffTime[BuffID.Ichor] > 180)
-            {
-                Player.buffTime[BuffID.Ichor] = 180;
-            }
+            ApplyZoneBuff(BuffID.Ichor);
         }
-        else if (Player.ZoneCorrupt && AConfig.CorruptFlames)
+        else if (Player.ZoneCorrupt && cfg.CorruptFlames)
         {
-            Main.buffNoTimeDisplay[BuffID.CursedInferno] = true;
-            Player.AddBuff(BuffID.CursedInferno, 180, true, false);
-            if (Player.buffTime[BuffID.CursedInferno] > 180)
-            {
-                Player.buffTime[BuffID.CursedInferno] = 180;
-            }
+            ApplyZoneBuff(BuffID.CursedInferno);
         }
-        else if (Player.ZoneJungle && AConfig.JunglePoison)
+        else if (Player.ZoneJungle && cfg.JunglePoison)
         {
-            Main.buffNoTimeDisplay[BuffID.Poisoned] = true;
-            Player.AddBuff(BuffID.Poisoned, 180, true, false);
-            if (Player.buffTime[BuffID.Poisoned] > 180)
-            {
-                Player.buffTime[BuffID.Poisoned] = 180;
-            }
+            ApplyZoneBuff(BuffID.Poisoned);
         }
-        else if (Player.ZoneHallow && AConfig.HallowConfusion)
+        else if (Player.ZoneHallow && cfg.HallowConfusion)
         {
-            Main.buffNoTimeDisplay[BuffID.Confused] = true;
-            Player.AddBuff(BuffID.Confused, 180, true, false);
-            if (Player.buffTime[BuffID.Confused] > 180)
-            {
-                Player.buffTime[BuffID.Confused] = 180;
-            }
+            ApplyZoneBuff(BuffID.Confused);
         }
     }
 
     public void WeatherChanges()
     {
-        LWoLServerConfig.EnvironmentDented Config = LuneWoL.LWoLServerConfig.Environment;
-
-        if (!Config.WeatherPain)
+        if (!LuneWoL.LWoLServerConfig.Environment.WeatherPain)
             return;
 
         if ((Main.raining && Player.ZoneCrimson) || (Player.ZoneCorrupt && !Player.behindBackWall))
@@ -112,7 +92,7 @@ public partial class LWoL_Plr : ModPlayer
         Player.LibPlayer().StormEyeCovered = Sandstorm.Happening && Player.ZoneDesert && !Player.behindBackWall;
         Player.blackout = Player.LibPlayer().StormEyeCovered;
 
-        if (!WearingFullEskimo && Main.raining && Player.ZoneSnow && !Player.behindBackWall && !Player.HasBuff(BuffID.Campfire))
+        if (!Player.LibPlayer().WearingFullEskimo && Main.raining && Player.ZoneSnow && !Player.behindBackWall && !Player.HasBuff(BuffID.Campfire))
         {
             if (TundraBlizzardCounter < 0)
                 TundraBlizzardCounter = 0;
@@ -138,12 +118,10 @@ public partial class LWoL_Plr : ModPlayer
 
     public void FreezingTundra()
     {
-        LWoLServerConfig.EnvironmentDented Config = LuneWoL.LWoLServerConfig.Environment;
-
-        if (!Config.Chilly)
+        if (!LuneWoL.LWoLServerConfig.Environment.Chilly)
             return;
 
-        if (WearingFullEskimo)
+        if (Player.LibPlayer().WearingFullEskimo)
             return;
 
         if (Player.ZoneSnow
@@ -177,12 +155,10 @@ public partial class LWoL_Plr : ModPlayer
 
     public void OnlyEnterEvilAtDay()
     {
-        LWoLServerConfig.EnvironmentDented Config = LuneWoL.LWoLServerConfig.Environment;
-
         if (Main.dayTime)
             return;
 
-        if (!Config.NoEvilDayTime)
+        if (!LuneWoL.LWoLServerConfig.Environment.NoEvilDayTime)
             return;
 
         Player.LibPlayer().CrimtuptionzoneNight = Player.ZoneCorrupt || Player.ZoneCrimson;
@@ -192,9 +168,7 @@ public partial class LWoL_Plr : ModPlayer
     {
         public override void PostAI(Projectile Projectile)
         {
-            LWoLServerConfig.EnvironmentDented Config = LuneWoL.LWoLServerConfig.Environment;
-
-            if (Config.WindArrows && Projectile.arrow &&
+            if (LuneWoL.LWoLServerConfig.Environment.WindArrows && Projectile.arrow &&
                 Projectile.Center.Y < Main.worldSurface * 16.0
                 && Main.tile[(int)Projectile.Center.X / 16, (int)Projectile.Center.Y / 16] != null
                 && Main.tile[(int)Projectile.Center.X / 16, (int)Projectile.Center.Y / 16].WallType == WallID.None
@@ -206,7 +180,7 @@ public partial class LWoL_Plr : ModPlayer
                 && Math.Abs(Projectile.velocity.X) < 16f)
             {
                 Projectile.velocity.X += Main.windSpeedCurrent * Main.windPhysicsStrength;
-                _ = MathHelper.Clamp(Projectile.velocity.X, -16f, 16f);
+                Projectile.velocity.X = MathHelper.Clamp(Projectile.velocity.X, -16f, 16f);
                 ;
             }
             base.PostAI(Projectile);
@@ -221,10 +195,10 @@ public partial class LWoL_Plr : ModPlayer
             return;
 
         LWoLServerConfig.WaterDented Config = LuneWoL.LWoLServerConfig.Water;
-
-        if (Player.Submerged() && Config.DarkWaters && Config.DepthPressureMode > 0)
+        
+        if (Player.Submerged() && Config.DarkWaters && Config.DepthPressureMode == 0)
         {
-            Player.LibPlayer().WaterEyes = true;
+            ScreenObstruction.screenObstruction = MathHelper.Lerp(ScreenObstruction.screenObstruction, 1f, LuneWoL.LWoLAdvancedServerSettings.DarkWaters.DarkWaterIntensity);
         }
         else if (Player.Submerged() && Config.DarkWaters && Config.DepthPressureMode != 0)
         {
@@ -239,9 +213,7 @@ public partial class LWoL_Plr : ModPlayer
 
     public void DeathPenaltyConsumedCrystals()
     {
-        LWoLServerConfig.PlayerDented Config = LuneWoL.LWoLServerConfig.LPlayer;
-
-        if (Config.DeathPenaltyMode != 2)
+        if (LuneWoL.LWoLServerConfig.LPlayer.DeathPenaltyMode != 2)
             return;
 
         if (Player.statLifeMax2 <= 400 && Player.statLifeMax2 > 100)
@@ -261,9 +233,7 @@ public partial class LWoL_Plr : ModPlayer
 
     public void DeathPenaltyConsumedFloor()
     {
-        LWoLServerConfig.PlayerDented Config = LuneWoL.LWoLServerConfig.LPlayer;
-
-        if (Config.DeathPenaltyMode != 3)
+        if (LuneWoL.LWoLServerConfig.LPlayer.DeathPenaltyMode != 3)
             return;
 
         if (Player.statLifeMax2 <= 400 && Player.statLifeMax2 > 100)
@@ -283,9 +253,7 @@ public partial class LWoL_Plr : ModPlayer
 
     public void DeathPenaltyAppliedOnRespawn()
     {
-        LWoLServerConfig.PlayerDented Config = LuneWoL.LWoLServerConfig.LPlayer;
-
-        if (Config.DeathPenaltyMode != 1)
+        if (LuneWoL.LWoLServerConfig.LPlayer.DeathPenaltyMode != 1)
             return;
 
         LostHealth += 5;
@@ -323,9 +291,7 @@ public partial class LWoL_Plr : ModPlayer
 
     public void ResetDeathPenalty()
     {
-        LWoLServerConfig.PlayerDented Config = LuneWoL.LWoLServerConfig.LPlayer;
-
-        if (Config.DeathPenaltyMode != 1)
+        if (LuneWoL.LWoLServerConfig.LPlayer.DeathPenaltyMode != 1)
             return;
 
         if (DeathFlag0)
@@ -345,9 +311,7 @@ public partial class LWoL_Plr : ModPlayer
         health = StatModifier.Default;
         mana = StatModifier.Default;
 
-        LWoLServerConfig.PlayerDented Config = LuneWoL.LWoLServerConfig.LPlayer;
-
-        if (Config.DeathPenaltyMode != 1)
+        if (LuneWoL.LWoLServerConfig.LPlayer.DeathPenaltyMode != 1)
             return;
 
         health.Base -= HealthCache * 5;
@@ -356,9 +320,7 @@ public partial class LWoL_Plr : ModPlayer
 
     public void ReciveDeathPenalty(BinaryReader rd)
     {
-        LWoLServerConfig.PlayerDented Config = LuneWoL.LWoLServerConfig.LPlayer;
-
-        if (Config.DeathPenaltyMode != 1)
+        if (LuneWoL.LWoLServerConfig.LPlayer.DeathPenaltyMode != 1)
             return;
 
         HealthCache = rd.ReadByte();
@@ -367,9 +329,7 @@ public partial class LWoL_Plr : ModPlayer
 
     public void SyncDeathPenalty(int toWho, int fromWho, bool newPlayer)
     {
-        LWoLServerConfig.PlayerDented Config = LuneWoL.LWoLServerConfig.LPlayer;
-
-        if (Config.DeathPenaltyMode != 1)
+        if (LuneWoL.LWoLServerConfig.LPlayer.DeathPenaltyMode != 1)
             return;
 
         ModPacket packet = Mod.GetPacket();
@@ -382,9 +342,7 @@ public partial class LWoL_Plr : ModPlayer
 
     public void CloneClientsDeathPenalty(ModPlayer targetCopy)
     {
-        LWoLServerConfig.PlayerDented Config = LuneWoL.LWoLServerConfig.LPlayer;
-
-        if (Config.DeathPenaltyMode != 1)
+        if (LuneWoL.LWoLServerConfig.LPlayer.DeathPenaltyMode != 1)
             return;
 
         LWoL_Plr clone = (LWoL_Plr)targetCopy;
@@ -394,9 +352,7 @@ public partial class LWoL_Plr : ModPlayer
 
     public void SendDeathPenalty(ModPlayer clientPlayer)
     {
-        LWoLServerConfig.PlayerDented Config = LuneWoL.LWoLServerConfig.LPlayer;
-
-        if (Config.DeathPenaltyMode != 1)
+        if (LuneWoL.LWoLServerConfig.LPlayer.DeathPenaltyMode != 1)
             return;
 
         LWoL_Plr clone = (LWoL_Plr)clientPlayer;
@@ -407,9 +363,7 @@ public partial class LWoL_Plr : ModPlayer
 
     public void SaveDeathPenaltyTag(TagCompound tag)
     {
-        LWoLServerConfig.PlayerDented Config = LuneWoL.LWoLServerConfig.LPlayer;
-
-        if (Config.DeathPenaltyMode != 1)
+        if (LuneWoL.LWoLServerConfig.LPlayer.DeathPenaltyMode != 1)
             return;
 
         tag["LostHealth"] = LostHealth;
@@ -420,9 +374,7 @@ public partial class LWoL_Plr : ModPlayer
 
     public void LoadDeathPenaltyTag(TagCompound tag)
     {
-        LWoLServerConfig.PlayerDented Config = LuneWoL.LWoLServerConfig.LPlayer;
-
-        if (Config.DeathPenaltyMode != 1)
+        if (LuneWoL.LWoLServerConfig.LPlayer.DeathPenaltyMode != 1)
             return;
 
         LostHealth = tag.GetInt("LostHealth");

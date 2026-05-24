@@ -41,7 +41,7 @@ public partial class LWoL_Items : GlobalItem
         {
             for (int i = 0; i < 30; i++)
             {
-                _ = Dust.NewDust(item.position, 1, 1, DustID.Smoke, 0f, 0f, 100, default, 1f);
+                Dust.NewDust(item.position, 1, 1, DustID.Smoke, 0f, 0f, 100, default, 1f);
             }
         }
     }

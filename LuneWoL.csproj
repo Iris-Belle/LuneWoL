@@ -52,5 +52,9 @@
 	<ItemGroup>
 	  <None Include="C:\Users\Iris-Lune\Documents\My Games\Terraria\tModLoader\ModSources\LuneWoL\.editorconfig" />
 	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Common\LWoLGlobalProjectiles\" />
+	</ItemGroup>
 	
 </Project>

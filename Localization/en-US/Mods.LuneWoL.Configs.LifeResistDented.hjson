@@ -1,0 +1,41 @@
+LifelossResistGills: {
+	Label: LifeLoss Resistance Gills
+	Tooltip: ""
+}
+
+LifelossResistMerman: {
+	Label: LifeLoss Resistance Merman
+	Tooltip: ""
+}
+
+LifelossResistDivingHelm: {
+	Label: LifeLoss Resistance Diving Helm
+	Tooltip: ""
+}
+
+LifelossResistDivingGear: {
+	Label: LifeLoss Resistance Diving Gear
+	Tooltip: ""
+}
+
+LifelossResistJellyfishDivingGear: {
+	Label: LifeLoss Resistance Jellyfish Diving Gear
+	Tooltip: ""
+}
+
+LifelossResistArcticDivingGear: {
+	Label: LifeLoss Resistance Arctic Diving Gear
+	Tooltip: ""
+}
+
+LifelossResistAbyssalDivingGear: {
+	Label: LifeLoss Resistance Abyssal Diving Gear
+	Tooltip: ""
+}
+
+LifelossResistAbyssalDivingSuit: {
+	Label: LifeLoss Resistance Abyssal Diving Suit
+	Tooltip: ""
+}
+
+Tooltip: Increasing this will make the player take less drowning damage when they're too deep.
