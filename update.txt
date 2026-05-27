@@ -1,8 +1,1 @@
-fixed wind proj clamp
-fixed murky waters if statements
-cleaned up biome buff application
-fixed logic bugs in pressure mode 1
-removed calamity patch as its no longer in the same file and i cant find it in the new versions
-removed crit fail feature as it never worked properly and the time and effort to fix it was not worth it
-complete water depth breath and damage rewrite
-added presets for vanilla and calamity mod and more tweaks for the depth pressure system
+completely reworked the Depth Pressure mode 2

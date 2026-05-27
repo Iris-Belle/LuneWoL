@@ -7,7 +7,7 @@ Fully customisable in advanced settings for those who love customising mods to a
 Everything is disabled by default.
 
 Credits:
-Iris: Programmer, Artist, Professional Insane girl, and more.
+Iris: Programmer, Professional Insane girl, Artist
 
 Currently includes:
 [list]
@@ -18,7 +18,7 @@ Currently includes:
 [*] [b]Hell Is Hot:[/b] Being in the underworld inflicts the On-Fire debuff.
 [*] [b]No Evil Nighttime:[/b] Being in an evil biome at night rapidly depletes health.
 [*] [b]Space Vacuum:[/b] Being in space will kill you slowly.
-[*] [b]Dangerous Weathers:[/b] Some Weathers now give debuffs and visual effects.
+[*] [b]Dangerous Weathers:[/b] Some Weathers give debuffs and visual effects.
 [*] [b]Worse Healing Potions:[/b] Healing potions heal less.
 [*] [b]Disable Auto-Reuse:[/b] No more auto reuse.
 [*] [b]No Accessories:[/b] No more accessories.
