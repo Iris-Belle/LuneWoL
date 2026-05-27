@@ -7,40 +7,37 @@ Fully customisable in advanced settings for those who love customising mods to a
 Everything is disabled by default.
 
 Credits:
-Iris: Programmer, Artist, Professional Insane girl
+Iris: Programmer, Artist, Professional Insane girl, and more.
 
 Currently includes:
-
-Darker Nights
-Wind Affects Arrows
-Demon Mode (Silly meme)
-Chilly (Freeze in the tundra without protection.)
-Hell Is Hot (On-Fire debuff in Hell without protection.)
-No Evil Daytime (Stops the player from entering evil biomes during night.)
-Space Vacuum (Take damage without oxygen in space.)
-Dangerous Weathers (Certain weathers give different effects.)
-Worse Healing Potions
-Armor Rework ((For now) Lead armour inflicts poison.)
-Disable Auto-Reuse
-No Accessories
-Reforge Nerf
-Recipe Ingredient %
-Ignore Stacks of One (Only applies when using Recipe Ingredient %.)
-Fragile Ores (Chance for ores to vanish when mined.)
-Ore Density
-Buy Multiplier
-Sell Multiplier
-Invasion Multiplier
-Never Gold Enough
-Less Money From Enemies
-Darker Waters
-Water Depth Pressure (deeper you are in a water body the faster you lose breath, you can mimic the abyss effects and expand on them if u want ig idk i spent way too fucking long on this stupid ass feature nobody will ever use or care about)
-Viscous Water
-Water Poison (Biome waters inflict debuffs.)
-Death Penalty (Max HP decreases on each death.)
-Item Despawn Timer
-Disable Items
-Skill Issue Mode (Allows "Coyote Frames" to load.)
+[list]
+[*] [b]Darker Nights:[/b] Makes nights darker.
+[*] [b]Wind Affects Arrows:[/b] Arrows are affected by wind.
+[*] [b]Demon Mode:[/b] Silly meme
+[*] [b]Chilly:[/b] Being in the tundra without warmth inflicts debuffs.
+[*] [b]Hell Is Hot:[/b] Being in the underworld inflicts the On-Fire debuff.
+[*] [b]No Evil Nighttime:[/b] Being in an evil biome at night rapidly depletes health.
+[*] [b]Space Vacuum:[/b] Being in space will kill you slowly.
+[*] [b]Dangerous Weathers:[/b] Some Weathers now give debuffs and visual effects.
+[*] [b]Worse Healing Potions:[/b] Healing potions heal less.
+[*] [b]Disable Auto-Reuse:[/b] No more auto reuse.
+[*] [b]No Accessories:[/b] No more accessories.
+[*] [b]Reforge Nerf:[/b] Reforge buffs are cut down.
+[*] [b]Recipe Ingredient %:[/b] Crafting takes more ingredients.
+[*] [b]Fragile Ores:[/b] Makes the yield of ores worse.
+[*] [b]Ore Density:[/b] World generates with less ores.
+[*] [b]Buy Multiplier:[/b] Stuff costs more.
+[*] [b]Sell Multiplier:[/b] Stuff sells for less.
+[*] [b]Invasion Multiplier:[/b] Makes invasions require more kills.
+[*] [b]Never Gold Enough:[/b] Enemies can never drop gold.
+[*] [b]Less Money From Enemies:[/b] Enemies drop less money.
+[*] [b]Murky Water:[/b] Makes it more difficult to see in water.
+[*] [b]Water Depth Pressure:[/b] The deeper you are in a water body the faster you lose breath, with some other effects.
+[*] [b]Viscous Water:[/b] Caps movement speed in water.
+[*] [b]Water Poison:[/b] Water in biomes inflict debuffs.
+[*] [b]Death Penalty:[/b] Max HP decreases on each death.
+[*] [b]Item Despawn Timer:[/b] Despawns items.
+[/list]
 
 Please join my discord!
 Discord: https://discord.com/invite/FwmGf6vBu2

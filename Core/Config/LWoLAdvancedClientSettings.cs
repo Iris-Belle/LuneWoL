@@ -8,20 +8,31 @@ public class LWoLAdvancedClientSettings : ModConfig
     [SeparatePage]
     public class ClientDepthPressureDented
     {
-        [BackgroundColor(35, 115, 145, 255), Range(0, 500)]
+        [Header("Performance")]
+
+        [BackgroundColor(35, 115, 145, 255), Range(0, 16), Slider, SliderColor(35, 115, 145, 255)]
         public int UpdateIntervalTicks { get; set; }
 
+        [BackgroundColor(35, 115, 145, 255), Range(-1, 16384)]
+        public int TileScanLimit { get; set; }
+
+        [Header("Debug")]
         [BackgroundColor(35, 115, 145, 255)]
         public bool ShowSurfaceDebug { get; set; }
+
+        [BackgroundColor(35, 115, 145, 255)]
+        public bool DrawScannedTiles { get; set; }
 
         [BackgroundColor(35, 115, 145, 255)]
         public bool DebugText { get; set; }
 
         public ClientDepthPressureDented()
         {
-            UpdateIntervalTicks = 30;
+            UpdateIntervalTicks = 2;
+            TileScanLimit = 1024;
             ShowSurfaceDebug = false;
-            ShowSurfaceDebug = false;
+            DrawScannedTiles = false;
+            DebugText = false;
         }
     }
 

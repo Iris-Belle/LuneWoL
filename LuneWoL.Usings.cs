@@ -6,6 +6,7 @@ global using LuneLib.Utilities;
 global using static LuneLib.Utilities.Hashsets.HashSets;
 global using static LuneLib.Utilities.LuneLibUtils;
 global using static LuneLibAssets.Common.SoundClass;
+global using LuneWoL.Common.LWoLPlayers;
 global using static LuneWoL.Common.LWoLPlayers.LWoL_DepthDamage;
 global using static LuneWoL.Common.LWoLWorldGen.LWoL_WG;
 global using LuneWoL.Common.WoL_Plrs;

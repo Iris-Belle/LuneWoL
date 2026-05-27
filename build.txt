@@ -1,5 +1,5 @@
 displayName = Lunes Worse of Life
-author = Lune
+author = Iris
 version = 2.0.0
 weakReferences = InfernumMode, CalamityMod, LuneLibAssets
 modReferences = LuneLib

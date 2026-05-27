@@ -1,11 +1,6 @@
 DarkWaters: {
-	Label: Dark Waters
-	Tooltip:
-		'''
-		Makes it harder to see in water.
-
-		Suggested by `Lune`.
-		'''
+	Label: Murky Water
+	Tooltip: Makes it harder to see in water.
 }
 
 DepthPressureMode: {
@@ -15,12 +10,10 @@ DepthPressureMode: {
 		The deeper you are in a water body, the faster you lose breath.
 
 		Changes the mode of how pressure is calculated.
-
+		---------------------------------
 		0: Off
-
 		1: Fast but can be inaccurate
-
-		2: Accurate but performance heavy
+		2: Accurate but slightly more intensive on the CPU.
 
 		Suggested by `Lune`.
 		'''

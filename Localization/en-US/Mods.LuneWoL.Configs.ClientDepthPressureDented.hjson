@@ -3,8 +3,23 @@ UpdateIntervalTicks: {
 	Tooltip:
 		'''
 		Time between each check for surface of the water body you're in.
+		Lower is better for faster accuracy 
 
-		Lower is better for faster accuracy but can cause a stutter when entering a waterbody from a low point.
+		Extremely low values can cause a stuttering when entering a waterbody if the limit is high or -1.
+
+		0 is recommended if your cpu can afford it
+		'''
+}
+
+TileScanLimit: {
+	Label: Max Tile Scans Per Tick
+	Tooltip:
+		'''
+		The maximum amount of water tiles the system scans for each tick to find the surface.
+
+		Minimum recommended is 256 tiles.
+
+		-1 means no limit. (Recommended if your cpu can afford it)
 		'''
 }
 
@@ -13,9 +28,19 @@ ShowSurfaceDebug: {
 	Tooltip: Shows you where the surface level of the water body you're in is.
 }
 
+DrawScannedTiles: {
+	Label: Show Scanned Tiles Debug
+	Tooltip: Shows all tiles the pressure system has looked at.
+}
+
 DebugText: {
 	Label: Debug Text
 	Tooltip: Shows data about the calculations for the pressure system.
 }
 
 Tooltip: ""
+
+Headers: {
+	Performance: Performance
+	Debug: Debug
+}
