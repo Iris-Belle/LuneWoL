@@ -1,0 +1,26 @@
+DisplayName: 1. [Server] Config
+
+Environment: {
+	Label: Environment
+	Tooltip: ""
+}
+
+Items: {
+	Label: Items
+	Tooltip: ""
+}
+
+Npc: {
+	Label: Npc
+	Tooltip: ""
+}
+
+Player: {
+	Label: Player
+	Tooltip: ""
+}
+
+Recipes: {
+	Label: Recipes
+	Tooltip: ""
+}

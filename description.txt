@@ -1,44 +1,43 @@
-Makes Terraria just a little bit worse to play...
+Have you ever played terraria and thought "Wow this game sucks" no? okay well now you can!!!1
 
 changelog:
-See the changelog tab on this steam item.
+See the changelog tab on this steam item. (or dont)
 
-Fully customisable in advanced settings for those who love customising mods to an insane level.
-Everything is disabled by default.
+Fully customisable in advanced settings for those who love customising mods to an insane level. If you want to go beyond the slider values, edit the config file on your computer ig..
+Everything is disabled by default and wont calculate anything if disabled.
 
 Credits:
 Iris: Programmer, Professional Insane girl, Artist
 
 Currently includes:
 [list]
+[*] [b]Custom Spawnrate:[/b] Lets you customise the spawnrate.
 [*] [b]Darker Nights:[/b] Makes nights darker.
-[*] [b]Wind Affects Arrows:[/b] Arrows are affected by wind.
-[*] [b]Demon Mode:[/b] Silly meme
-[*] [b]Chilly:[/b] Being in the tundra without warmth inflicts debuffs.
-[*] [b]Hell Is Hot:[/b] Being in the underworld inflicts the On-Fire debuff.
-[*] [b]No Evil Nighttime:[/b] Being in an evil biome at night rapidly depletes health.
-[*] [b]Space Vacuum:[/b] Being in space will kill you slowly.
-[*] [b]Dangerous Weathers:[/b] Some Weathers give debuffs and visual effects.
-[*] [b]Worse Healing Potions:[/b] Healing potions heal less.
+[*] [b]Debuff Multiplier:[/b] Multiplies the amount of damage the player takes from debuffs.
 [*] [b]Disable Auto-Reuse:[/b] No more auto reuse.
-[*] [b]No Accessories:[/b] No more accessories.
-[*] [b]Reforge Nerf:[/b] Reforge buffs are cut down.
-[*] [b]Recipe Ingredient %:[/b] Crafting takes more ingredients.
-[*] [b]Fragile Ores:[/b] Makes the yield of ores worse.
-[*] [b]Ore Density:[/b] World generates with less ores.
-[*] [b]Buy Multiplier:[/b] Stuff costs more.
-[*] [b]Sell Multiplier:[/b] Stuff sells for less.
-[*] [b]Invasion Multiplier:[/b] Makes invasions require more kills.
-[*] [b]Never Gold Enough:[/b] Enemies can never drop gold.
-[*] [b]Less Money From Enemies:[/b] Enemies drop less money.
-[*] [b]Murky Water:[/b] Makes it more difficult to see in water.
-[*] [b]Water Depth Pressure:[/b] The deeper you are in a water body the faster you lose breath, with some other effects.
-[*] [b]Viscous Water:[/b] Caps movement speed in water.
-[*] [b]Water Poison:[/b] Water in biomes inflict debuffs.
-[*] [b]Death Penalty:[/b] Max HP decreases on each death.
+[*] [b]Evil Biome DoT:[/b] Being in an evil biome at night rapidly depletes health.
+[*] [b]Invasion Multiplier:[/b] invasions require more kills.
 [*] [b]Item Despawn Timer:[/b] Despawns items.
+[*] [b]Disable Accessories:[/b] No more accessories.
+[*] [b]Npc Value Cap:[/b] Npcs can't drop more than the specified amount of money.
+[*] [b]Npc Value Multiplier:[/b] Multiplies how much money npcs can drop.
+[*] [b]Ore Drop Chance:[/b] Makes Ores have a chance to just not drop.
+[*] [b]Ore Scarcity:[/b] World generates with less ores.
+[*] [b]Poisonous Water:[/b] Water in biomes inflict debuffs.
+[*] [b]Recipe Ingredient Multiplier:[/b] Crafting takes more ingredients.
+[*] [b]Prefix Nerf:[/b] Prefix buffs are nerfed. All VANILLA Prefixes are covered and fully customisable, calamity mod changes are NOT. (maybe ill add it in the future)
+[*] [b]Shop Price Multiplier:[/b] Configure how much items cost and sell for independently.
+[*] [b]Space Vacuum:[/b] Being in space will kill you slowly.
+[*] [b]Stat Loss on Death:[/b] Max HP and MP decreases on each death.
+[*] [b]Tundra Applies Chilled:[/b] Being in the tundra without warmth inflicts debuffs.
+[*] [b]Underwater "Fog":[/b] Makes it more difficult to see underwater.
+[*] [b]Underworld Applies "On-Fire!":[/b] Being in the underworld inflicts the On-Fire! debuff.
+[*] [b]Viscous Water:[/b] Caps movement speed in water.
+[*] [b]Water Depth Pressure:[/b] The deeper you are in a water body the faster you lose breath, with some other effects.
+[*] [b]Weather Effects:[/b] Some types of weather give debuffs and visual effects.
+[*] [b]Wind Affects Arrows:[/b] Arrows are affected by wind.
+[*] [b]Worse Healing Potions:[/b] Healing potions heal less.
 [/list]
 
 Please join my discord!
 Discord: https://discord.com/invite/FwmGf6vBu2
-<3

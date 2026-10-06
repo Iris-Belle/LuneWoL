@@ -1,0 +1,67 @@
+Tooltip: ""
+
+Headers: {
+	bool: bool
+	I4: I4
+	R4: R4
+}
+
+PriceMult: {
+	Label: Shop Price Multiplier
+	Tooltip:
+		'''
+		Multiplies the amount of money needed to buy/sell stuff.
+		-----------------------------------
+		Has Advanced Settings
+		-----------------------------------
+		Requested by `Iris`
+		'''
+}
+
+SpawnRateQuickToggle: {
+	Label: Spawn Rate Quick Toggle
+	Tooltip:
+		'''
+		This is just a quick toggle for the Spawn Rate changes in Advanced Server Config.
+		-----------------------------------
+		Has Advanced Settings
+		-----------------------------------
+		Requested by `Iris`
+		'''
+}
+
+InvasionMultiplier: {
+	Label: Invasion Multiplier
+	Tooltip:
+		'''
+		Multiplies how many enemies you need to kill to defeat the invasion.
+		-----------------------------------
+		Set to `1` to disable.
+		-----------------------------------
+		Requested by `Iris`
+		'''
+}
+
+MaxNpcValue: {
+	Label: Npc Value Cap
+	Tooltip:
+		'''
+		Caps the max amount of coins an enemy can drop.
+		-----------------------------------
+		The units are in copper coins, a value of `100` is `1` Silver Coin, etc.
+		-----------------------------------
+		Requested by `Wallarus`
+		'''
+}
+
+NpcValueMult: {
+	Label: Npc Value Multiplier
+	Tooltip:
+		'''
+		Multiplies the amount of money an enemy drops.
+		-----------------------------------
+		Set to `1` to disable.
+		-----------------------------------
+		Requested by `Iris`
+		'''
+}

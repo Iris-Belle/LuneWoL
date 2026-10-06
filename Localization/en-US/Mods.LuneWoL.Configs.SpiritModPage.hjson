@@ -1,0 +1,71 @@
+Tooltip: ""
+
+BismiteCrystalOreDropChance: {
+	Label: Bismite Crystal Drop Chance
+	Tooltip:
+		'''
+		How often this ore should drop.
+		-----------------------------------
+		A value of `100` means it will always drop.
+		'''
+}
+
+FloranOreTileDropChance: {
+	Label: Floran Ore Drop Chance
+	Tooltip:
+		'''
+		How often this ore should drop.
+		-----------------------------------
+		A value of `100` means it will always drop.
+		'''
+}
+
+MarbleOreDropChance: {
+	Label: Ancient Marble Drop Chance
+	Tooltip:
+		'''
+		How often this ore should drop.
+		-----------------------------------
+		A value of `100` means it will always drop.
+		'''
+}
+
+GraniteOreDropChance: {
+	Label: Enchanted Granite Drop Chance
+	Tooltip:
+		'''
+		How often this ore should drop.
+		-----------------------------------
+		A value of `100` means it will always drop.
+		'''
+}
+
+GlowstoneDropChance: {
+	Label: Astralite Drop Chance
+	Tooltip:
+		'''
+		How often this ore should drop.
+		-----------------------------------
+		A value of `100` means it will always drop.
+		'''
+}
+
+CryoliteOreTileDropChance: {
+	Label: Cryolite Drop Chance
+	Tooltip:
+		'''
+		How often this ore should drop.
+		-----------------------------------
+		A value of `100` means it will always drop.
+		'''
+}
+
+SpiritOreTileDropChance: {
+	Label: Spirit Ore Drop Chance
+	Tooltip:
+		'''
+		How often this ore should drop.
+		-----------------------------------
+		A value of `100` means it will always drop.
+		'''
+}

@@ -1,0 +1,28 @@
+Tooltip: ""
+
+Headers: {
+	bool: bool
+	R4: R4
+}
+
+IgnoreStacksOfOne: {
+	Label: Ignore stacks of one
+	Tooltip:
+		'''
+		Disables changes on recipe items with stacks of 1.
+		-----------------------------------
+		Requested by `Iris`
+		'''
+}
+
+RecipePercent: {
+	Label: Recipe Ingredient Percentage
+	Tooltip:
+		'''
+		Increase this to make items cost more to craft.
+		-----------------------------------
+		Set to `0` to disable.
+		-----------------------------------
+		Requested by `Iris`
+		'''
+}

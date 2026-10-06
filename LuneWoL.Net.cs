@@ -13,7 +13,7 @@ public partial class LuneWoL
         if (msgtype == MessageType.dedsec)
         {
             byte num = rd.ReadByte();
-            LWoL_Plr plr = Main.player[num].GetModPlayer<LWoL_Plr>();
+            LuneWoL_Plr plr = Main.player[num].GetModPlayer<LuneWoL_Plr>();
             plr.ReciveDeathPenalty(rd);
             if (Main.netMode == NetmodeID.Server)
             {

@@ -1,0 +1,11 @@
+Tooltip: ""
+
+Spd: {
+	Label: Speed
+	Tooltip: ""
+}
+
+Dmg: {
+	Label: Damage
+	Tooltip: ""
+}

@@ -1,0 +1,11 @@
+Tooltip: ""
+
+Mcst: {
+	Label: Mana Cost
+	Tooltip: ""
+}
+
+Dmg: {
+	Label: Damage
+	Tooltip: ""
+}

@@ -1,0 +1,41 @@
+Tooltip: ""
+
+FullMoonMult: {
+	Label: Full Moon Minimum Brightness
+	Tooltip: ""
+}
+
+WaningGibbousMult: {
+	Label: Waning Gibbous Minimum Brightness
+	Tooltip: ""
+}
+
+ThirdQuarterMult: {
+	Label: Third Quarter Minimum Brightness
+	Tooltip: ""
+}
+
+WaningCrescentMult: {
+	Label: Waning Crescent Minimum Brightness
+	Tooltip: ""
+}
+
+NewMoonMult: {
+	Label: New Moon Minimum Brightness
+	Tooltip: ""
+}
+
+WaxingCrescentMult: {
+	Label: Waxing Crescent Minimum Brightness
+	Tooltip: ""
+}
+
+FirstQuarterMult: {
+	Label: First Quarter Minimum Brightness
+	Tooltip: ""
+}
+
+WaxingGibbousMult: {
+	Label: Waxing Gibbous Minimum Brightness
+	Tooltip: ""
+}

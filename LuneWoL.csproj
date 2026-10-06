@@ -1,19 +1,108 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿ <Project Sdk="Microsoft.NET.Sdk">
 
 	<Import Project="..\tModLoader.targets" />
 
 	<PropertyGroup>
 	</PropertyGroup>
-
+	 
 	<ItemGroup>
-	  <AdditionalFiles Remove="PressureCheckFolder\bak\**" />
-	  <Compile Remove="PressureCheckFolder\bak\**" />
-	  <EmbeddedResource Remove="PressureCheckFolder\bak\**" />
-	  <None Remove="PressureCheckFolder\bak\**" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs.WaterPoisionDented.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs.AccessoryReforgeNerfPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs.Adv_EnvironmentPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs.Adv_ItemsPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs.Adv_PlayerPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs.CalamityModPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs.OreDropChancePage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs.SpaceVacuumPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs.SpawnRatePage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs.SpiritModPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs.ThoriumModPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs.WaterPoisionPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs.WeaponReforgeNerf.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs.WeatherEffectsPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._AdeptPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._AgilePage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._AngryPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._AnnoyingPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._ArcanePage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._ArmoredPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._AwfulPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._AwkwardPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._BriskPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._BrokenPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._BulkyPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._CelestialPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._DamagedPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._DangerousPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._Deadly2Page.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._DeadlyPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._DemonicPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._DerangedPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._DullPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._FleetingPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._ForcefulPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._FrenzyingPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._FuriousPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._GodlyPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._GuardingPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._HardPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._Hasty2Page.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._HastyPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._HeavyPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._HurtfulPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._IgnorantPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._IneptPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._IntensePage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._IntimidatingPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._IntrepidPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._JaggedPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._KeenPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._LargePage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._LazyPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._Legendary2Page.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._LegendaryPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._LethargicPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._LightPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._LuckyPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._ManicPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._MassivePage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._MasterfulPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._MenacingPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._MurderousPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._MysticPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._MythicalPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._NastyPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._NimblePage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._PointyPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._PowerfulPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._PrecisePage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._Quick2Page.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._QuickPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._RapidPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._RashPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._RuthlessPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._SavagePage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._ShamefulPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._SharpPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._ShoddyPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._SightedPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._SlowPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._SluggishPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._SmallPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._SpikedPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._StaunchPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._StrongPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._SuperiorPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._TabooPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._TerriblePage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._TinyPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._UnhappyPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._UnpleasantPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._UnrealPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._ViolentPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._WardingPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._WeakPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._WildPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs._ZealousPage.hjson" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -36,8 +125,11 @@
 		<Reference Include="InfernumMode">
 			<HintPath>..\..\ModReader\InfernumMode\InfernumMode.dll</HintPath>
 		</Reference>
-		<Reference Include="LuneQOL">
-			<HintPath>..\..\ModReader\LuneQOL\LuneQOL.dll</HintPath>
+		<Reference Include="ThoriumMod">
+			<HintPath>..\..\ModReader\ThoriumMod\ThoriumMod.dll</HintPath>
+		</Reference>
+		<Reference Include="SpiritMod">
+			<HintPath>..\..\ModReader\SpiritMod\SpiritMod.dll</HintPath>
 		</Reference>
 	</ItemGroup>
 
@@ -46,15 +138,107 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs.WaterPoisionDented.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs.SpaceVacuumPage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs.CalamityModPage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs.ThoriumModPage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs.SpiritModPage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs.OreDropChancePage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs.WeatherEffectsPage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs.Adv_EnvironmentPage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs.Adv_ItemsPage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs.SpawnRatePage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs.Adv_PlayerPage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._LuckyPage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._JaggedPage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._SpikedPage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._AngryPage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._MenacingPage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._BriskPage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._FleetingPage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._Hasty2Page.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._Quick2Page.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._WildPage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._IntrepidPage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._HardPage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._GuardingPage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._ArmoredPage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._WardingPage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._ArcanePage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._PrecisePage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._RashPage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs.WeaponReforgeNerf.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._ViolentPage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs.AccessoryReforgeNerfPage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._NastyPage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._AnnoyingPage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._LazyPage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._SluggishPage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._SlowPage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._MurderousPage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._NimblePage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._AgilePage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._Deadly2Page.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._QuickPage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._RuthlessPage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._ShoddyPage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._WeakPage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._DamagedPage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._BrokenPage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._ZealousPage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._DemonicPage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._GodlyPage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._UnpleasantPage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._StrongPage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._HurtfulPage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._ForcefulPage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._SuperiorPage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._KeenPage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._Legendary2Page.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._ManicPage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._FuriousPage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._CelestialPage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._TabooPage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._IntensePage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._DerangedPage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._IgnorantPage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._IneptPage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._MythicalPage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._MasterfulPage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._AdeptPage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._MysticPage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._FrenzyingPage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._PowerfulPage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._AwkwardPage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._LethargicPage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._AwfulPage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._UnrealPage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._StaunchPage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._DeadlyPage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._IntimidatingPage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._HastyPage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._RapidPage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._SightedPage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._LightPage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._HeavyPage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._ShamefulPage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._BulkyPage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._UnhappyPage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._DullPage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._SmallPage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._TerriblePage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._TinyPage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._LegendaryPage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._PointyPage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._SharpPage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._SavagePage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._DangerousPage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._MassivePage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs._LargePage.hjson" />
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs.WaterPoisionPage.hjson" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <None Include="C:\Users\Iris-Lune\Documents\My Games\Terraria\tModLoader\ModSources\LuneWoL\.editorconfig" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="Common\LWoLGlobalProjectiles\" />
 	</ItemGroup>
 	
 </Project>

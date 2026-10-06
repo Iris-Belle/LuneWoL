@@ -1,0 +1,271 @@
+Tooltip: ""
+
+SiltDropChance: {
+	Label: Silt Drop Chance
+	Tooltip:
+		'''
+		How often this ore should drop.
+		-----------------------------------
+		A value of `100` means it will always drop.
+		'''
+}
+
+SlushDropChance: {
+	Label: Slush Drop Chance
+	Tooltip:
+		'''
+		How often this ore should drop.
+		-----------------------------------
+		A value of `100` means it will always drop.
+		'''
+}
+
+DesertFossilDropChance: {
+	Label: Desert Fossil Drop Chance
+	Tooltip:
+		'''
+		How often this ore should drop.
+		-----------------------------------
+		A value of `100` means it will always drop.
+		'''
+}
+
+CopperDropChance: {
+	Label: Copper Drop Chance
+	Tooltip:
+		'''
+		How often this ore should drop.
+		-----------------------------------
+		A value of `100` means it will always drop.
+		'''
+}
+
+IronDropChance: {
+	Label: Iron Drop Chance
+	Tooltip:
+		'''
+		How often this ore should drop.
+		-----------------------------------
+		A value of `100` means it will always drop.
+		'''
+}
+
+SilverDropChance: {
+	Label: Silver Drop Chance
+	Tooltip:
+		'''
+		How often this ore should drop.
+		-----------------------------------
+		A value of `100` means it will always drop.
+		'''
+}
+
+GoldDropChance: {
+	Label: Gold Drop Chance
+	Tooltip:
+		'''
+		How often this ore should drop.
+		-----------------------------------
+		A value of `100` means it will always drop.
+		'''
+}
+
+TinDropChance: {
+	Label: Tin Drop Chance
+	Tooltip:
+		'''
+		How often this ore should drop.
+		-----------------------------------
+		A value of `100` means it will always drop.
+		'''
+}
+
+LeadDropChance: {
+	Label: Lead Drop Chance
+	Tooltip:
+		'''
+		How often this ore should drop.
+		-----------------------------------
+		A value of `100` means it will always drop.
+		'''
+}
+
+TungstenDropChance: {
+	Label: Tungsten Drop Chance
+	Tooltip:
+		'''
+		How often this ore should drop.
+		-----------------------------------
+		A value of `100` means it will always drop.
+		'''
+}
+
+PlatinumDropChance: {
+	Label: Platinum Drop Chance
+	Tooltip:
+		'''
+		How often this ore should drop.
+		-----------------------------------
+		A value of `100` means it will always drop.
+		'''
+}
+
+MeteoriteDropChance: {
+	Label: Meteorite Drop Chance
+	Tooltip:
+		'''
+		How often this ore should drop.
+		-----------------------------------
+		A value of `100` means it will always drop.
+		'''
+}
+
+DemoniteDropChance: {
+	Label: Demonite Drop Chance
+	Tooltip:
+		'''
+		How often this ore should drop.
+		-----------------------------------
+		A value of `100` means it will always drop.
+		'''
+}
+
+CrimtaneDropChance: {
+	Label: Crimtane Drop Chance
+	Tooltip:
+		'''
+		How often this ore should drop.
+		-----------------------------------
+		A value of `100` means it will always drop.
+		'''
+}
+
+ObsidianDropChance: {
+	Label: Obsidian Drop Chance
+	Tooltip:
+		'''
+		How often this ore should drop.
+		-----------------------------------
+		A value of `100` means it will always drop.
+		'''
+}
+
+HellstoneDropChance: {
+	Label: Hellstone Drop Chance
+	Tooltip:
+		'''
+		How often this ore should drop.
+		-----------------------------------
+		A value of `100` means it will always drop.
+		'''
+}
+
+CobaltDropChance: {
+	Label: Cobalt Drop Chance
+	Tooltip:
+		'''
+		How often this ore should drop.
+		-----------------------------------
+		A value of `100` means it will always drop.
+		'''
+}
+
+MythrilDropChance: {
+	Label: Mythril Drop Chance
+	Tooltip:
+		'''
+		How often this ore should drop.
+		-----------------------------------
+		A value of `100` means it will always drop.
+		'''
+}
+
+TitaniumDropChance: {
+	Label: Titanium Drop Chance
+	Tooltip:
+		'''
+		How often this ore should drop.
+		-----------------------------------
+		A value of `100` means it will always drop.
+		'''
+}
+
+PalladiumDropChance: {
+	Label: Palladium Drop Chance
+	Tooltip:
+		'''
+		How often this ore should drop.
+		-----------------------------------
+		A value of `100` means it will always drop.
+		'''
+}
+
+OrichalcumDropChance: {
+	Label: Orichalcum Drop Chance
+	Tooltip:
+		'''
+		How often this ore should drop.
+		-----------------------------------
+		A value of `100` means it will always drop.
+		'''
+}
+
+AdamantiteDropChance: {
+	Label: Adamantite Drop Chance
+	Tooltip:
+		'''
+		How often this ore should drop.
+		-----------------------------------
+		A value of `100` means it will always drop.
+		'''
+}
+
+ChlorophyteDropChance: {
+	Label: Chlorophyte Drop Chance
+	Tooltip:
+		'''
+		How often this ore should drop.
+		-----------------------------------
+		A value of `100` means it will always drop.
+		'''
+}
+
+LunarOreDropChance: {
+	Label: Lunar Ore Drop Chance
+	Tooltip:
+		'''
+		How often this ore should drop.
+		-----------------------------------
+		A value of `100` means it will always drop.
+		'''
+}
+
+CalamityMod: {
+	Label: Calamity Mod
+	Tooltip:
+		'''
+		How often this ore should drop.
+		-----------------------------------
+		A value of `100` means it will always drop.
+		'''
+}
+
+ThoriumMod: {
+	Label: Thorium Mod
+	Tooltip:
+		'''
+		How often this ore should drop.
+		-----------------------------------
+		A value of `100` means it will always drop.
+		'''
+}
+
+SpiritMod: {
+	Label: Spirit Mod
+	Tooltip:
+		'''
+		How often this ore should drop.
+		-----------------------------------
+		A value of `100` means it will always drop.
+		'''
+}

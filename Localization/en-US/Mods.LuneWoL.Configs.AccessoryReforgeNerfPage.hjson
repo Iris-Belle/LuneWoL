@@ -1,0 +1,96 @@
+Tooltip: ""
+
+Violent: {
+	Label: Violent
+	Tooltip: ""
+}
+
+Intrepid: {
+	Label: Intrepid
+	Tooltip: ""
+}
+
+Rash: {
+	Label: Rash
+	Tooltip: ""
+}
+
+Wild: {
+	Label: Wild
+	Tooltip: ""
+}
+
+Quick2: {
+	Label: Quick2
+	Tooltip: ""
+}
+
+Hasty2: {
+	Label: Hasty2
+	Tooltip: ""
+}
+
+Fleeting: {
+	Label: Fleeting
+	Tooltip: ""
+}
+
+Brisk: {
+	Label: Brisk
+	Tooltip: ""
+}
+
+Menacing: {
+	Label: Menacing
+	Tooltip: ""
+}
+
+Angry: {
+	Label: Angry
+	Tooltip: ""
+}
+
+Spiked: {
+	Label: Spiked
+	Tooltip: ""
+}
+
+Jagged: {
+	Label: Jagged
+	Tooltip: ""
+}
+
+Lucky: {
+	Label: Lucky
+	Tooltip: ""
+}
+
+Precise: {
+	Label: Precise
+	Tooltip: ""
+}
+
+Arcane: {
+	Label: Arcane
+	Tooltip: ""
+}
+
+Warding: {
+	Label: Warding
+	Tooltip: ""
+}
+
+Armored: {
+	Label: Armored
+	Tooltip: ""
+}
+
+Guarding: {
+	Label: Guarding
+	Tooltip: ""
+}
+
+Hard: {
+	Label: Hard
+	Tooltip: ""
+}

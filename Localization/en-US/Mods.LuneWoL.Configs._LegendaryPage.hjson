@@ -1,0 +1,26 @@
+Tooltip: ""
+
+Kb: {
+	Label: Knockback
+	Tooltip: ""
+}
+
+Dmg: {
+	Label: Damage
+	Tooltip: ""
+}
+
+Crt: {
+	Label: Crit
+	Tooltip: ""
+}
+
+Spd: {
+	Label: Speed
+	Tooltip: ""
+}
+
+Size: {
+	Label: Size
+	Tooltip: ""
+}

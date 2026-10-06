@@ -1,0 +1,48 @@
+Tooltip: ""
+
+Headers: {
+	Performance: Performance
+	Debug: Debug
+}
+
+UpdateIntervalTicks: {
+	Label: Update Interval Ticks
+	Tooltip:
+		'''
+		The amount of ticks between each BFS run.
+		Lower is better for accuracy. 
+		-----------------------------------
+		`0` is recommended if your cpu can afford it
+		-----------------------------------
+		Requested by `Iris`
+		'''
+}
+
+TileScanLimit: {
+	Label: Max Tile Scans Per Tick
+	Tooltip:
+		'''
+		The maximum amount of tiles scanned for each tick to find the surface.
+		-----------------------------------
+		Minimum recommended is 256 tiles.
+		-----------------------------------
+		-1 means no limit. (Recommended if your cpu can afford it)
+		-----------------------------------
+		Requested by `Iris`
+		'''
+}
+
+ShowSurfaceDebug: {
+	Label: Show Surface Debug
+	Tooltip: Shows you where the surface level of the water body you're in is.
+}
+
+DrawScannedTiles: {
+	Label: Show Scanned Tiles Debug
+	Tooltip: Shows all tiles the pressure system has looked at.
+}
+
+DebugText: {
+	Label: Debug Text
+	Tooltip: Shows data about the calculations for the pressure system.
+}

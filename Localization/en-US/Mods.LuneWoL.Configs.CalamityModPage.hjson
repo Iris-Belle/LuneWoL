@@ -1,0 +1,121 @@
+Tooltip: ""
+
+SeaPrismDropChance: {
+	Label: Sea Prism Drop Chance
+	Tooltip:
+		'''
+		How often this ore should drop.
+		-----------------------------------
+		A value of `100` means it will always drop.
+		'''
+}
+
+AerialiteOreDisenchantedDropChance: {
+	Label: Disenchanted Aerialite Drop Chance
+	Tooltip:
+		'''
+		How often this ore should drop.
+		-----------------------------------
+		A value of `100` means it will always drop.
+		'''
+}
+
+AerialiteOreDropChance: {
+	Label: Aerialite Drop Chance
+	Tooltip:
+		'''
+		How often this ore should drop.
+		-----------------------------------
+		A value of `100` means it will always drop.
+		'''
+}
+
+InfernalSueviteDropChance: {
+	Label: Infernal Suevite Drop Chance
+	Tooltip:
+		'''
+		How often this ore should drop.
+		-----------------------------------
+		A value of `100` means it will always drop.
+		'''
+}
+
+CryonicOreDropChance: {
+	Label: Cryonic Ore Drop Chance
+	Tooltip:
+		'''
+		How often this ore should drop.
+		-----------------------------------
+		A value of `100` means it will always drop.
+		'''
+}
+
+HallowedOreDropChance: {
+	Label: Hallowed Ore Drop Chance
+	Tooltip:
+		'''
+		How often this ore should drop.
+		-----------------------------------
+		A value of `100` means it will always drop.
+		'''
+}
+
+PerennialOreDropChance: {
+	Label: Perennial Ore Drop Chance
+	Tooltip:
+		'''
+		How often this ore should drop.
+		-----------------------------------
+		A value of `100` means it will always drop.
+		'''
+}
+
+ScoriaOreDropChance: {
+	Label: Scoria Ore Drop Chance
+	Tooltip:
+		'''
+		How often this ore should drop.
+		-----------------------------------
+		A value of `100` means it will always drop.
+		'''
+}
+
+AstralOreDropChance: {
+	Label: Astral Ore Drop Chance
+	Tooltip:
+		'''
+		How often this ore should drop.
+		-----------------------------------
+		A value of `100` means it will always drop.
+		'''
+}
+
+ExodiumOreDropChance: {
+	Label: Exodium Drop Chance
+	Tooltip:
+		'''
+		How often this ore should drop.
+		-----------------------------------
+		A value of `100` means it will always drop.
+		'''
+}
+
+UelibloomOreDropChance: {
+	Label: Uelibloom Drop Chance
+	Tooltip:
+		'''
+		How often this ore should drop.
+		-----------------------------------
+		A value of `100` means it will always drop.
+		'''
+}
+
+AuricOreDropChance: {
+	Label: Auric Ore Drop Chance
+	Tooltip:
+		'''
+		How often this ore should drop.
+		-----------------------------------
+		A value of `100` means it will always drop.
+		'''
+}

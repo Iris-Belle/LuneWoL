@@ -1,0 +1,21 @@
+Tooltip: ""
+
+SandStormEffect: {
+	Label: Sandstorm Effect
+	Tooltip:
+		'''
+		Toggles whether Sandstorms should reduce vision or not.
+		-----------------------------------
+		Requested by `Iris`
+		'''
+}
+
+BlizzardEffect: {
+	Label: Blizzard Effect
+	Tooltip:
+		'''
+		Toggles whether Blizzards should Apply the `Frozen` debuff.
+		-----------------------------------
+		Requested by `Iris`
+		'''
+}

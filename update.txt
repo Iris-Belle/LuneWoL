@@ -1,1 +1,7 @@
-completely reworked the Depth Pressure mode 2
+added config for viscous waber
+made disable auto reuse less bad
+made disable accessories less bad
+renamed "NoAccessories" to "DisableAccessories" becasue the old name was dumb
+changed config.. again..
+fixed typo in mod.cs
+fixed npc value cap being dumb

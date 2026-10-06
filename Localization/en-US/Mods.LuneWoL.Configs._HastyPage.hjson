@@ -1,0 +1,11 @@
+Tooltip: ""
+
+Spd: {
+	Label: Speed
+	Tooltip: ""
+}
+
+Shtspd: {
+	Label: Shoot Speed
+	Tooltip: ""
+}

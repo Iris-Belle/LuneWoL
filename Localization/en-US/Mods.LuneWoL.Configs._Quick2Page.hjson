@@ -1,0 +1,6 @@
+Tooltip: ""
+
+MovementSpeed: {
+	Label: Movement Speed
+	Tooltip: ""
+}

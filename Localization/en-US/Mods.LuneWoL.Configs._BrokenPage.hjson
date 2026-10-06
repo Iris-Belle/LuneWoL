@@ -1,0 +1,11 @@
+Tooltip: ""
+
+Dmg: {
+	Label: Damage
+	Tooltip: ""
+}
+
+Kb: {
+	Label: Knockback
+	Tooltip: ""
+}

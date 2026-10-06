@@ -1,0 +1,35 @@
+Tooltip: ""
+
+Headers: {
+	I4: I4
+	R4: R4
+}
+
+DeathPenaltyMode: {
+	Label: Stat Loss on Death
+	Tooltip:
+		'''
+		When you die, you lose ``permanent`` upgrades.
+		-----------------------------------
+		0: Off
+		1: -5 max HP/MP
+		2: -1 Life Crystal|Fruit, -1 Mana Crystal
+		3: Full Reset to 100HP, 20MP
+		-----------------------------------
+		Not compatible with modded upgrades
+		-----------------------------------
+		Requested by `Iris`
+		'''
+}
+
+DebuffMultiplier: {
+	Label: Debuff Multiplier
+	Tooltip:
+		'''
+		Multiplies the damage the player takes from debuffs.
+		-----------------------------------
+		Set to `1` to disable.
+		-----------------------------------
+		Requested by `Iris`
+		'''
+}

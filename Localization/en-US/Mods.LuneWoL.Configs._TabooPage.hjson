@@ -1,0 +1,16 @@
+Tooltip: ""
+
+Mcst: {
+	Label: Mana Cost
+	Tooltip: ""
+}
+
+Kb: {
+	Label: Knockback
+	Tooltip: ""
+}
+
+Spd: {
+	Label: Speed
+	Tooltip: ""
+}

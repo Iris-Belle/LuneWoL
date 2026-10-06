@@ -1,0 +1,54 @@
+Tooltip: ""
+Headers.SpiritMod: Spirit Mod
+
+BaseDoTRate: {
+	Label: Base DoT Rate
+	Tooltip:
+		'''
+		The base damage over time that the player will take while in space.
+		-----------------------------------
+		A value of `1` means half an HP per second.
+		A value of `2` means 1 HP per second.
+		-----------------------------------
+		Requested by `Iris`
+		'''
+}
+
+FishBowlReduction: {
+	Label: Fish Bowl Reduction
+	Tooltip:
+		'''
+		How much base DoT is reduced while wearing this item.
+		-----------------------------------
+		A value of `1` means half an HP per second.
+		A value of `2` means 1 HP per second.
+		-----------------------------------
+		Requested by `Iris`
+		'''
+}
+
+AstroHelmReduction: {
+	Label: Astronaut Helmet Reduction
+	Tooltip:
+		'''
+		How much base DoT is reduced while wearing this item.
+		-----------------------------------
+		A value of `1` means half an HP per second.
+		A value of `2` means 1 HP per second.
+		-----------------------------------
+		Requested by `Iris`
+		'''
+}
+
+AstraliteVisorReduction: {
+	Label: Astralite Visor Reduction
+	Tooltip:
+		'''
+		How much base DoT is reduced while wearing this item.
+		-----------------------------------
+		A value of `1` means half an HP per second.
+		A value of `2` means 1 HP per second.
+		-----------------------------------
+		Requested by `Iris`
+		'''
+}

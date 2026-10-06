@@ -1,6 +1,0 @@
-DisplayName: 2. [Client] Config
-
-STFUCHAT: {
-	Label: Disable Messages
-	Tooltip: Disables the chat message on world join!!11
-}

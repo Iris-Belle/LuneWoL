@@ -1,12 +1,11 @@
 ﻿namespace LuneWoL;
 
-public partial class LuneWoL : Mod
+public partial class LuneWoL
 {
     internal static Mod Instance;
     internal static LuneWoL instance;
-    internal static LWoLServerConfig LWoLServerConfig;
-    internal static LWoLClientConfig LWoLClientConfig;
-    internal static LWoLServerStatConfig LWoLServerStatConfig;
-    internal static LWoLAdvancedServerSettings LWoLAdvancedServerSettings;
-    internal static LWoLAdvancedClientSettings LWoLAdvancedClientSettings;
+    internal static LuneWoL_ServerConfig ServerConfig;
+    internal static LuneWoL_ClientConfig ClientConfig;
+    internal static LuneWoL_AdvServerConfig AdvServerConfig;
+    internal static LuneWoL_AdvClientConfig AdvClientConfig;
 }

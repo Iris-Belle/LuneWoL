@@ -1,0 +1,21 @@
+DisplayName: 2. [Server] Advanced Config
+
+Adv_Environment: {
+	Label: "[Adv] Environment"
+	Tooltip: ""
+}
+
+Adv_Items: {
+	Label: "[Adv] Items"
+	Tooltip: ""
+}
+
+Adv_Npc: {
+	Label: "[Adv] Npcs"
+	Tooltip: ""
+}
+
+Adv_Player: {
+	Label: "[Adv] Player"
+	Tooltip: ""
+}

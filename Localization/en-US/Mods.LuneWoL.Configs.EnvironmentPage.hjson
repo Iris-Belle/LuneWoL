@@ -1,0 +1,163 @@
+Tooltip: ""
+
+Headers: {
+	bool: bool
+	I4: I4
+}
+
+EvilBiomeDoT: {
+	Label: Evil Biome DoT
+	Tooltip:
+		'''
+		Makes evil biomes (Crimson and Corruption) inflict DoT.
+		-----------------------------------
+		Requested by `Iris`
+		'''
+}
+
+MurkyWater: {
+	Label: Underwater ``Fog``
+	Tooltip:
+		'''
+		Makes it harder to see underwater.
+		-----------------------------------
+		Has Advanced Settings
+		-----------------------------------
+		Requested by `Iris`
+		'''
+}
+
+OreDropChance: {
+	Label: Ore Drop Chance
+	Tooltip:
+		'''
+		Makes ores have a chance to not drop when mined.
+		-----------------------------------
+		Has Advanced Settings
+		-----------------------------------
+		Requested by `Mushy`
+		'''
+}
+
+OreScarcity: {
+	Label: Ore Scarcity
+	Tooltip:
+		'''
+		Decreases the amount of ore that generates during world generation and on altar destruction.
+		-----------------------------------
+		Has Advanced Settings
+		-----------------------------------
+		Requested by `ClayWarTheOne`
+		'''
+}
+
+PoisonousWater: {
+	Label: Poisonous Water
+	Tooltip:
+		'''
+		Jungle: Poison
+		Crimson: Ichor
+		Corruption: Cursed Flames
+		Hallow: Confusion
+		-----------------------------------
+		Has Advanced Settings
+		-----------------------------------
+		Requested by `Iris`
+		'''
+}
+
+SpaceDoT: {
+	Label: Space Vacuum
+	Tooltip:
+		'''
+		Being in space inflicts DoT.
+		-----------------------------------
+		Requested by `Gamma_sol`
+		'''
+}
+
+TundraGivesChilled: {
+	Label: Tundra Applies Chilled
+	Tooltip:
+		'''
+		Applies the ``Chilled`` debuff when you're in the Tundra.
+		-----------------------------------
+		Requested by `Iris`
+		'''
+}
+
+UnderworldGivesOnFire: {
+	Label: Underworld Applies ``On-Fire!``
+	Tooltip:
+		'''
+		Being in the Underworld applies the ``On-Fire!`` debuff.
+		-----------------------------------
+		Requested by `Gamma_sol`
+		'''
+}
+
+ViscousWater: {
+	Label: Viscous Water
+	Tooltip:
+		'''
+		Multiplies the velocity of the player while in water.
+		-----------------------------------
+		Has Advanced Settings
+		-----------------------------------
+		Requested by `Iris`
+		'''
+}
+
+WeatherEffects: {
+	Label: Weather Effects
+	Tooltip:
+		'''
+		Blizzards freeze you and Sandstorms reduce vision.
+		-----------------------------------
+		Requested by `Iris`
+		'''
+}
+
+WindAffectsArrows: {
+	Label: Wind Affects Arrows
+	Tooltip:
+		'''
+		Make arrows affected by wind.
+		-----------------------------------
+		Requested by `Iris`
+		'''
+}
+
+DarkerNightsMode: {
+	Label: Darker Nights Mode
+	Tooltip:
+		'''
+		Makes nights darker. (real shocker, i know)
+		-----------------------------------
+		0: Disabled
+		1: Allows the moon to change the brightness at night
+		2: Always pitch black at night
+		-----------------------------------
+		Has Advanced Settings
+		-----------------------------------
+		Requested by `Iris`
+		'''
+}
+
+DepthPressureMode: {
+	Label: Depth Pressure Mode
+	Tooltip:
+		'''
+		The deeper you are in a water body, the faster you lose breath.
+
+		Changes the mode of how pressure is calculated.
+		-----------------------------------
+		0: Off
+		1: Fast but can be inaccurate
+		2: Accurate but slightly more intensive on the CPU.
+		-----------------------------------
+		Has Advanced Settings + Client Settings
+		-----------------------------------
+		Requested by `Iris`
+		'''
+}

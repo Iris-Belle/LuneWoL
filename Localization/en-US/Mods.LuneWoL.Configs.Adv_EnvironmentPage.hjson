@@ -1,0 +1,56 @@
+Tooltip: ""
+
+DarkerNights: {
+	Label: Darker Nights
+	Tooltip: ""
+}
+
+MurkyWater: {
+	Label: Murky Water
+	Tooltip: ""
+}
+
+OreDestroyChance: {
+	Tooltip: ""
+	Label: Ore Destroy Chance
+}
+
+OreScarcity: {
+	Label: Ore Scarcity
+	Tooltip: ""
+}
+
+ServerDepthPressure: {
+	Label: "[Server] Depth Pressure"
+	Tooltip: ""
+}
+
+WaterPoision: {
+	Label: Water Poision
+	Tooltip: ""
+}
+
+WeatherEffects: {
+	Tooltip: ""
+	Label: Weather Effects
+}
+
+Weather: {
+	Tooltip: ""
+	Label: Weather
+}
+
+OreDropChance: {
+	Label: Ore Drop Chance
+	Tooltip: ""
+}
+
+SpaceVacuum: {
+	Tooltip: ""
+	Label: Space Vacuum
+}
+
+ViscousWater: {
+	Tooltip: ""
+	Label: Viscous Water
+}

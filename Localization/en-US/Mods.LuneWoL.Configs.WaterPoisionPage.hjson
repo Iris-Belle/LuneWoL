@@ -1,0 +1,41 @@
+Tooltip: ""
+
+JunglePoison: {
+	Label: Jungle Poison
+	Tooltip:
+		'''
+		Being submerged in Jungle water Applies the `Posion` debuff.
+		-----------------------------------
+		Requested by `UndoZan`
+		'''
+}
+
+HallowConfusion: {
+	Label: Hallow Confusion
+	Tooltip:
+		'''
+		Being submerged in Hallow water Applies the `Confusion` debuff.
+		-----------------------------------
+		Requested by `UndoZan`
+		'''
+}
+
+CrimsonIchor: {
+	Label: Crimson Ichor
+	Tooltip:
+		'''
+		Being submerged in Crimson water Applies the `Ichor` debuff.
+		-----------------------------------
+		Requested by `UndoZan`
+		'''
+}
+
+CorruptFlames: {
+	Label: Corrupt Flames
+	Tooltip:
+		'''
+		Being submerged in Corrupt water Applies the `Cursed Flames` debuff.
+		-----------------------------------
+		Requested by `UndoZan`
+		'''
+}

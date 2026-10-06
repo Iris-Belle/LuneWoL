@@ -1,0 +1,11 @@
+Tooltip: ""
+
+AccReforgeNerfs: {
+	Tooltip: ""
+	Label: Accessory Reforge Nerfs
+}
+
+WpnReforgeNerfs: {
+	Tooltip: ""
+	Label: Weapon Reforge Nerfs
+}

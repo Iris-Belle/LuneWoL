@@ -1,0 +1,21 @@
+Tooltip: ""
+
+BossConfig: {
+	Label: Boss Stats
+	Tooltip: ""
+}
+
+NpcConfig: {
+	Label: Npc Stats
+	Tooltip: ""
+}
+
+PriceMultiplier: {
+	Label: Shop Price Multiplier
+	Tooltip: ""
+}
+
+SpawnRate: {
+	Label: Spawn Rate
+	Tooltip: ""
+}

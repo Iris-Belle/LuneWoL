@@ -1,0 +1,21 @@
+Tooltip: ""
+
+BuyMult: {
+	Label: Buy Multiplier
+	Tooltip:
+		'''
+		Multiplies the amount of money needed to buy an item.
+		-----------------------------------
+		Requested by `Iris`
+		'''
+}
+
+SellMult: {
+	Label: Sell Multiplier
+	Tooltip:
+		'''
+		Multiplies the amount of money you get from selling an item.
+		-----------------------------------
+		Requested by `Iris`
+		'''
+}

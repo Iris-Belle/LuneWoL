@@ -1,0 +1,29 @@
+Tooltip: ""
+
+WaterVelocityX: {
+	Label: Horizontal Velocity Multiplier
+	Tooltip:
+		'''
+		Multiplies the horizontal velocity in water.
+		Lower Value = Stronger effect.
+		--------------------------------
+		Set to `1` to disable.
+		--------------------------------
+		Requested by `Iris`
+		--------------------------------
+		'''
+}
+
+WaterVelocityY: {
+	Label: Vertical Velocity Multiplier
+	Tooltip:
+		'''
+		Multiplies the vertical velocity in water.
+		Lower Value = Stronger effect.
+		--------------------------------
+		Set to `1` to disable.
+		--------------------------------
+		Requested by `Iris`
+		--------------------------------
+		'''
+}

@@ -1,0 +1,91 @@
+Tooltip: ""
+
+SynthGoldDropChance: {
+	Label: Mossy Gold Drop Chance
+	Tooltip:
+		'''
+		How often this ore should drop.
+		-----------------------------------
+		A value of `100` means it will always drop.
+		'''
+}
+
+SynthPlatinumDropChance: {
+	Label: Mossy Platinum Drop Chance
+	Tooltip:
+		'''
+		How often this ore should drop.
+		-----------------------------------
+		A value of `100` means it will always drop.
+		'''
+}
+
+SmoothCoalDropChance: {
+	Label: Smooth Coal Drop Chance
+	Tooltip:
+		'''
+		How often this ore should drop.
+		-----------------------------------
+		A value of `100` means it will always drop.
+		'''
+}
+
+LifeQuartzDropChance: {
+	Label: Life Quartz Drop Chance
+	Tooltip:
+		'''
+		How often this ore should drop.
+		-----------------------------------
+		A value of `100` means it will always drop.
+		'''
+}
+
+ThoriumOreDropChance: {
+	Label: Thorium Ore Drop Chance
+	Tooltip:
+		'''
+		How often this ore should drop.
+		-----------------------------------
+		A value of `100` means it will always drop.
+		'''
+}
+
+AquaiteDropChance: {
+	Label: Aquaite Drop Chance
+	Tooltip:
+		'''
+		How often this ore should drop.
+		-----------------------------------
+		A value of `100` means it will always drop.
+		'''
+}
+
+LodeStoneDropChance: {
+	Label: Lodestone Drop Chance
+	Tooltip:
+		'''
+		How often this ore should drop.
+		-----------------------------------
+		A value of `100` means it will always drop.
+		'''
+}
+
+ValadiumChunkDropChance: {
+	Label: Valadium Drop Chance
+	Tooltip:
+		'''
+		How often this ore should drop.
+		-----------------------------------
+		A value of `100` means it will always drop.
+		'''
+}
+
+IllumiteChunkDropChance: {
+	Label: Illumite Drop Chance
+	Tooltip:
+		'''
+		How often this ore should drop.
+		-----------------------------------
+		A value of `100` means it will always drop.
+		'''
+}

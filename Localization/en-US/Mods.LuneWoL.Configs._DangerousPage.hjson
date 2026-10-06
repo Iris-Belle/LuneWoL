@@ -1,0 +1,16 @@
+Tooltip: ""
+
+Dmg: {
+	Label: Damage
+	Tooltip: ""
+}
+
+Crt: {
+	Label: Crit
+	Tooltip: ""
+}
+
+Size: {
+	Label: Size
+	Tooltip: ""
+}

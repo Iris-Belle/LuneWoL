@@ -1,0 +1,63 @@
+Tooltip: ""
+
+Headers: {
+	bool: bool
+	I4: I4
+}
+
+DisableAutoReuse: {
+	Label: Disable Auto Reuse
+	Tooltip:
+		'''
+		Disables Auto-Reuse.
+		-----------------------------------
+		Requested by `Iris`
+		'''
+}
+
+DisableAccessories: {
+	Label: Disable Accessories
+	Tooltip:
+		'''
+		Disables accessories from being equipped.
+		-----------------------------------
+		Requested by `Wallarus`
+		'''
+}
+
+ReforgeNerf: {
+	Label: Prefix Nerf
+	Tooltip:
+		'''
+		Nerfs Weapon, Tool, and Accessory Prefixes(aka Reforges).
+		-----------------------------------
+		Has Advanced Settings
+		-----------------------------------
+		Requested by `Iris`
+		'''
+}
+
+DespawnItemsTimer: {
+	Label: Despawn Items Timer
+	Tooltip:
+		'''
+		Makes items despawn after set amount of seconds.
+		-----------------------------------
+		Set to `-1` to disable
+		-----------------------------------
+		Requested by `Wallarus`
+		'''
+}
+
+HealingPotionBadPercent: {
+	Label: Worse Healing Potions
+	Tooltip:
+		'''
+		Makes healing items heal less.
+		A value of `75` would mean all healing items heal 25% less.
+		-----------------------------------
+		Set to `100` to disable.
+		-----------------------------------
+		Requested by `Iris`
+		'''
+}

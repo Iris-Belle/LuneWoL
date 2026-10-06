@@ -1,0 +1,27 @@
+Tooltip: ""
+
+SpawnRate: {
+	Label: Spawn Rate
+	Tooltip:
+		'''
+		How fast enemies should spawn.
+		Increase to get more spawns, Reduce to get less.
+		To disable spawns, change max spawns instead.
+		-----------------------------------
+		Set to `0` to disable.
+		-----------------------------------
+		Requested by 'Iris'
+		'''
+}
+
+MaxSpawns: {
+	Label: Max Spawns
+	Tooltip:
+		'''
+		How many enemies can be alive at the same time.
+		-----------------------------------
+		Set to `0` to disable.
+		-----------------------------------
+		Requested by 'Iris'
+		'''
+}
