@@ -145,7 +145,7 @@ public partial class LuneWoL_Plr : ModPlayer
 
     public void ApplySpaceVacuum()
     {
-        if (!ServerConfig.Environment.SpaceDoT || Player.whoAmI != Main.myPlayer || !Player.ZoneSkyHeight || Player.behindBackWall)
+        if (!ServerConfig.Environment.SpaceDoT || Player.Submerged() || Player.whoAmI != Main.myPlayer || !Player.ZoneSkyHeight || Player.behindBackWall)
             return;
 
         Main.buffNoTimeDisplay[ModContent.BuffType<SpaceVacuum>()] = true;

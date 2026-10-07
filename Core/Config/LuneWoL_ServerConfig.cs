@@ -51,7 +51,7 @@ public class LuneWoL_ServerConfig : ModConfig
         [Slider, DrawTicks, Range(0, 2)]
         public int DarkerNightsMode { get; set; }
 
-        [Slider, DrawTicks, Range(0, 3)]
+        [Slider, DrawTicks, Range(0, 2)]
         public int DepthPressureMode { get; set; }
 
         public EnvironmentPage()
