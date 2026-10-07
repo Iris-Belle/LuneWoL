@@ -5,17 +5,27 @@ BossConfig: {
 	Tooltip: ""
 }
 
+InvasionConfig: {
+	Label: Invasion Config
+	Tooltip: ""
+}
+
 NpcConfig: {
 	Label: Npc Stats
 	Tooltip: ""
 }
 
-PriceMultiplier: {
-	Label: Shop Price Multiplier
+PriceConfig: {
+	Label: Shop Config
 	Tooltip: ""
 }
 
 SpawnRate: {
 	Label: Spawn Rate
+	Tooltip: ""
+}
+
+SpawnRateConfig: {
+	Label: Spawn Rate Config
 	Tooltip: ""
 }

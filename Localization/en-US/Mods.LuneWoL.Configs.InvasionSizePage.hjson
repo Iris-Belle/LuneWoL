@@ -1,0 +1,13 @@
+Tooltip: ""
+
+InvasionSize: {
+	Label: Invasion Size
+	Tooltip:
+		'''
+		The amount of kills needed to finish an invasion.
+		-----------------------------------
+		Set to `120` to disable.
+		-----------------------------------
+		Requested by `Iris`
+		'''
+}

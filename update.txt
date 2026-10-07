@@ -1,7 +1,6 @@
-added config for viscous waber
-made disable auto reuse less bad
-made disable accessories less bad
-renamed "NoAccessories" to "DisableAccessories" becasue the old name was dumb
-changed config.. again..
-fixed typo in mod.cs
-fixed npc value cap being dumb
+changed invasions multiplier to instead letting you set the exact number of enemies needed to complete the thing
+removed shitty implementation of the invasion multiplier and switched to IL instead
+added custom colours for the debug options in the advanced client pressure config
+classic localisation shit fucking up
+renamed some options in the config idk
+yes i am extremely out of ideas please suggest something (that isnt stupid or doesnt fit in the mod)

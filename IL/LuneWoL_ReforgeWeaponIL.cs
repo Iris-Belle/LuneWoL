@@ -52,7 +52,7 @@ internal class LuneWoL_ReforgeWeaponIL : ILoadable
             c.Emit(OpCodes.Ldc_R4, cfg.Dangerous.Size);
         }
         #endregion
-
+        
         #region Savage
         if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(1.1f))) //dmg
         {

@@ -29,7 +29,7 @@ public class LuneWoL_ServerConfig : ModConfig
         public bool OreDropChance { get; set; }
 
         [ReloadRequired]
-        public bool OreScarcity { get; set; }
+        public bool OreScarcityPatchToggle { get; set; }
         
         public bool PoisonousWater { get; set; }
         
@@ -51,7 +51,7 @@ public class LuneWoL_ServerConfig : ModConfig
         [Slider, DrawTicks, Range(0, 2)]
         public int DarkerNightsMode { get; set; }
 
-        [Slider, DrawTicks, Range(0, 2)]
+        [Slider, DrawTicks, Range(0, 3)]
         public int DepthPressureMode { get; set; }
 
         public EnvironmentPage()
@@ -60,7 +60,7 @@ public class LuneWoL_ServerConfig : ModConfig
             EvilBiomeDoT = false;
             MurkyWater = false;
             OreDropChance = false;
-            OreScarcity = false;
+            OreScarcityPatchToggle = false;
             PoisonousWater = false;
             SpaceDoT = false;
             TundraGivesChilled = false;
@@ -74,7 +74,7 @@ public class LuneWoL_ServerConfig : ModConfig
         }
         public bool NeedsReload(EnvironmentPage other)
         {
-            return OreScarcity != other.OreScarcity;
+            return OreScarcityPatchToggle != other.OreScarcityPatchToggle;
         }
     }
 
@@ -126,14 +126,14 @@ public class LuneWoL_ServerConfig : ModConfig
         [Header("bool")]
 
         [ReloadRequired]
-        public bool PriceMult { get; set; }
+        public bool InvasionSizePatchToggle { get; set; }
+
+        [ReloadRequired]
+        public bool PricePatchToggle { get; set; }
         
         public bool SpawnRateQuickToggle { get; set; }
 
         [Header("I4")]
-
-        [Slider, Range(1, 64), ReloadRequired]
-        public int InvasionMultiplier { get; set; }
 
         [Range(-1, int.MaxValue), ReloadRequired]
         public int MaxNpcValue { get; set; }
@@ -146,10 +146,9 @@ public class LuneWoL_ServerConfig : ModConfig
         public NpcPage()
         {
             //bool
-            PriceMult = false;
-            SpawnRateQuickToggle = false;
+            InvasionSizePatchToggle = false;
+            PricePatchToggle = false;
             //I4
-            InvasionMultiplier = 1;
             MaxNpcValue = -1;
             //R4
             NpcValueMult = 1f;
@@ -158,9 +157,9 @@ public class LuneWoL_ServerConfig : ModConfig
         public bool NeedsReload(NpcPage other)
         {
             return //bool
-                   PriceMult != other.PriceMult ||
+                   InvasionSizePatchToggle != other.InvasionSizePatchToggle ||
+                   PricePatchToggle != other.PricePatchToggle ||
                    //I4
-                   InvasionMultiplier != other.InvasionMultiplier ||
                    MaxNpcValue != other.MaxNpcValue ||
                    //R4
                    NpcValueMult != other.NpcValueMult;
@@ -177,7 +176,7 @@ public class LuneWoL_ServerConfig : ModConfig
 
         [Header("R4")]
 
-        [Range(1f, 5f), Increment(0.05f), RoundNumber(2)]
+        [Range(1f, 16f), Increment(0.05f), RoundNumber(2)]
         public float DebuffMultiplier { get; set; }
 
         public PlayerPage()

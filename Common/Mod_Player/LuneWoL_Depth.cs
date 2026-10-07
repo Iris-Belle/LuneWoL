@@ -4,6 +4,8 @@
 
 internal class LuneWoL_Depth : ModPlayer
 {
+    public bool InWaterBody { get; set; }
+
     private enum Once
     {
         DrownWarning
@@ -416,7 +418,7 @@ internal class LuneWoL_Depth : ModPlayer
             entryY = ModeOnePlayer.EntryPoint.Y;
         }
         else if (UsingModeTwo)
-            entryY = ModeTwoPlayer.CachedTopY * 16f;
+            entryY = ModeTwoPlayer._topY * 16f;
     }
 
     public override void PostUpdateMiscEffects()
@@ -487,12 +489,11 @@ internal class LuneWoL_Depth : ModPlayer
 
     public override void PostUpdate()
     {
-        if (Disabled || Player.whoAmI != Main.myPlayer || !Player.LibPlayer().MurkyWaterFlag || entryY < 0 && UsingModeTwo)
+        if (Disabled || Player.whoAmI != Main.myPlayer || entryY < 0 && UsingModeTwo || !Player.Submerged() || !ServerConfig.Environment.MurkyWater)
             return;
 
         lightDepthDiff *= AdvServerConfig.Adv_Environment.ServerDepthPressure.DepthDarknessIntensity;
 
-        ScreenObstruction.screenObstruction = MathHelper.Lerp(ScreenObstruction.screenObstruction, 1f, lightDepthDiff);
         float reversed = 1f - lightDepthDiff;
         float clamped = MathHelper.Clamp(reversed, 0.5f, 1f);
         Lighting.GlobalBrightness *= clamped;
@@ -503,42 +504,41 @@ internal class LuneWoL_Depth : ModPlayer
 
 #region Mode1
 
-public partial class Depth_I : ModPlayer
+public class Depth_I : ModPlayer
 {
     public bool WasDrowningLastFrame { get; set; }
 
     public Vector2 EntryPoint { get; set; }
     public Vector2 ExitPoint { get; set; }
 
-    public bool InWaterBody { get; set; }
     public bool IsDrowning { get; set; }
 
     public void CheckWaterDepth()
     {
         bool currentlyDrowning = Collision.DrownCollision(Main.LocalPlayer.position, Main.LocalPlayer.width, Main.LocalPlayer.height, Main.LocalPlayer.gravDir);
 
-        if (currentlyDrowning && !WasDrowningLastFrame && !InWaterBody)
+        if (currentlyDrowning && !WasDrowningLastFrame && !Player.DepthPlayer().InWaterBody)
         {
-            InWaterBody = true;
+            Player.DepthPlayer().InWaterBody = true;
             EntryPoint = Main.LocalPlayer.position;
         }
-        else if (currentlyDrowning && InWaterBody && Main.LocalPlayer.position.Y < EntryPoint.Y)
+        else if (currentlyDrowning && Player.DepthPlayer().InWaterBody && Main.LocalPlayer.position.Y < EntryPoint.Y)
         {
             EntryPoint = Main.LocalPlayer.position;
         }
         else if (!currentlyDrowning && WasDrowningLastFrame)
         {
             ExitPoint = Main.LocalPlayer.position;
-            InWaterBody = true;
+            Player.DepthPlayer().InWaterBody = true;
         }
 
-        if (!currentlyDrowning && InWaterBody)
+        if (!currentlyDrowning && Player.DepthPlayer().InWaterBody)
         {
             if (Vector2.Distance(Player.position, ExitPoint) >= 240f)
-                InWaterBody = false;
+                Player.DepthPlayer().InWaterBody = false;
         }
 
-        if (!InWaterBody && Vector2.Distance(Main.LocalPlayer.position, ExitPoint) > 240f)
+        if (!Player.DepthPlayer().InWaterBody && Vector2.Distance(Main.LocalPlayer.position, ExitPoint) > 240f)
         {
             EntryPoint = Main.LocalPlayer.position;
             ExitPoint = Main.LocalPlayer.position;
@@ -554,99 +554,97 @@ public partial class Depth_I : ModPlayer
 
 public class Depth_II : ModPlayer
 {
+    private int _timer;
 
-    private int _updateTimer;
+    public int _topY { get; set; } = -1;
 
-    public bool IsInWaterPool { get; private set; }
-    public int CachedTopY { get; private set; } = -1;
+    private static int _worldWidth => Main.maxTilesX;
 
-    private static int WorldWidth => Main.maxTilesX;
+    private static int _worldHeight => Main.maxTilesY;
 
-    private static int WorldHeight => Main.maxTilesY;
-
-    internal HashSet<int> _bfsVisited;
-    private Queue<int> _bfsQueue;
-    private int _bfsMinSurfaceY;
-    private bool _bfsRunning;
-    private int _bfsTopScannedY;
+    internal HashSet<int> _visited;
+    private Queue<int> _queue;
+    private int _surfaceY;
+    private bool _running;
+    private int _scannedY;
 
     public override void Initialize()
     {
-        _updateTimer = 0;
-        IsInWaterPool = false;
-        CachedTopY = -1;
-        _bfsRunning = false;
-        _bfsVisited = null;
-        _bfsQueue = null;
+        _timer = 0;
+        Player.DepthPlayer().InWaterBody = false;
+        _topY = -1;
+        _running = false;
+        _visited = null;
+        _queue = null;
     }
 
-    private void StartBFS(int startX, int startY)
+    private void Start(int startX, int startY)
     {
-        _bfsVisited = new HashSet<int>(capacity: 4096);
-        _bfsQueue = new Queue<int>();
-        _bfsMinSurfaceY = int.MaxValue;
-        _bfsTopScannedY = startY;
+        _visited = new HashSet<int>(capacity: 4096);
+        _queue = new Queue<int>();
+        _surfaceY = int.MaxValue;
+        _scannedY = startY;
 
-        int packed = (startX << 16) | (startY & 0xFFFF);
-        _bfsVisited.Add(packed);
-        _bfsQueue.Enqueue(packed);
-        _bfsRunning = true;
+        int i = (startX << 16) | (startY & 0xFFFF);
+        _visited.Add(i);
+        _queue.Enqueue(i);
+        _running = true;
     }
 
-    private bool StepBFS(int budget)
+    private bool Step(int budget)
     {
-        int tilesScanned = 0;
+        int scanned = 0;
 
-        while (_bfsQueue.Count > 0 && (budget == -1 || tilesScanned < budget))
+        while (_queue.Count > 0 && (budget == -1 || scanned < budget))
         {
-            tilesScanned++;
-            int packed = _bfsQueue.Dequeue();
-            int x = packed >> 16;
-            int y = packed & 0xFFFF;
+            scanned++;
+            int i = _queue.Dequeue();
+            int x = i >> 16;
+            int y = i & 0xFFFF;
 
-            Tile current = Main.tile[x, y];
-            if (current == null || current.LiquidType != LiquidID.Water || current.LiquidAmount == 0)
+            Tile tile = Main.tile[x, y];
+            if (tile == null || tile.LiquidType != LiquidID.Water || tile.LiquidAmount == 0)
                 continue;
 
-            if (y < _bfsTopScannedY)
-                _bfsTopScannedY = y;
+            if (y < _scannedY)
+                _scannedY = y;
 
             if (y > 0)
             {
                 Tile above = Main.tile[x, y - 1];
                 if (above == null || above.LiquidAmount == 0)
-                    if (y < _bfsMinSurfaceY)
+                    if (y < _surfaceY)
                     {
-                        _bfsMinSurfaceY = y;
+                        _surfaceY = y;
                     }
             }
-            else if (0 < _bfsMinSurfaceY)
+            else if (0 < _surfaceY)
             {
-                _bfsMinSurfaceY = 0;
+                _surfaceY = 0;
             }
 
-            void EnqueueIfWater(int nx, int ny)
+            void QueueWater(int x, int y)
             {
-                if (IsWater(nx, ny))
+                if (IsWater(x, y))
                 {
-                    int p = (nx << 16) | ny;
-                    if (!_bfsVisited.Contains(p))
+                    int p = (x << 16) | y;
+                    if (!_visited.Contains(p))
                     {
-                        _bfsVisited.Add(p);
-                        _bfsQueue.Enqueue(p);
+                        _visited.Add(p);
+                        _queue.Enqueue(p);
                     }
                 }
             }
 
-            if (x > 0) EnqueueIfWater(x - 1, y);
-            if (x + 1 < WorldWidth) EnqueueIfWater(x + 1, y);
-            if (y > 0) EnqueueIfWater(x, y - 1);
-            if (y + 1 < WorldHeight) EnqueueIfWater(x, y + 1);
+            if (x > 0) QueueWater(x - 1, y);
+            if (x + 1 < _worldWidth) QueueWater(x + 1, y);
+            if (y > 0) QueueWater(x, y - 1);
+            if (y + 1 < _worldHeight) QueueWater(x, y + 1);
         }
 
-        if (_bfsQueue.Count == 0)
+        if (_queue.Count == 0)
         {
-            _bfsRunning = false;
+            _running = false;
             return true;
         }
 
@@ -655,7 +653,7 @@ public class Depth_II : ModPlayer
 
     private bool IsWater(int x, int y)
     {
-        if (x < 0 || x >= WorldWidth || y < 0 || y >= WorldHeight)
+        if (x < 0 || x >= _worldWidth || y < 0 || y >= _worldHeight)
             return false;
 
         Tile t = Main.tile[x, y];
@@ -664,21 +662,21 @@ public class Depth_II : ModPlayer
 
     private Point? FindStartingWaterTile()
     {
-        int px = (int)(Player.Center.X / 16f);
-        int py = (int)(Player.Center.Y / 16f);
+        int x = (int)(Player.Center.X / 16f);
+        int y = (int)(Player.Center.Y / 16f);
 
-        if (IsWater(px, py))
-            return new Point(px, py);
+        if (IsWater(x, y))
+            return new Point(x, y);
 
-        for (int dx = -1; dx <= 1; dx++)
-            for (int dy = -1; dy <= 1; dy++)
+        for (int _x = -1; _x <= 1; _x++)
+            for (int _y = -1; _y <= 1; _y++)
             {
-                if (dx == 0 && dy == 0)
+                if (_x == 0 && _y == 0)
                     continue;
-                int nx = px + dx;
-                int ny = py + dy;
-                if (IsWater(nx, ny))
-                    return new Point(nx, ny);
+                int newx = x + _x;
+                int newy = y + _y;
+                if (IsWater(newx, newy))
+                    return new Point(newx, newy);
             }
 
         return null;
@@ -686,17 +684,17 @@ public class Depth_II : ModPlayer
 
     private void RescanSurface()
     {
-        if (_bfsVisited == null)
+        if (_visited == null)
             return;
 
-        int newMinSurfaceY = int.MaxValue;
+        int newSurfaceY = int.MaxValue;
 
-        foreach (int packed in _bfsVisited)
+        foreach (int i in _visited)
         {
-            int x = packed >> 16;
-            int y = packed & 0xFFFF;
+            int x = i >> 16;
+            int y = i & 0xFFFF;
 
-            if (y > _bfsMinSurfaceY + 1)
+            if (y > _surfaceY + 1)
                 continue;
 
             if (!IsWater(x, y))
@@ -706,52 +704,52 @@ public class Depth_II : ModPlayer
             {
                 Tile above = Main.tile[x, y - 1];
                 if (above == null || above.LiquidAmount == 0)
-                    if (y < newMinSurfaceY)
-                        newMinSurfaceY = y;
+                    if (y < newSurfaceY)
+                        newSurfaceY = y;
             }
-            else if (0 < newMinSurfaceY)
-                newMinSurfaceY = 0;
+            else if (0 < newSurfaceY)
+                newSurfaceY = 0;
         }
 
-        if (newMinSurfaceY == int.MaxValue)
+        if (newSurfaceY == int.MaxValue)
         {
-            IsInWaterPool = false;
-            CachedTopY = -1;
-            _bfsVisited = null;
+            Player.DepthPlayer().InWaterBody = false;
+            _topY = -1;
+            _visited = null;
         }
         else
         {
-            _bfsMinSurfaceY = newMinSurfaceY;
-            CachedTopY = newMinSurfaceY;
+            _surfaceY = newSurfaceY;
+            _topY = newSurfaceY;
         }
     }
     private void ValidateSurface()
     {
-        if (!IsInWaterPool || CachedTopY < 0 || _bfsVisited == null)
+        if (!Player.DepthPlayer().InWaterBody || _topY < 0 || _visited == null)
             return;
 
-        List<int> toRemove = null;
+        List<int> removeMe = null;
 
-        foreach (int packed in _bfsVisited)
+        foreach (int i in _visited)
         {
-            int x = packed >> 16;
-            int y = packed & 0xFFFF;
+            int x = i >> 16;
+            int y = i & 0xFFFF;
 
-            if (y != CachedTopY)
+            if (y != _topY)
                 continue;
 
             if (!IsWater(x, y))
             {
-                toRemove ??= new List<int>();
-                toRemove.Add(packed);
+                removeMe ??= new List<int>();
+                removeMe.Add(i);
             }
         }
 
-        if (toRemove == null)
+        if (removeMe == null)
             return;
 
-        foreach (int packed in toRemove)
-            _bfsVisited.Remove(packed);
+        foreach (int i in removeMe)
+            _visited.Remove(i);
 
         RescanSurface();
     }
@@ -762,34 +760,34 @@ public class Depth_II : ModPlayer
 
         if (!Player.Submerged())
         {
-            IsInWaterPool = false;
-            CachedTopY = -1;
-            _bfsVisited = null;
-            _bfsRunning = false;
-            _updateTimer = 0;
+            Player.DepthPlayer().InWaterBody = false;
+            _topY = -1;
+            _visited = null;
+            _running = false;
+            _timer = 0;
             return;
         }
 
-        if (_bfsRunning)
+        if (_running)
         {
-            CachedTopY = _bfsTopScannedY;
-            IsInWaterPool = _bfsTopScannedY != int.MaxValue;
+            _topY = _scannedY;
+            Player.DepthPlayer().InWaterBody = _scannedY != int.MaxValue;
         }
 
-        if (++_updateTimer < Acfg.UpdateIntervalTicks)
+        if (++_timer < Acfg.UpdateIntervalTicks)
             return;
 
-        _updateTimer = 0;
+        _timer = 0;
 
-        if (_bfsRunning)
+        if (_running)
         {
-            bool done = StepBFS(Acfg.TileScanLimit);
+            bool done = Step(Acfg.TileScanLimit);
             if (done)
             {
-                if (_bfsMinSurfaceY == int.MaxValue)
+                if (_surfaceY == int.MaxValue)
                 {
-                    IsInWaterPool = false;
-                    CachedTopY = -1;
+                    Player.DepthPlayer().InWaterBody = false;
+                    _topY = -1;
                 }
             }
             return;
@@ -797,7 +795,7 @@ public class Depth_II : ModPlayer
 
         ValidateSurface();
 
-        if (_bfsVisited != null && IsInWaterPool)
+        if (_visited != null && Player.DepthPlayer().InWaterBody)
         {
             RescanSurface();
             return;
@@ -806,22 +804,34 @@ public class Depth_II : ModPlayer
         Point? start = FindStartingWaterTile();
         if (!start.HasValue)
         {
-            IsInWaterPool = false;
-            CachedTopY = -1;
-            _bfsVisited = null;
+            Player.DepthPlayer().InWaterBody = false;
+            _topY = -1;
+            _visited = null;
             return;
         }
 
-        StartBFS(start.Value.X, start.Value.Y);
+        Start(start.Value.X, start.Value.Y);
+    }
+
+    private bool NearVisited(int cx, int cy)
+    {
+        if (_visited.Contains((cx << 16) | (cy & 0xFFFF)))
+            return true;
+
+        for (int dx = -1; dx <= 1; dx++)
+            for (int dy = -1; dy <= 1; dy++)
+                if (_visited.Contains(((cx + dx) << 16) | ((cy + dy) & 0xFFFF)))
+                    return true;
+        return false;
     }
 
     public int GetDepth()
     {
-        if (!IsInWaterPool)
+        if (!Player.DepthPlayer().InWaterBody)
             return -1;
 
         int playerTileY = (int)(Player.Center.Y / 16f);
-        int depth = playerTileY - CachedTopY;
+        int depth = playerTileY - _topY;
         return depth < 0 ? 0 : depth;
     }
 }
@@ -830,19 +840,19 @@ public class Depth_II : ModPlayer
 
 #region Debug
 
-public class LWoL_DepthDebug : ModSystem
+public class LWoL_DepthDebug_old : ModSystem
 {
     private Texture2D _pixel;
 
     public override void ModifyInterfaceLayers(List<GameInterfaceLayer> layers)
     {
-        LuneWoL_AdvClientConfig.ClientDepthPressurePage Acfg = LuneWoL.AdvClientConfig.ClientDepthPressure;
-        if (!Acfg.ShowSurfaceDebug && !Acfg.DrawScannedTiles)
+        LuneWoL_AdvClientConfig.ClientDepthPressurePage Acfg = AdvClientConfig.ClientDepthPressure;
+        if (!Acfg.ShowDebugMarker && !Acfg.ShowScannedDebug)
             return;
 
-        int idx = layers.FindIndex(l => l.Name == "Vanilla: Mouse Text");
-        if (idx != -1)
-            layers.Insert(idx, new LegacyGameInterfaceLayer("SurfaceOverlay", DrawSurfaceOverlay, InterfaceScaleType.Game));
+        int i = layers.FindIndex(l => l.Name == "Vanilla: Mouse Text");
+        if (i != -1)
+            layers.Insert(i, new LegacyGameInterfaceLayer("SurfaceOverlay", DrawSurfaceOverlay, InterfaceScaleType.Game));
     }
 
     private void EnsurePixel()
@@ -856,79 +866,65 @@ public class LWoL_DepthDebug : ModSystem
 
     private bool DrawSurfaceOverlay()
     {
-        LuneWoL_AdvClientConfig.ClientDepthPressurePage Acfg = LuneWoL.AdvClientConfig.ClientDepthPressure;
+        LuneWoL_AdvClientConfig.ClientDepthPressurePage Acfg = AdvClientConfig.ClientDepthPressure;
         EnsurePixel();
         SpriteBatch sb = Main.spriteBatch;
 
         sb.End();
-        sb.Begin(
-            SpriteSortMode.Deferred,
-            BlendState.AlphaBlend,
-            SamplerState.PointClamp,
-            DepthStencilState.None,
-            RasterizerState.CullCounterClockwise,
-            null,
-            Main.GameViewMatrix.ZoomMatrix
-        );
+        sb.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.PointClamp, DepthStencilState.None, RasterizerState.CullCounterClockwise, null, Main.GameViewMatrix.ZoomMatrix);
 
         Player player = Main.LocalPlayer;
         Depth_II modPlayer = player.GetModPlayer<Depth_II>();
         Vector2 screenPos = Main.screenPosition;
 
-        if (Acfg.DrawScannedTiles)
+        if (Acfg.ShowScannedDebug)
             DrawScannedTiles(sb, modPlayer, screenPos);
 
-        if (Acfg.ShowSurfaceDebug)
+        if (Acfg.ShowDebugMarker)
             DrawSurfaceMarker(sb, player, modPlayer, screenPos);
 
         sb.End();
-        sb.Begin(
-            SpriteSortMode.Deferred,
-            BlendState.AlphaBlend,
-            SamplerState.PointClamp,
-            DepthStencilState.None,
-            RasterizerState.CullCounterClockwise,
-            null,
-            Main.UIScaleMatrix
-        );
+        sb.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.PointClamp, DepthStencilState.None, RasterizerState.CullCounterClockwise, null, Main.UIScaleMatrix);
 
         return true;
     }
 
     private void DrawScannedTiles(SpriteBatch sb, Depth_II modPlayer, Vector2 screenPos)
     {
-        if (modPlayer._bfsVisited == null)
+        if (modPlayer._visited == null)
             return;
+
+        LuneWoL_AdvClientConfig.ClientDepthPressurePage.ShowScannedDebugColourPage cfg = AdvClientConfig.ClientDepthPressure.ShowScannedDebugColour;
 
         int screenTileX1 = (int)(screenPos.X / 16f) - 1;
         int screenTileY1 = (int)(screenPos.Y / 16f) - 1;
         int screenTileX2 = screenTileX1 + (Main.screenWidth / 16) + 2;
         int screenTileY2 = screenTileY1 + (Main.screenHeight / 16) + 2;
 
-        Color scanColor = new(255, 100, 0, 60);
-        foreach (int packed in modPlayer._bfsVisited)
+        Color scanColor = new(cfg.ScanR, cfg.ScanG, cfg.ScanB, cfg.ScanA);
+        foreach (int i in modPlayer._visited)
         {
-            int tx = packed >> 16;
-            int ty = packed & 0xFFFF;
-            if (tx < screenTileX1 || tx > screenTileX2 || ty < screenTileY1 || ty > screenTileY2)
+            int x = i >> 16;
+            int y = i & 0xFFFF;
+            if (x < screenTileX1 || x > screenTileX2 || y < screenTileY1 || y > screenTileY2)
                 continue;
 
-            int drawX = (tx * 16) - (int)screenPos.X;
-            int drawY = (ty * 16) - (int)screenPos.Y;
+            int drawX = (x * 16) - (int)screenPos.X;
+            int drawY = (y * 16) - (int)screenPos.Y;
             sb.Draw(_pixel, new Rectangle(drawX, drawY, 16, 16), scanColor);
         }
     }
 
     private void DrawSurfaceMarker(SpriteBatch sb, Player player, Depth_II modPlayer, Vector2 screenPos)
     {
-        if (!modPlayer.IsInWaterPool)
+        if (!modPlayer.Player.DepthPlayer().InWaterBody)
             return;
 
-        int px = (int)(player.Center.X / 16f);
-        int drawX = (px * 16) - (int)screenPos.X;
-        int drawY = (modPlayer.CachedTopY * 16) - (int)screenPos.Y;
-        Color debugColor = new(0, 200, 255, 200);
-        sb.Draw(_pixel, new Rectangle(drawX, drawY, 16, 2), debugColor);
+        LuneWoL_AdvClientConfig.ClientDepthPressurePage.ShowDebugMarkerColourPage cfg = AdvClientConfig.ClientDepthPressure.ShowDebugMarkerColour;
+
+        int drawY = (modPlayer._topY * 16) - (int)screenPos.Y;
+        Color debugColor = new(cfg.MarkerR, cfg.MarkerG, cfg.MarkerB, cfg.MarkerA);
+        sb.Draw(_pixel, new Rectangle(0, drawY, Main.screenWidth, 2), debugColor);
     }
 
     public override void Unload()

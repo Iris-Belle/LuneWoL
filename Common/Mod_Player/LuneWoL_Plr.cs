@@ -113,7 +113,7 @@ public partial class LuneWoL_Plr : ModPlayer
     {
         ResetDeathPenalty();
         ReduceVisionInStorms();
-
+        
         // https://steamcommunity.com/sharedfiles/filedetails/?id=2395507804
     }
 
@@ -319,23 +319,14 @@ public partial class LuneWoL_Plr : ModPlayer
 
     public void MurkyWater()
     {
-        if (Player.whoAmI != Main.myPlayer)
+        if (Player.whoAmI != Main.myPlayer || ServerConfig.Environment.MurkyWater)
             return;
 
         LuneWoL_ServerConfig.EnvironmentPage Config = ServerConfig.Environment;
 
         if (Player.Submerged() && Config.MurkyWater && Config.DepthPressureMode == 0)
         {
-            ScreenObstruction.screenObstruction = MathHelper.Lerp(ScreenObstruction.screenObstruction, 1f, AdvServerConfig.Adv_Environment.MurkyWater.DarkWaterIntensity);
-        }
-        else if (Player.Submerged() && Config.MurkyWater && Config.DepthPressureMode != 0)
-        {
-            Player.LibPlayer().MurkyWaterFlag = true;
-            Lighting.GlobalBrightness *= 0.8f;
-        }
-        else
-        {
-            Player.LibPlayer().MurkyWaterFlag = false;
+            Lighting.GlobalBrightness *= AdvServerConfig.Adv_Environment.MurkyWater.DarkWaterIntensity;
         }
     }
 

@@ -82,15 +82,15 @@ public partial class LuneWoL_GNPC : GlobalNPC
         if (!ServerConfig.Npc.SpawnRateQuickToggle) 
             return;
 
-        if (AdvServerConfig.Adv_Npc.SpawnRate.SpawnRate != 0)
+        if (AdvServerConfig.Adv_Npc.SpawnRateConfig.SpawnRate != 0)
         {
-            spawnRate -= AdvServerConfig.Adv_Npc.SpawnRate.SpawnRate;
+            spawnRate -= AdvServerConfig.Adv_Npc.SpawnRateConfig.SpawnRate;
             spawnRate = Math.Max(0, spawnRate);
         }
 
-        if (AdvServerConfig.Adv_Npc.SpawnRate.MaxSpawns != 0)
+        if (AdvServerConfig.Adv_Npc.SpawnRateConfig.MaxSpawns != 0)
         {
-            maxSpawns += AdvServerConfig.Adv_Npc.SpawnRate.MaxSpawns;
+            maxSpawns += AdvServerConfig.Adv_Npc.SpawnRateConfig.MaxSpawns;
             maxSpawns = Math.Max(0, maxSpawns);
         }
     }

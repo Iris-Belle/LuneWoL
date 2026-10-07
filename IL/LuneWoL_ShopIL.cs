@@ -2,7 +2,7 @@
 {
     internal class LuneWoL_ShopIL : ILoadable
     {
-        public bool IsLoadingEnabled(Mod mod) => ServerConfig.Npc.PriceMult;
+        public bool IsLoadingEnabled(Mod mod) => ServerConfig.Npc.PricePatchToggle;
         public void Unload() { }
 
         public void Load(Mod mod)
@@ -15,7 +15,7 @@
 
         private void ShopIL(ILContext il)
         {
-            LuneWoL_AdvServerConfig.Adv_NpcPage.PriceMultiplierPage cfg = AdvServerConfig.Adv_Npc.PriceMultiplier;
+            LuneWoL_AdvServerConfig.Adv_NpcPage.PriceMultiplierPage cfg = AdvServerConfig.Adv_Npc.PriceConfig;
             ILCursor c = new(il);
 
             c.GotoNext(MoveType.Before, i => i.MatchLdarg(0), i => i.MatchLdflda<Player>("currentShoppingSettings"));

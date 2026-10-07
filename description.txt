@@ -11,7 +11,7 @@ Iris: Programmer, Professional Insane girl, Artist
 
 Currently includes:
 [list]
-[*] [b]Custom Spawnrate:[/b] Lets you customise the spawnrate.
+[*] [b]Custom Spawnrate:[/b] Lets you customise the spawn rate.
 [*] [b]Darker Nights:[/b] Makes nights darker.
 [*] [b]Debuff Multiplier:[/b] Multiplies the amount of damage the player takes from debuffs.
 [*] [b]Disable Auto-Reuse:[/b] No more auto reuse.
@@ -25,7 +25,7 @@ Currently includes:
 [*] [b]Ore Scarcity:[/b] World generates with less ores.
 [*] [b]Poisonous Water:[/b] Water in biomes inflict debuffs.
 [*] [b]Recipe Ingredient Multiplier:[/b] Crafting takes more ingredients.
-[*] [b]Prefix Nerf:[/b] Prefix buffs are nerfed. All VANILLA Prefixes are covered and fully customisable, calamity mod changes are NOT. (maybe ill add it in the future)
+[*] [b]Prefix Nerf:[/b] Prefix buffs are nerfed. All VANILLA Prefixes are covered and fully customisable, Calamity Mod changes are NOT. (maybe ill add it in the future idk)
 [*] [b]Shop Price Multiplier:[/b] Configure how much items cost and sell for independently.
 [*] [b]Space Vacuum:[/b] Being in space will kill you slowly.
 [*] [b]Stat Loss on Death:[/b] Max HP and MP decreases on each death.

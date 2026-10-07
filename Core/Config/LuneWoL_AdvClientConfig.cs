@@ -18,18 +18,66 @@ public class LuneWoL_AdvClientConfig : ModConfig
 
         [Header("Debug")]
         
-        public bool ShowSurfaceDebug { get; set; }
-        
-        public bool DrawScannedTiles { get; set; }
-        
+        public bool ShowDebugMarker { get; set; }
+
+        public bool ShowScannedDebug { get; set; }
+
         public bool DebugText { get; set; }
+
+        public ShowDebugMarkerColourPage ShowDebugMarkerColour { get; set; } = new();
+        public class ShowDebugMarkerColourPage
+        {
+            [Range(0, 255)]
+            public int MarkerR { get; set; }
+
+            [Range(0, 255)]
+            public int MarkerG { get; set; }
+
+            [Range(0, 255)]
+            public int MarkerB { get; set; }
+
+            [Range(0, 255)]
+            public int MarkerA { get; set; }
+
+            public ShowDebugMarkerColourPage()
+            {
+                MarkerR = 255;
+                MarkerG = 255;
+                MarkerB = 255;
+                MarkerA = 255;
+            }
+        }
+
+        public ShowScannedDebugColourPage ShowScannedDebugColour { get; set; } = new();
+        public class ShowScannedDebugColourPage
+        {
+            [Range(0, 255)]
+            public int ScanR { get; set; }
+
+            [Range(0, 255)]
+            public int ScanG { get; set; }
+
+            [Range(0, 255)]
+            public int ScanB { get; set; }
+
+            [Range(0, 255)]
+            public int ScanA { get; set; }
+
+            public ShowScannedDebugColourPage()
+            {
+                ScanR = 128;
+                ScanG = 128;
+                ScanB = 255;
+                ScanA = 16;
+            }
+        }
 
         public ClientDepthPressurePage()
         {
-            UpdateIntervalTicks = 2;
-            TileScanLimit = 1024;
-            ShowSurfaceDebug = false;
-            DrawScannedTiles = false;
+            UpdateIntervalTicks = 1;
+            TileScanLimit = 512;
+            ShowDebugMarker = false;
+            ShowScannedDebug = false;
             DebugText = false;
         }
     }

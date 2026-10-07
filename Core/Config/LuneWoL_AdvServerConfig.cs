@@ -26,7 +26,6 @@ public class LuneWoL_AdvServerConfig : ModConfig
 
             [Range(0f, 1f), Increment(0.05f), RoundNumber(2)]
             public float MinBrightness { get; set; }
-
             
             public MoonPhasesPage MoonPhases { get; set; } = new();
             public class MoonPhasesPage
@@ -283,7 +282,7 @@ public class LuneWoL_AdvServerConfig : ModConfig
 
                     LodeStoneDropChance = 75;
                     ValadiumChunkDropChance = 75;
-                    IllumiteChunkDropChance = 25;
+                    IllumiteChunkDropChance = 75;
                 }
             }
 
@@ -2764,6 +2763,18 @@ public class LuneWoL_AdvServerConfig : ModConfig
         }
 
         [SeparatePage]
+        public class InvasionSizePage
+        {
+            [Range(120, int.MaxValue)]
+            public int InvasionSize { get; set; }
+
+            public InvasionSizePage()
+            {
+                InvasionSize = 120;
+            }
+        }
+
+        [SeparatePage]
         public class NpcStatPage
         {
             [Range(100, 10000)]
@@ -2821,12 +2832,14 @@ public class LuneWoL_AdvServerConfig : ModConfig
         #region new()
         
         public BossStatPage BossConfig = new();
+
+        public InvasionSizePage InvasionConfig = new();
         
         public NpcStatPage NpcConfig = new();
 
-        public PriceMultiplierPage PriceMultiplier = new();
+        public PriceMultiplierPage PriceConfig = new();
 
-        public SpawnRatePage SpawnRate = new();
+        public SpawnRatePage SpawnRateConfig = new();
         #endregion
     }
 

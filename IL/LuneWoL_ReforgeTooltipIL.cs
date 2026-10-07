@@ -62,7 +62,7 @@ internal class LuneWoL_ReforgeTooltipIL : ILoadable
             c.Emit(OpCodes.Ldstr, $"+{cfg.Precise.Crit}");
         }
         #endregion
-
+        
         #region damage
         if (c.TryGotoNext(MoveType.Before, i => i.MatchLdstr("+1"))) // Jagged
         {

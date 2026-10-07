@@ -1,0 +1,21 @@
+Tooltip: ""
+
+ScanR: {
+	Label: Red
+	Tooltip: Scan Red
+}
+
+ScanG: {
+	Label: Green
+	Tooltip: Scan Green
+}
+
+ScanB: {
+	Label: Blue
+	Tooltip: Scan Blue
+}
+
+ScanA: {
+	Label: Alpha
+	Tooltip: Scan Alpha
+}

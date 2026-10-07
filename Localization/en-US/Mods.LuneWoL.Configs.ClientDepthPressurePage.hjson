@@ -9,10 +9,11 @@ UpdateIntervalTicks: {
 	Label: Update Interval Ticks
 	Tooltip:
 		'''
-		The amount of ticks between each BFS run.
-		Lower is better for accuracy. 
+		The amount of ticks between each floodfill.
 		-----------------------------------
-		`0` is recommended if your cpu can afford it
+		Maximum recommended is `2` ticks.
+		-----------------------------------
+		Recommended is `0` if your cpu can afford it
 		-----------------------------------
 		Requested by `Iris`
 		'''
@@ -24,25 +25,35 @@ TileScanLimit: {
 		'''
 		The maximum amount of tiles scanned for each tick to find the surface.
 		-----------------------------------
-		Minimum recommended is 256 tiles.
+		Minimum recommended is 64 tiles.
 		-----------------------------------
-		-1 means no limit. (Recommended if your cpu can afford it)
+		Recommended is `-1` and means no limit.
 		-----------------------------------
 		Requested by `Iris`
 		'''
 }
 
-ShowSurfaceDebug: {
-	Label: Show Surface Debug
+ShowDebugMarker: {
+	Label: Show Debug Marker
 	Tooltip: Shows you where the surface level of the water body you're in is.
 }
 
-DrawScannedTiles: {
-	Label: Show Scanned Tiles Debug
-	Tooltip: Shows all tiles the pressure system has looked at.
+ShowScannedDebug: {
+	Label: Show Scanned Debug
+	Tooltip: Shows all tiles the pressure system has scanned.
 }
 
 DebugText: {
 	Label: Debug Text
 	Tooltip: Shows data about the calculations for the pressure system.
+}
+
+ShowDebugMarkerColour: {
+	Label: Debug Marker Colour
+	Tooltip: ""
+}
+
+ShowScannedDebugColour: {
+	Label: Scanned Debug Colour
+	Tooltip: ""
 }

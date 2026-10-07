@@ -1,0 +1,21 @@
+Tooltip: ""
+
+MarkerR: {
+	Label: Red
+	Tooltip: Marker Red
+}
+
+MarkerG: {
+	Label: Green
+	Tooltip: Marker Green
+}
+
+MarkerB: {
+	Label: Blue
+	Tooltip: Marker Blue
+}
+
+MarkerA: {
+	Label: Alpha
+	Tooltip: Marker Alpha
+}

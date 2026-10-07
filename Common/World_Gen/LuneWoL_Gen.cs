@@ -2,7 +2,7 @@
 
 internal class LuneWoL_Gen : ModSystem
 {
-    public override bool IsLoadingEnabled(Mod mod) => ServerConfig.Environment.OreScarcity;
+    public override bool IsLoadingEnabled(Mod mod) => ServerConfig.Environment.OreScarcityPatchToggle;
 
     public override void ModifyWorldGenTasks(List<GenPass> tasks, ref double totalWeight)
     {

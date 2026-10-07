@@ -5,6 +5,40 @@ Headers: {
 	I4: I4
 }
 
+DarkerNightsMode: {
+	Label: Darker Nights Mode
+	Tooltip:
+		'''
+		Makes nights darker. (real shocker, i know)
+		-----------------------------------
+		0: Disabled
+		1: Allows the moon to change the brightness at night
+		2: Always pitch black at night
+		-----------------------------------
+		Has Advanced Settings
+		-----------------------------------
+		Requested by `Iris`
+		'''
+}
+
+DepthPressureMode: {
+	Label: Depth Pressure Mode
+	Tooltip:
+		'''
+		The deeper you are in a water body, the faster you lose breath.
+
+		Changes the mode of how pressure is calculated.
+		-----------------------------------
+		0: Off
+		1: Fast but can be inaccurate
+		2: Accurate but slightly more intensive on the CPU.
+		-----------------------------------
+		Has Advanced Settings + Client Settings
+		-----------------------------------
+		Requested by `Iris`
+		'''
+}
+
 EvilBiomeDoT: {
 	Label: Evil Biome DoT
 	Tooltip:
@@ -39,8 +73,8 @@ OreDropChance: {
 		'''
 }
 
-OreScarcity: {
-	Label: Ore Scarcity
+OreScarcityPatchToggle: {
+	Label: Ore Scarcity Patch Toggle
 	Tooltip:
 		'''
 		Decreases the amount of ore that generates during world generation and on altar destruction.
@@ -123,40 +157,6 @@ WindAffectsArrows: {
 	Tooltip:
 		'''
 		Make arrows affected by wind.
-		-----------------------------------
-		Requested by `Iris`
-		'''
-}
-
-DarkerNightsMode: {
-	Label: Darker Nights Mode
-	Tooltip:
-		'''
-		Makes nights darker. (real shocker, i know)
-		-----------------------------------
-		0: Disabled
-		1: Allows the moon to change the brightness at night
-		2: Always pitch black at night
-		-----------------------------------
-		Has Advanced Settings
-		-----------------------------------
-		Requested by `Iris`
-		'''
-}
-
-DepthPressureMode: {
-	Label: Depth Pressure Mode
-	Tooltip:
-		'''
-		The deeper you are in a water body, the faster you lose breath.
-
-		Changes the mode of how pressure is calculated.
-		-----------------------------------
-		0: Off
-		1: Fast but can be inaccurate
-		2: Accurate but slightly more intensive on the CPU.
-		-----------------------------------
-		Has Advanced Settings + Client Settings
 		-----------------------------------
 		Requested by `Iris`
 		'''

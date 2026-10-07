@@ -63,7 +63,7 @@ internal class LuneWoL_ReforgeAccessoryIL : ILoadable
             c.Emit(OpCodes.Ldc_R4, cfg.Lucky.Crit);
         }
         #endregion
-
+        
         #region damage
         if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(0.01f))) // Jagged
         {

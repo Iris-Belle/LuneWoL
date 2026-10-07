@@ -10,9 +10,9 @@ MurkyWater: {
 	Tooltip: ""
 }
 
-OreDestroyChance: {
+OreDropChance: {
+	Label: Ore Drop Chance
 	Tooltip: ""
-	Label: Ore Destroy Chance
 }
 
 OreScarcity: {
@@ -25,26 +25,6 @@ ServerDepthPressure: {
 	Tooltip: ""
 }
 
-WaterPoision: {
-	Label: Water Poision
-	Tooltip: ""
-}
-
-WeatherEffects: {
-	Tooltip: ""
-	Label: Weather Effects
-}
-
-Weather: {
-	Tooltip: ""
-	Label: Weather
-}
-
-OreDropChance: {
-	Label: Ore Drop Chance
-	Tooltip: ""
-}
-
 SpaceVacuum: {
 	Tooltip: ""
 	Label: Space Vacuum
@@ -53,4 +33,14 @@ SpaceVacuum: {
 ViscousWater: {
 	Tooltip: ""
 	Label: Viscous Water
+}
+
+WaterPoision: {
+	Label: Water Poision
+	Tooltip: ""
+}
+
+WeatherEffects: {
+	Label: Weather Effects
+	Tooltip: ""
 }

@@ -34,9 +34,9 @@ InvasionMultiplier: {
 	Label: Invasion Multiplier
 	Tooltip:
 		'''
-		Multiplies how many enemies you need to kill to defeat the invasion.
+		Toggle 
 		-----------------------------------
-		Set to `1` to disable.
+		Has Advanced Settings
 		-----------------------------------
 		Requested by `Iris`
 		'''
@@ -64,4 +64,24 @@ NpcValueMult: {
 		-----------------------------------
 		Requested by `Iris`
 		'''
+}
+
+InvasionSize: {
+	Label: Invasion Size
+	Tooltip: ""
+}
+
+InvasionSizeQuickToggle: {
+	Label: Invasion Size Quick Toggle
+	Tooltip: ""
+}
+
+InvasionSizePatchToggle: {
+	Label: Invasion Size Patch Toggle
+	Tooltip: ""
+}
+
+PricePatchToggle: {
+	Label: Price Patch Toggle
+	Tooltip: ""
 }

@@ -2,7 +2,7 @@
 {
     internal class LuneWoL_OreGenIL : ILoadable
     {
-        public bool IsLoadingEnabled(Mod mod) => ServerConfig.Environment.OreScarcity;
+        public bool IsLoadingEnabled(Mod mod) => ServerConfig.Environment.OreScarcityPatchToggle;
         public void Unload() { }
 
         public void Load(Mod mod)
