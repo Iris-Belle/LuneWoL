@@ -20,6 +20,19 @@ UpdateIntervalTicks: {
 		'''
 }
 
+MurkyWaterUpdateTicks: {
+	Label: Murky Water Update Ticks
+	Tooltip:
+		'''
+		(Any mode + Murky water)
+		How often it should update the light decay values based on how deep you are.
+		-----------------------------------
+		`0` skips the checks and just updates every terraria tick which is usually 60t/sec.
+		-----------------------------------
+		Requested by `Iris`
+		'''
+}
+
 TileScanLimit: {
 	Label: Max Tile Scans Per Tick
 	Tooltip:
@@ -57,10 +70,5 @@ ShowDebugMarkerColour: {
 
 ShowScannedDebugColour: {
 	Label: Scanned Debug Colour
-	Tooltip: ""
-}
-
-MurkyWaterUpdateTicks: {
-	Label: Murky Water Update Ticks
 	Tooltip: ""
 }

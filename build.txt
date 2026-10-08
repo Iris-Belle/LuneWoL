@@ -1,6 +1,6 @@
 displayName = Lunes Worse of Life
 author = Iris
-version = 2.1.4
+version = 2.1.5
 weakReferences = InfernumMode, CalamityMod, ThoriumMod, SpiritMod, LuneLibAssets
 modReferences = LuneLib
 hideCode = false
