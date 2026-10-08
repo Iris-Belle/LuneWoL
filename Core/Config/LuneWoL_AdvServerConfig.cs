@@ -78,51 +78,51 @@ public class LuneWoL_AdvServerConfig : ModConfig
         public class MurkyWaterPage
         {
             [Range(0f, 0.91f), Increment(0.005f), RoundNumber(3)]
-            public float SurfaceIntensity { get; set; }
+            public float SurfaceDecay { get; set; }
 
             [Range(0f, 0.91f), Increment(0.005f), RoundNumber(3)]
-            public float CorruptionIntensity { get; set; }
+            public float CorruptionDecay { get; set; }
 
             [Range(0f, 0.91f), Increment(0.005f), RoundNumber(3)]
-            public float JungleIntensity { get; set; }
+            public float JungleDecay { get; set; }
 
             [Range(0f, 0.91f), Increment(0.005f), RoundNumber(3)]
-            public float HallowIntensity { get; set; }
+            public float HallowDecay { get; set; }
 
             [Range(0f, 0.91f), Increment(0.005f), RoundNumber(3)]
-            public float SnowIntensity { get; set; }
+            public float SnowDecay { get; set; }
 
             [Range(0f, 0.91f), Increment(0.005f), RoundNumber(3)]
-            public float DesertIntensity { get; set; }
+            public float DesertDecay { get; set; }
 
             [Range(0f, 0.91f), Increment(0.005f), RoundNumber(3)]
-            public float BloodMoonIntensity { get; set; }
+            public float BloodMoonDecay { get; set; }
 
             [Range(0f, 0.91f), Increment(0.005f), RoundNumber(3)]
-            public float CrimsonIntensity { get; set; }
+            public float CrimsonDecay { get; set; }
 
             [Range(0f, 0.91f), Increment(0.005f), RoundNumber(3)]
-            public float UndergroundDesertIntensity { get; set; }
+            public float UndergroundDesertDecay { get; set; }
 
             [Range(0f, 0.91f), Increment(0.005f), RoundNumber(3)]
-            public float OceanIntensity { get; set; }
+            public float OceanDecay { get; set; }
 
             [Range(0f, 0.91f), Increment(0.005f), RoundNumber(3)]
-            public float ModdedIntensity { get; set; }
+            public float ModdedDecay { get; set; }
 
             public MurkyWaterPage()
             {
-                SurfaceIntensity = 0.91f;
-                CorruptionIntensity = 0.91f;
-                JungleIntensity = 0.91f;
-                HallowIntensity = 0.91f;
-                SnowIntensity = 0.91f;
-                DesertIntensity = 0.91f;
-                BloodMoonIntensity = 0.91f;
-                CrimsonIntensity = 0.91f;
-                UndergroundDesertIntensity = 0.91f;
-                OceanIntensity = 0.91f;
-                ModdedIntensity = 0.91f;
+                SurfaceDecay = 0.91f;
+                CorruptionDecay = 0.91f;
+                JungleDecay = 0.91f;
+                HallowDecay = 0.91f;
+                SnowDecay = 0.91f;
+                DesertDecay = 0.91f;
+                BloodMoonDecay = 0.91f;
+                CrimsonDecay = 0.91f;
+                UndergroundDesertDecay = 0.91f;
+                OceanDecay = 0.91f;
+                ModdedDecay = 0.91f;
             }
         }
 

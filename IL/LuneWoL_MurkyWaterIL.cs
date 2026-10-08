@@ -22,47 +22,47 @@ internal class LuneWoL_MurkyWaterIL : ILoadable
 
         c.GotoNext(MoveType.Before, i => i.MatchLdcR4(0.91f));
         c.Remove();
-        c.EmitDelegate<Func<float>>(() => AdvServerConfig.Adv_Environment.MurkyWater.SurfaceIntensity); //         workingLightMap.LightDecayThroughWater = new Vector3(0.88f, 0.96f, 1.015f) * 0.91f;
+        c.EmitDelegate<Func<float>>(() => Main.LocalPlayer.WoLPlayer()._SurfaceDecay); //         workingLightMap.LightDecayThroughWater = new Vector3(0.88f, 0.96f, 1.015f) * 0.91f;
 
         c.GotoNext(MoveType.Before, i => i.MatchLdcR4(0.91f));
         c.Remove();
-        c.EmitDelegate<Func<float>>(() => AdvServerConfig.Adv_Environment.MurkyWater.CorruptionIntensity); //         workingLightMap.LightDecayThroughWater = new Vector3(0.94f, 0.85f, 1.01f) * 0.91f;
+        c.EmitDelegate<Func<float>>(() => Main.LocalPlayer.WoLPlayer()._CorruptionDecay); //         workingLightMap.LightDecayThroughWater = new Vector3(0.94f, 0.85f, 1.01f) * 0.91f;
 
         c.GotoNext(MoveType.Before, i => i.MatchLdcR4(0.91f));
         c.Remove();
-        c.EmitDelegate<Func<float>>(() => AdvServerConfig.Adv_Environment.MurkyWater.JungleIntensity); //         workingLightMap.LightDecayThroughWater = new Vector3(0.84f, 0.95f, 1.015f) * 0.91f;
+        c.EmitDelegate<Func<float>>(() => Main.LocalPlayer.WoLPlayer()._JungleDecay); //         workingLightMap.LightDecayThroughWater = new Vector3(0.84f, 0.95f, 1.015f) * 0.91f;
 
         c.GotoNext(MoveType.Before, i => i.MatchLdcR4(0.91f));
         c.Remove();
-        c.EmitDelegate<Func<float>>(() => AdvServerConfig.Adv_Environment.MurkyWater.HallowIntensity); //         workingLightMap.LightDecayThroughWater = new Vector3(0.9f, 0.86f, 1.01f) * 0.91f;
+        c.EmitDelegate<Func<float>>(() => Main.LocalPlayer.WoLPlayer()._HallowDecay); //         workingLightMap.LightDecayThroughWater = new Vector3(0.9f, 0.86f, 1.01f) * 0.91f;
 
         c.GotoNext(MoveType.Before, i => i.MatchLdcR4(0.91f));
         c.Remove();
-        c.EmitDelegate<Func<float>>(() => AdvServerConfig.Adv_Environment.MurkyWater.SnowIntensity); //         workingLightMap.LightDecayThroughWater = new Vector3(0.84f, 0.99f, 1.01f) * 0.91f;
+        c.EmitDelegate<Func<float>>(() => Main.LocalPlayer.WoLPlayer()._SnowDecay); //         workingLightMap.LightDecayThroughWater = new Vector3(0.84f, 0.99f, 1.01f) * 0.91f;
 
         c.GotoNext(MoveType.Before, i => i.MatchLdcR4(0.91f));
         c.Remove();
-        c.EmitDelegate<Func<float>>(() => AdvServerConfig.Adv_Environment.MurkyWater.DesertIntensity); //         workingLightMap.LightDecayThroughWater = new Vector3(0.83f, 0.93f, 0.98f) * 0.91f;
+        c.EmitDelegate<Func<float>>(() => Main.LocalPlayer.WoLPlayer()._DesertDecay); //         workingLightMap.LightDecayThroughWater = new Vector3(0.83f, 0.93f, 0.98f) * 0.91f;
 
         c.GotoNext(MoveType.Before, i => i.MatchLdcR4(0.91f));
         c.Remove();
-        c.EmitDelegate<Func<float>>(() => AdvServerConfig.Adv_Environment.MurkyWater.BloodMoonIntensity); //         workingLightMap.LightDecayThroughWater = new Vector3(1f, 0.88f, 0.84f) * 0.91f;
+        c.EmitDelegate<Func<float>>(() => Main.LocalPlayer.WoLPlayer()._BloodMoonDecay); //         workingLightMap.LightDecayThroughWater = new Vector3(1f, 0.88f, 0.84f) * 0.91f;
 
         c.GotoNext(MoveType.Before, i => i.MatchLdcR4(0.91f));
         c.Remove();
-        c.EmitDelegate<Func<float>>(() => AdvServerConfig.Adv_Environment.MurkyWater.CrimsonIntensity); //         workingLightMap.LightDecayThroughWater = new Vector3(0.83f, 1f, 1f) * 0.91f;
+        c.EmitDelegate<Func<float>>(() => Main.LocalPlayer.WoLPlayer()._CrimsonDecay); //         workingLightMap.LightDecayThroughWater = new Vector3(0.83f, 1f, 1f) * 0.91f;
 
         c.GotoNext(MoveType.Before, i => i.MatchLdcR4(0.91f));
         c.Remove();
-        c.EmitDelegate<Func<float>>(() => AdvServerConfig.Adv_Environment.MurkyWater.UndergroundDesertIntensity); //         workingLightMap.LightDecayThroughWater = new Vector3(0.95f, 0.98f, 0.85f) * 0.91f;
+        c.EmitDelegate<Func<float>>(() => Main.LocalPlayer.WoLPlayer()._UndergroundDesertDecay); //         workingLightMap.LightDecayThroughWater = new Vector3(0.95f, 0.98f, 0.85f) * 0.91f;
 
         c.GotoNext(MoveType.Before, i => i.MatchLdcR4(0.91f));
         c.Remove();
-        c.EmitDelegate<Func<float>>(() => AdvServerConfig.Adv_Environment.MurkyWater.OceanIntensity); //         workingLightMap.LightDecayThroughWater = new Vector3(0.9f, 1f, 1.02f) * 0.91f;
+        c.EmitDelegate<Func<float>>(() => Main.LocalPlayer.WoLPlayer()._OceanDecay); //         workingLightMap.LightDecayThroughWater = new Vector3(0.9f, 1f, 1.02f) * 0.91f;
 
         c.GotoNext(MoveType.After, i => i.MatchLdcR4(0.91f));
         c.EmitPop();
-        c.EmitDelegate<Func<float>>(() => AdvServerConfig.Adv_Environment.MurkyWater.ModdedIntensity); //     float factor = 0.91f; for modded nbiomes yk
+        c.EmitDelegate<Func<float>>(() => Main.LocalPlayer.WoLPlayer()._ModdedDecay); //     float factor = 0.91f; for modded nbiomes yk
                                                                 //     LoaderManager.Get<WaterStylesLoader>().LightColorMultiplier(Main.waterStyle, factor, ref throughWaterR, ref throughWaterG, ref throughWaterB);
         //MonoModHooks.DumpIL(_mod, il);
     }

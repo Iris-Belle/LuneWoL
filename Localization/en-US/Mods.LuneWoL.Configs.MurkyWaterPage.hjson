@@ -131,3 +131,58 @@ ModdedIntensity: {
 		Requested by `Iris`
 		'''
 }
+
+JungleDecay: {
+	Label: Jungle Decay
+	Tooltip: ""
+}
+
+HallowDecay: {
+	Label: Hallow Decay
+	Tooltip: ""
+}
+
+SnowDecay: {
+	Label: Snow Decay
+	Tooltip: ""
+}
+
+SurfaceDecay: {
+	Label: Surface Decay
+	Tooltip: ""
+}
+
+CorruptionDecay: {
+	Label: Corruption Decay
+	Tooltip: ""
+}
+
+DesertDecay: {
+	Label: Desert Decay
+	Tooltip: ""
+}
+
+BloodMoonDecay: {
+	Label: Blood Moon Decay
+	Tooltip: ""
+}
+
+CrimsonDecay: {
+	Label: Crimson Decay
+	Tooltip: ""
+}
+
+UndergroundDesertDecay: {
+	Label: Underground Desert Decay
+	Tooltip: ""
+}
+
+OceanDecay: {
+	Label: Ocean Decay
+	Tooltip: ""
+}
+
+ModdedDecay: {
+	Label: Modded Decay
+	Tooltip: ""
+}

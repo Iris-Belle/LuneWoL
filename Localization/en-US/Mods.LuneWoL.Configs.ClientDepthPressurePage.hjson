@@ -59,3 +59,8 @@ ShowScannedDebugColour: {
 	Label: Scanned Debug Colour
 	Tooltip: ""
 }
+
+MurkyWaterUpdateTicks: {
+	Label: Murky Water Update Ticks
+	Tooltip: ""
+}

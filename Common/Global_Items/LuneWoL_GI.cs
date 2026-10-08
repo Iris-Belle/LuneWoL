@@ -28,7 +28,7 @@ public partial class LuneWoL_GI : GlobalItem
 
     public override bool? CanAutoReuseItem(Item item, Player player)
     {
-        return base.CanAutoReuseItem(item, player);
+        return DisableAutoReuse(item, player);
     }
 
     public override bool? UseItem(Item item, Player player)

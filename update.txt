@@ -1,9 +1,3 @@
-changed invasions multiplier to instead letting you set the exact number of enemies needed to complete the thing
-removed shitty implementation of the invasion multiplier and switched to IL instead
-added custom colours for the debug options in the advanced client pressure config
-classic localisation shit fucking up
-renamed some options in the config idk
-yes i am extremely out of ideas please suggest something (that isnt stupid or doesnt fit in the mod)
-reworked "murky water"
-added always night mode to darker nights
-removed reduced vision in storms because it looked like fucking shit
+- Fixed Disable Auto-reuse.. i forgot to plug the method into the hook my bad chat
+- Added an option to make murky water change depending on how deep the palyer is in a waterbody.. obv u need the pressure system on for that
+- Fixed Viscous water morer

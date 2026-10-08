@@ -7,6 +7,8 @@ public partial class LuneWoL_Plr : ModPlayer
     public int
         SpaceDoT = 50;
 
+    internal float _SurfaceDecay, _CorruptionDecay, _JungleDecay, _HallowDecay, _SnowDecay, _DesertDecay, _BloodMoonDecay, _CrimsonDecay, _UndergroundDesertDecay, _OceanDecay, _ModdedDecay;
+
     internal int
         LostHealth,
         LostMana,
@@ -20,7 +22,8 @@ public partial class LuneWoL_Plr : ModPlayer
     private enum Timers
     {
         TundraBlizzardCounter,
-        TundraChilledCounter
+        TundraChilledCounter,
+        UpdateConfig
     }
 
     private readonly TimerSet<Timers> _timers = TimerSet<Timers>.ForEnum();
@@ -109,7 +112,9 @@ public partial class LuneWoL_Plr : ModPlayer
     public override void PostUpdate()
     {
         ResetDeathPenalty();
-        
+
+        UpdateConfigState();
+
         // https://steamcommunity.com/sharedfiles/filedetails/?id=2395507804
     }
 
@@ -305,6 +310,27 @@ public partial class LuneWoL_Plr : ModPlayer
         Player.AddBuff(BuffID.OnFire, 120, false, false);
     }
 
+    public void UpdateConfigState()
+    {
+        if (!ServerConfig.Environment.MurkyWater)
+            return;
+
+        if (AdvClientConfig.ClientDepthPressure.MurkyWaterUpdateTicks == 0 || _timers.Repeat(Timers.UpdateConfig, (uint)AdvClientConfig.ClientDepthPressure.MurkyWaterUpdateTicks))
+        {
+            _SurfaceDecay = MathHelper.Lerp(AdvServerConfig.Adv_Environment.MurkyWater.SurfaceDecay, 0f, Player.DepthPlayer().lightDepthDiff);
+            _CorruptionDecay = MathHelper.Lerp(AdvServerConfig.Adv_Environment.MurkyWater.CorruptionDecay, 0f, Player.DepthPlayer().lightDepthDiff);
+            _JungleDecay = MathHelper.Lerp(AdvServerConfig.Adv_Environment.MurkyWater.JungleDecay, 0f, Player.DepthPlayer().lightDepthDiff);
+            _HallowDecay = MathHelper.Lerp(AdvServerConfig.Adv_Environment.MurkyWater.HallowDecay, 0f, Player.DepthPlayer().lightDepthDiff);
+            _SnowDecay = MathHelper.Lerp(AdvServerConfig.Adv_Environment.MurkyWater.SnowDecay, 0f, Player.DepthPlayer().lightDepthDiff);
+            _DesertDecay = MathHelper.Lerp(AdvServerConfig.Adv_Environment.MurkyWater.DesertDecay, 0f, Player.DepthPlayer().lightDepthDiff);
+            _BloodMoonDecay = MathHelper.Lerp(AdvServerConfig.Adv_Environment.MurkyWater.BloodMoonDecay, 0f, Player.DepthPlayer().lightDepthDiff);
+            _CrimsonDecay = MathHelper.Lerp(AdvServerConfig.Adv_Environment.MurkyWater.CrimsonDecay, 0f, Player.DepthPlayer().lightDepthDiff);
+            _UndergroundDesertDecay = MathHelper.Lerp(AdvServerConfig.Adv_Environment.MurkyWater.UndergroundDesertDecay, 0f, Player.DepthPlayer().lightDepthDiff);
+            _OceanDecay = MathHelper.Lerp(AdvServerConfig.Adv_Environment.MurkyWater.OceanDecay, 0f, Player.DepthPlayer().lightDepthDiff);
+            _ModdedDecay = MathHelper.Lerp(AdvServerConfig.Adv_Environment.MurkyWater.ModdedDecay, 0f, Player.DepthPlayer().lightDepthDiff);
+        }
+    }
+
     public void LoadDeathPenaltyTag(TagCompound tag)
     {
         if (ServerConfig.Player.DeathPenaltyMode != 1)
@@ -482,10 +508,10 @@ public partial class LuneWoL_Plr : ModPlayer
         if (!ServerConfig.Environment.ViscousWater)
             return;
 
-        if (Player.Submersion() > 0.01f)
+        if (Player.Submerged())
         {
-            Player.velocity.X *= MathHelper.Lerp(1f, AdvServerConfig.Adv_Environment.ViscousWater.WaterVelocityX, Player.Submersion());
-            Player.velocity.Y *= MathHelper.Lerp(1f, AdvServerConfig.Adv_Environment.ViscousWater.WaterVelocityY, Player.Submersion());
+            Player.velocity.X *= AdvServerConfig.Adv_Environment.ViscousWater.WaterVelocityX;
+            Player.velocity.Y *= AdvServerConfig.Adv_Environment.ViscousWater.WaterVelocityY;
         }
     }
 

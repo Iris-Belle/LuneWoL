@@ -13,6 +13,9 @@ public class LuneWoL_AdvClientConfig : ModConfig
         [Range(0, 16), Slider]
         public int UpdateIntervalTicks { get; set; }
 
+        [Range(0, 120)]
+        public int MurkyWaterUpdateTicks { get; set; }
+
         [Range(-1, 16384)]
         public int TileScanLimit { get; set; }
 
