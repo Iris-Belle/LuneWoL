@@ -315,7 +315,7 @@ public partial class LuneWoL_Plr : ModPlayer
         if (!ServerConfig.Environment.MurkyWater)
             return;
 
-        if (AdvClientConfig.ClientDepthPressure.MurkyWaterUpdateTicks == 0 || _timers.Repeat(Timers.UpdateConfig, (uint)AdvClientConfig.ClientDepthPressure.MurkyWaterUpdateTicks))
+        if (Player.DepthPlayer().InWaterBody && AdvClientConfig.ClientDepthPressure.MurkyWaterUpdateTicks == 0 || _timers.Repeat(Timers.UpdateConfig, (uint)AdvClientConfig.ClientDepthPressure.MurkyWaterUpdateTicks))
         {
             _SurfaceDecay = MathHelper.Lerp(AdvServerConfig.Adv_Environment.MurkyWater.SurfaceDecay, 0f, Player.DepthPlayer().lightDepthDiff);
             _CorruptionDecay = MathHelper.Lerp(AdvServerConfig.Adv_Environment.MurkyWater.CorruptionDecay, 0f, Player.DepthPlayer().lightDepthDiff);
@@ -328,6 +328,20 @@ public partial class LuneWoL_Plr : ModPlayer
             _UndergroundDesertDecay = MathHelper.Lerp(AdvServerConfig.Adv_Environment.MurkyWater.UndergroundDesertDecay, 0f, Player.DepthPlayer().lightDepthDiff);
             _OceanDecay = MathHelper.Lerp(AdvServerConfig.Adv_Environment.MurkyWater.OceanDecay, 0f, Player.DepthPlayer().lightDepthDiff);
             _ModdedDecay = MathHelper.Lerp(AdvServerConfig.Adv_Environment.MurkyWater.ModdedDecay, 0f, Player.DepthPlayer().lightDepthDiff);
+        }
+        if (!Player.DepthPlayer().InWaterBody)
+        {
+            _SurfaceDecay = AdvServerConfig.Adv_Environment.MurkyWater.SurfaceDecay;
+            _CorruptionDecay = AdvServerConfig.Adv_Environment.MurkyWater.CorruptionDecay;
+            _JungleDecay = AdvServerConfig.Adv_Environment.MurkyWater.JungleDecay;
+            _HallowDecay = AdvServerConfig.Adv_Environment.MurkyWater.HallowDecay;
+            _SnowDecay = AdvServerConfig.Adv_Environment.MurkyWater.SnowDecay;
+            _DesertDecay = AdvServerConfig.Adv_Environment.MurkyWater.DesertDecay;
+            _BloodMoonDecay = AdvServerConfig.Adv_Environment.MurkyWater.BloodMoonDecay;
+            _CrimsonDecay = AdvServerConfig.Adv_Environment.MurkyWater.CrimsonDecay;
+            _UndergroundDesertDecay = AdvServerConfig.Adv_Environment.MurkyWater.UndergroundDesertDecay;
+            _OceanDecay = AdvServerConfig.Adv_Environment.MurkyWater.OceanDecay;
+            _ModdedDecay = AdvServerConfig.Adv_Environment.MurkyWater.ModdedDecay;
         }
     }
 
