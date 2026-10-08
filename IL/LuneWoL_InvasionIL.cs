@@ -90,7 +90,7 @@ internal class LuneWoL_InvasionIL : ILoadable
         if (type == 4)
             invasionSize = 160 + 40 * num;
 
-        invasionSize = cfg.value; add this pls me
+        invasionSize = cfg.value; add this pls me // dont worry past me, i did it
 
         invasionSizeStart = invasionSize;
         invasionProgress = 0;

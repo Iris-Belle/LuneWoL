@@ -1,12 +1,132 @@
 Tooltip: ""
 
-DarkWaterIntensity: {
-	Label: Effect Intensity
+SurfaceIntensity: {
+	Label: Surface Biome Light Decay
 	Tooltip:
 		'''
-		How strong the effect should be.
+		How far light can spread through water.
 		-----------------------------------
-		Higher values will make the it darker.
+		Higher values will make light spread farther.
+		-----------------------------------
+		Requested by `Iris`
+		'''
+}
+
+CorruptionIntensity: {
+	Label: Corruption Biome Light Decay
+	Tooltip:
+		'''
+		How far light can spread through water.
+		-----------------------------------
+		Higher values will make light spread farther.
+		-----------------------------------
+		Requested by `Iris`
+		'''
+}
+
+JungleIntensity: {
+	Label: Jungle Biome Light Decay
+	Tooltip:
+		'''
+		How far light can spread through water.
+		-----------------------------------
+		Higher values will make light spread farther.
+		-----------------------------------
+		Requested by `Iris`
+		'''
+}
+
+HallowIntensity: {
+	Label: Hallow Biome Light Decay
+	Tooltip:
+		'''
+		How far light can spread through water.
+		-----------------------------------
+		Higher values will make light spread farther.
+		-----------------------------------
+		Requested by `Iris`
+		'''
+}
+
+SnowIntensity: {
+	Label: Snow Biome Light Decay
+	Tooltip:
+		'''
+		How far light can spread through water.
+		-----------------------------------
+		Higher values will make light spread farther.
+		-----------------------------------
+		Requested by `Iris`
+		'''
+}
+
+DesertIntensity: {
+	Label: Desert Biome Light Decay
+	Tooltip:
+		'''
+		How far light can spread through water.
+		-----------------------------------
+		Higher values will make light spread farther.
+		-----------------------------------
+		Requested by `Iris`
+		'''
+}
+
+BloodMoonIntensity: {
+	Label: Blood Moon Biome Light Decay
+	Tooltip:
+		'''
+		How far light can spread through water.
+		-----------------------------------
+		Higher values will make light spread farther.
+		-----------------------------------
+		Requested by `Iris`
+		'''
+}
+
+CrimsonIntensity: {
+	Label: Crimson Biome Light Decay
+	Tooltip:
+		'''
+		How far light can spread through water.
+		-----------------------------------
+		Higher values will make light spread farther.
+		-----------------------------------
+		Requested by `Iris`
+		'''
+}
+
+UndergroundDesertIntensity: {
+	Label: Underground Desert Biome Light Decay
+	Tooltip:
+		'''
+		How far light can spread through water.
+		-----------------------------------
+		Higher values will make light spread farther.
+		-----------------------------------
+		Requested by `Iris`
+		'''
+}
+
+OceanIntensity: {
+	Label: Ocean Biome Light Decay
+	Tooltip:
+		'''
+		How far light can spread through water.
+		-----------------------------------
+		Higher values will make light spread farther.
+		-----------------------------------
+		Requested by `Iris`
+		'''
+}
+
+ModdedIntensity: {
+	Label: Modded Biome Light Decay
+	Tooltip:
+		'''
+		How far light can spread through water.
+		-----------------------------------
+		Higher values will make light spread farther.
 		-----------------------------------
 		Requested by `Iris`
 		'''

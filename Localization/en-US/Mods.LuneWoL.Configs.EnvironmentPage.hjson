@@ -14,6 +14,7 @@ DarkerNightsMode: {
 		0: Disabled
 		1: Allows the moon to change the brightness at night
 		2: Always pitch black at night
+		3: Always night (not literally, just visually)
 		-----------------------------------
 		Has Advanced Settings
 		-----------------------------------
@@ -25,9 +26,9 @@ DepthPressureMode: {
 	Label: Depth Pressure Mode
 	Tooltip:
 		'''
-		The deeper you are in a water body, the faster you lose breath.
+		The deeper you are in a water body, the faster you lose breath + some extra stuff.
 
-		Changes the mode of how pressure is calculated.
+		Changes how the surface of a water body is found.
 		-----------------------------------
 		0: Off
 		1: Fast but can be inaccurate
@@ -50,10 +51,10 @@ EvilBiomeDoT: {
 }
 
 MurkyWater: {
-	Label: Underwater ``Fog``
+	Label: Murkier Water
 	Tooltip:
 		'''
-		Makes it harder to see underwater.
+		Changes light decay in water.
 		-----------------------------------
 		Has Advanced Settings
 		-----------------------------------
@@ -78,6 +79,7 @@ OreScarcityPatchToggle: {
 	Tooltip:
 		'''
 		Decreases the amount of ore that generates during world generation and on altar destruction.
+		This is only a toggle to let the IL patch load.
 		-----------------------------------
 		Has Advanced Settings
 		-----------------------------------
@@ -110,21 +112,11 @@ SpaceDoT: {
 		'''
 }
 
-TundraGivesChilled: {
-	Label: Tundra Applies Chilled
-	Tooltip:
-		'''
-		Applies the ``Chilled`` debuff when you're in the Tundra.
-		-----------------------------------
-		Requested by `Iris`
-		'''
-}
-
 UnderworldGivesOnFire: {
-	Label: Underworld Applies ``On-Fire!``
+	Label: Underworld Applies `On-Fire!`
 	Tooltip:
 		'''
-		Being in the Underworld applies the ``On-Fire!`` debuff.
+		Being in the Underworld applies the `On-Fire!` debuff.
 		-----------------------------------
 		Requested by `Gamma_sol`
 		'''
@@ -134,7 +126,7 @@ ViscousWater: {
 	Label: Viscous Water
 	Tooltip:
 		'''
-		Multiplies the velocity of the player while in water.
+		Lets you customise how fast you can move in water.
 		-----------------------------------
 		Has Advanced Settings
 		-----------------------------------
@@ -146,7 +138,9 @@ WeatherEffects: {
 	Label: Weather Effects
 	Tooltip:
 		'''
-		Blizzards freeze you and Sandstorms reduce vision.
+		Lets you make the tundra apply the `Chilled` debuff or `Frozen` in blizzards.. or both idc.
+		-----------------------------------
+		Has Advanced Settings
 		-----------------------------------
 		Requested by `Iris`
 		'''
@@ -156,7 +150,7 @@ WindAffectsArrows: {
 	Label: Wind Affects Arrows
 	Tooltip:
 		'''
-		Make arrows affected by wind.
+		Makes arrows consider wind speed.
 		-----------------------------------
 		Requested by `Iris`
 		'''

@@ -20,7 +20,7 @@ internal class LuneWoL_ReforgeWeaponIL : ILoadable
         ILCursor c = new(il);
 
         #region Large
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(1.12f))) //size
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(1.12f)); //size
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Large.Size);
@@ -28,7 +28,7 @@ internal class LuneWoL_ReforgeWeaponIL : ILoadable
         #endregion
 
         #region Massive
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(1.18f))) //size
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(1.18f)); //size
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Massive.Size);
@@ -36,17 +36,17 @@ internal class LuneWoL_ReforgeWeaponIL : ILoadable
         #endregion
 
         #region Dangerous
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(1.05f))) //dmg
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(1.05f)); //dmg
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Dangerous.Dmg);
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcI4(2))) //crit
+        c.GotoNext(MoveType.Before, i => i.MatchLdcI4(2)); //crit
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_I4, cfg.Dangerous.Crt);
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(1.05f))) //size
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(1.05f)); //size
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Dangerous.Size);
@@ -54,17 +54,17 @@ internal class LuneWoL_ReforgeWeaponIL : ILoadable
         #endregion
         
         #region Savage
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(1.1f))) //dmg
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(1.1f)); //dmg
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Savage.Dmg);
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(1.1f))) //size
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(1.1f)); //size
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Savage.Size);
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(1.1f))) //kb
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(1.1f)); //kb
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Savage.Kb);
@@ -72,7 +72,7 @@ internal class LuneWoL_ReforgeWeaponIL : ILoadable
         #endregion
 
         #region Sharp
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(1.15f))) //dmg
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(1.15f)); //dmg
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Sharp.Dmg);
@@ -80,7 +80,7 @@ internal class LuneWoL_ReforgeWeaponIL : ILoadable
         #endregion
 
         #region Pointy
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(1.1f))) //dmg
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(1.1f)); //dmg
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Pointy.Dmg);
@@ -88,27 +88,27 @@ internal class LuneWoL_ReforgeWeaponIL : ILoadable
         #endregion
 
         #region Legendary
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(1.15f))) //kb
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(1.15f)); //kb
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Legendary.Kb);
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(1.15f))) //dmg
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(1.15f)); //dmg
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Legendary.Dmg);
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcI4(5))) //crit
+        c.GotoNext(MoveType.Before, i => i.MatchLdcI4(5)); //crit
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_I4, cfg.Legendary.Crt);
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(0.9f))) //spd
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(0.9f)); //spd
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Legendary.Spd);
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(1.1f))) //size
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(1.1f)); //size
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Legendary.Size);
@@ -116,7 +116,7 @@ internal class LuneWoL_ReforgeWeaponIL : ILoadable
         #endregion
 
         #region Tiny
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(0.82f))) //size
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(0.82f)); //size
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Tiny.Size);
@@ -124,17 +124,17 @@ internal class LuneWoL_ReforgeWeaponIL : ILoadable
         #endregion
 
         #region Terrible
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(0.85f))) //kb
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(0.85f)); //kb
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Terrible.Kb);
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(0.85f))) //dmg
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(0.85f)); //dmg
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Terrible.Dmg);
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(0.87f))) //size
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(0.87f)); //size
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Terrible.Size);
@@ -142,7 +142,7 @@ internal class LuneWoL_ReforgeWeaponIL : ILoadable
         #endregion
 
         #region Small
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(0.9f))) //size
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(0.9f)); //size
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Small.Size);
@@ -150,7 +150,7 @@ internal class LuneWoL_ReforgeWeaponIL : ILoadable
         #endregion
 
         #region Dull
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(0.85f))) //dmg
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(0.85f)); //dmg
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Dull.Dmg);
@@ -158,17 +158,17 @@ internal class LuneWoL_ReforgeWeaponIL : ILoadable
         #endregion
 
         #region Unhappy
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(1.1f))) //spd
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(1.1f)); //spd
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Unhappy.Spd);
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(0.9f))) //kb
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(0.9f)); //kb
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Unhappy.Kb);
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(0.9f))) //size
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(0.9f)); //size
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Unhappy.Size);
@@ -176,22 +176,22 @@ internal class LuneWoL_ReforgeWeaponIL : ILoadable
         #endregion
 
         #region Bulky
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(1.1f))) //kb
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(1.1f)); //kb
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Bulky.Kb);
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(1.05f))) //dmg
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(1.05f)); //dmg
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Bulky.Dmg);
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(1.1f))) //size
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(1.1f)); //size
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Bulky.Size);
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(1.15f))) //spd
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(1.15f)); //spd
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Bulky.Spd);
@@ -199,17 +199,17 @@ internal class LuneWoL_ReforgeWeaponIL : ILoadable
         #endregion
 
         #region Shameful
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(0.8f))) //kb
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(0.8f)); //kb
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Shameful.Kb);
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(0.9f))) //dmg
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(0.9f)); //dmg
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Shameful.Dmg);
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(1.1f))) //size
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(1.1f)); //size
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Shameful.Size);
@@ -217,12 +217,12 @@ internal class LuneWoL_ReforgeWeaponIL : ILoadable
         #endregion
 
         #region Heavy
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(1.15f))) //kb
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(1.15f)); //kb
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Heavy.Kb);
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(1.1f))) //spd
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(1.1f)); //spd
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Heavy.Spd);
@@ -230,12 +230,12 @@ internal class LuneWoL_ReforgeWeaponIL : ILoadable
         #endregion
 
         #region Light
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(0.9f))) //kb
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(0.9f)); //kb
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Light.Kb);
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(0.85f))) //spd
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(0.85f)); //spd
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Light.Spd);
@@ -243,12 +243,12 @@ internal class LuneWoL_ReforgeWeaponIL : ILoadable
         #endregion
 
         #region Sighted
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(1.1f))) //dmg
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(1.1f)); //dmg
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Sighted.Dmg);
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcI4(3))) //crit
+        c.GotoNext(MoveType.Before, i => i.MatchLdcI4(3)); //crit
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_I4, cfg.Sighted.Crt);
@@ -256,12 +256,12 @@ internal class LuneWoL_ReforgeWeaponIL : ILoadable
         #endregion
 
         #region Rapid
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(0.85f))) //spd
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(0.85f)); //spd
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Rapid.Spd);
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(1.1f))) //shtspd
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(1.1f)); //shtspd
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Rapid.Shtspd);
@@ -269,12 +269,12 @@ internal class LuneWoL_ReforgeWeaponIL : ILoadable
         #endregion
 
         #region Hasty
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(0.9f))) //spd
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(0.9f)); //spd
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Hasty.Spd);
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(1.15f))) //shtspd
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(1.15f)); //shtspd
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Hasty.Shtspd);
@@ -282,12 +282,12 @@ internal class LuneWoL_ReforgeWeaponIL : ILoadable
         #endregion
 
         #region Intimidating
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(1.15f))) //kb
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(1.15f)); //kb
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Intimidating.Kb);
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(1.05f))) //shtspd
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(1.05f)); //shtspd
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Intimidating.Shtspd);
@@ -295,27 +295,27 @@ internal class LuneWoL_ReforgeWeaponIL : ILoadable
         #endregion
 
         #region Deadly
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(1.05f))) //kb
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(1.05f)); //kb
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Deadly.Kb);
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(1.05f))) //shtspd
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(1.05f)); //shtspd
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Deadly.Shtspd);
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(1.1f))) //dmg
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(1.1f)); //dmg
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Deadly.Dmg);
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(0.95f))) //spd
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(0.95f)); //spd
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Deadly.Spd);
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcI4(2))) //crit
+        c.GotoNext(MoveType.Before, i => i.MatchLdcI4(2)); //crit
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_I4, cfg.Deadly.Crt);
@@ -323,12 +323,12 @@ internal class LuneWoL_ReforgeWeaponIL : ILoadable
         #endregion
 
         #region Staunch
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(1.15f))) //kb
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(1.15f)); //kb
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Staunch.Kb);
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(1.1f))) //dmg
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(1.1f)); //dmg
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Staunch.Dmg);
@@ -336,27 +336,27 @@ internal class LuneWoL_ReforgeWeaponIL : ILoadable
         #endregion
 
         #region Unreal
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(1.15f))) //kb
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(1.15f)); //kb
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Unreal.Kb);
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(1.15f))) //dmg
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(1.15f)); //dmg
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Unreal.Dmg);
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcI4(5))) //crit
+        c.GotoNext(MoveType.Before, i => i.MatchLdcI4(5)); //crit
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_I4, cfg.Unreal.Crt);
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(0.9f))) //spd
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(0.9f)); //spd
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Unreal.Spd);
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(1.1f))) //shtspd
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(1.1f)); //shtspd
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Unreal.Shtspd);
@@ -364,17 +364,17 @@ internal class LuneWoL_ReforgeWeaponIL : ILoadable
         #endregion
 
         #region Awful
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(0.9f))) //kb
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(0.9f)); //kb
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Awful.Kb);
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(0.9f))) //shtspd
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(0.9f)); //shtspd
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Awful.Shtspd);
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(0.85f))) //dmg
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(0.85f)); //dmg
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Awful.Dmg);
@@ -382,12 +382,12 @@ internal class LuneWoL_ReforgeWeaponIL : ILoadable
         #endregion
 
         #region Lethargic
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(1.15f))) //spd
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(1.15f)); //spd
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Lethargic.Spd);
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(0.9f))) //shtspd
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(0.9f)); //shtspd
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Lethargic.Shtspd);
@@ -395,12 +395,12 @@ internal class LuneWoL_ReforgeWeaponIL : ILoadable
         #endregion
 
         #region Awkward
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(1.1f))) //spd
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(1.1f)); //spd
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Awkward.Spd);
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(0.8f))) //kb
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(0.8f)); //kb
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Awkward.Kb);
@@ -408,17 +408,17 @@ internal class LuneWoL_ReforgeWeaponIL : ILoadable
         #endregion
 
         #region Powerful
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(1.1f))) //spd
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(1.1f)); //spd
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Powerful.Spd);
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(1.15f))) //dmg
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(1.15f)); //dmg
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Powerful.Dmg);
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcI4(1))) //crit
+        c.GotoNext(MoveType.Before, i => i.MatchLdcI4(1)); //crit
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_I4, cfg.Powerful.Crt);
@@ -426,12 +426,12 @@ internal class LuneWoL_ReforgeWeaponIL : ILoadable
         #endregion
 
         #region Frenzying
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(0.85f))) //spd
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(0.85f)); //spd
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Frenzying.Spd);
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(0.85f))) //dmg
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(0.85f)); //dmg
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Frenzying.Dmg);
@@ -439,12 +439,12 @@ internal class LuneWoL_ReforgeWeaponIL : ILoadable
         #endregion
 
         #region Mystic
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(0.85f))) //mcst
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(0.85f)); //mcst
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Mystic.Mcst);
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(1.1f))) //dmg
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(1.1f)); //dmg
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Mystic.Dmg);
@@ -452,7 +452,7 @@ internal class LuneWoL_ReforgeWeaponIL : ILoadable
         #endregion
 
         #region Adept
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(0.85f))) //mcst
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(0.85f)); //mcst
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Adept.Mcst);
@@ -460,17 +460,17 @@ internal class LuneWoL_ReforgeWeaponIL : ILoadable
         #endregion
 
         #region Masterful
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(0.85f))) //mcst
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(0.85f)); //mcst
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Masterful.Mcst);
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(1.15f))) //dmg
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(1.15f)); //dmg
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Masterful.Dmg);
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(1.05f))) //kb
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(1.05f)); //kb
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Masterful.Kb);
@@ -478,27 +478,27 @@ internal class LuneWoL_ReforgeWeaponIL : ILoadable
         #endregion
 
         #region Mythical
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(1.15f))) //kb
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(1.15f)); //kb
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Mythical.Kb);
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(1.15f))) //dmg
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(1.15f)); //dmg
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Mythical.Dmg);
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcI4(5))) //crit
+        c.GotoNext(MoveType.Before, i => i.MatchLdcI4(5)); //crit
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_I4, cfg.Mythical.Crt);
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(0.9f))) //spd
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(0.9f)); //spd
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Mythical.Spd);
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(0.9f))) //mcst
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(0.9f)); //mcst
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Mythical.Mcst);
@@ -506,7 +506,7 @@ internal class LuneWoL_ReforgeWeaponIL : ILoadable
         #endregion
 
         #region Inept
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(1.1f))) //mcst
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(1.1f)); //mcst
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Inept.Mcst);
@@ -514,12 +514,12 @@ internal class LuneWoL_ReforgeWeaponIL : ILoadable
         #endregion
 
         #region Ignorant
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(1.2f))) //mcst
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(1.2f)); //mcst
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Ignorant.Mcst);
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(0.9f))) //dmg
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(0.9f)); //dmg
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Ignorant.Dmg);
@@ -527,12 +527,12 @@ internal class LuneWoL_ReforgeWeaponIL : ILoadable
         #endregion
 
         #region Deranged
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(0.9f))) //kb
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(0.9f)); //kb
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Deranged.Kb);
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(0.9f))) //dmg
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(0.9f)); //dmg
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Deranged.Dmg);
@@ -540,12 +540,12 @@ internal class LuneWoL_ReforgeWeaponIL : ILoadable
         #endregion
 
         #region Intense
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(1.15f))) //mcst
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(1.15f)); //mcst
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Intense.Mcst);
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(1.1f))) //dmg
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(1.1f)); //dmg
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Intense.Dmg);
@@ -553,17 +553,17 @@ internal class LuneWoL_ReforgeWeaponIL : ILoadable
         #endregion
 
         #region Taboo
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(1.1f))) //mcst
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(1.1f)); //mcst
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Taboo.Mcst);
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(1.1f))) //kb
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(1.1f)); //kb
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Taboo.Kb);
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(0.9f))) //spd
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(0.9f)); //spd
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Taboo.Spd);
@@ -571,22 +571,22 @@ internal class LuneWoL_ReforgeWeaponIL : ILoadable
         #endregion
 
         #region Celestial
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(0.9f))) //mcst
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(0.9f)); //mcst
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Celestial.Mcst);
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(1.1f))) //kb
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(1.1f)); //kb
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Celestial.Kb);
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(1.1f))) //spd
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(1.1f)); //spd
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Celestial.Spd);
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(1.1f))) //dmg
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(1.1f)); //dmg
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Celestial.Dmg);
@@ -594,17 +594,17 @@ internal class LuneWoL_ReforgeWeaponIL : ILoadable
         #endregion
 
         #region Furious powerfist aha aha aha
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(1.2f))) //mcst
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(1.2f)); //mcst
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Furious.Mcst);
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(1.15f))) //dmg
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(1.15f)); //dmg
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Furious.Dmg);
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(1.15f))) //kb
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(1.15f)); //kb
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Furious.Kb);
@@ -612,17 +612,17 @@ internal class LuneWoL_ReforgeWeaponIL : ILoadable
         #endregion
 
         #region Manic
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(0.9f))) //mcst
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(0.9f)); //mcst
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Manic.Mcst);
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(0.9f))) //dmg
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(0.9f)); //dmg
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Manic.Dmg);
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(0.9f))) //spd
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(0.9f)); //spd
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Manic.Spd);
@@ -630,17 +630,17 @@ internal class LuneWoL_ReforgeWeaponIL : ILoadable
         #endregion
 
         #region Legendary2??? waht
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(1.17f))) //kb
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(1.17f)); //kb
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Legendary2.Kb);
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(1.17f))) //dmg
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(1.17f)); //dmg
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Legendary2.Dmg);
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcI4(8))) //crit
+        c.GotoNext(MoveType.Before, i => i.MatchLdcI4(8)); //crit
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_I4, cfg.Legendary2.Crt);
@@ -648,7 +648,7 @@ internal class LuneWoL_ReforgeWeaponIL : ILoadable
         #endregion
 
         #region Keen
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcI4(3))) //crit
+        c.GotoNext(MoveType.Before, i => i.MatchLdcI4(3)); //crit
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_I4, cfg.Keen.Crt);
@@ -656,17 +656,17 @@ internal class LuneWoL_ReforgeWeaponIL : ILoadable
         #endregion
 
         #region Superior
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(1.1f))) //dmg
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(1.1f)); //dmg
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Superior.Dmg);
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcI4(3))) //crit
+        c.GotoNext(MoveType.Before, i => i.MatchLdcI4(3)); //crit
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_I4, cfg.Superior.Crt);
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(1.1f))) //kb
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(1.1f)); //kb
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Superior.Kb);
@@ -674,7 +674,7 @@ internal class LuneWoL_ReforgeWeaponIL : ILoadable
         #endregion
 
         #region Forceful
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(1.15f))) //kb
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(1.15f)); //kb
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Forceful.Kb);
@@ -682,7 +682,7 @@ internal class LuneWoL_ReforgeWeaponIL : ILoadable
         #endregion
 
         #region Hurtful
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(1.1f))) //dmg
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(1.1f)); //dmg
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Hurtful.Dmg);
@@ -690,7 +690,7 @@ internal class LuneWoL_ReforgeWeaponIL : ILoadable
         #endregion
 
         #region Strong
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(1.15f))) //kb
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(1.15f)); //kb
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Strong.Kb);
@@ -698,12 +698,12 @@ internal class LuneWoL_ReforgeWeaponIL : ILoadable
         #endregion
 
         #region Unpleasant
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(1.15f))) //kb
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(1.15f)); //kb
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Unpleasant.Kb);
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(1.05f))) //dmg
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(1.05f)); //dmg
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Unpleasant.Dmg);
@@ -711,17 +711,17 @@ internal class LuneWoL_ReforgeWeaponIL : ILoadable
         #endregion
 
         #region Godly
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(1.15f))) //kb
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(1.15f)); //kb
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Godly.Kb);
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(1.15f))) //dmg
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(1.15f)); //dmg
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Godly.Dmg);
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcI4(5))) //crit
+        c.GotoNext(MoveType.Before, i => i.MatchLdcI4(5)); //crit
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_I4, cfg.Godly.Crt);
@@ -729,12 +729,12 @@ internal class LuneWoL_ReforgeWeaponIL : ILoadable
         #endregion
 
         #region Demonic
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(1.15f))) //dmg
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(1.15f)); //dmg
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Demonic.Dmg);
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcI4(5))) //crit
+        c.GotoNext(MoveType.Before, i => i.MatchLdcI4(5)); //crit
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_I4, cfg.Demonic.Crt);
@@ -742,7 +742,7 @@ internal class LuneWoL_ReforgeWeaponIL : ILoadable
         #endregion
 
         #region Zealous
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcI4(5))) //crit
+        c.GotoNext(MoveType.Before, i => i.MatchLdcI4(5)); //crit
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_I4, cfg.Zealous.Crt);
@@ -750,12 +750,12 @@ internal class LuneWoL_ReforgeWeaponIL : ILoadable
         #endregion
 
         #region Broken
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(0.7f))) //dmg
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(0.7f)); //dmg
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Broken.Dmg);
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(0.8f))) //kb
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(0.8f)); //kb
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Broken.Kb);
@@ -763,7 +763,7 @@ internal class LuneWoL_ReforgeWeaponIL : ILoadable
         #endregion
 
         #region Damaged
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(0.85f))) //dmg
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(0.85f)); //dmg
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Damaged.Dmg);
@@ -771,7 +771,7 @@ internal class LuneWoL_ReforgeWeaponIL : ILoadable
         #endregion
 
         #region Weak
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(0.8f))) //kb
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(0.8f)); //kb
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Weak.Kb);
@@ -779,12 +779,12 @@ internal class LuneWoL_ReforgeWeaponIL : ILoadable
         #endregion
 
         #region Shoddy
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(0.85f))) //kb
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(0.85f)); //kb
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Shoddy.Kb);
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(0.9f))) //dmg
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(0.9f)); //dmg
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Shoddy.Dmg);
@@ -792,12 +792,12 @@ internal class LuneWoL_ReforgeWeaponIL : ILoadable
         #endregion
 
         #region Ruthless
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(0.9f))) //kb
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(0.9f)); //kb
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Ruthless.Kb);
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(1.18f))) //dmg
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(1.18f)); //dmg
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Ruthless.Dmg);
@@ -805,7 +805,7 @@ internal class LuneWoL_ReforgeWeaponIL : ILoadable
         #endregion
 
         #region Quick
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(0.9f))) //spd
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(0.9f)); //spd
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Quick.Spd);
@@ -813,12 +813,12 @@ internal class LuneWoL_ReforgeWeaponIL : ILoadable
         #endregion
 
         #region Deadly2?????
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(1.1f))) //dmg
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(1.1f)); //dmg
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Deadly2.Dmg);
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(0.9f))) //spd
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(0.9f)); //spd
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Deadly2.Spd);
@@ -826,12 +826,12 @@ internal class LuneWoL_ReforgeWeaponIL : ILoadable
         #endregion
 
         #region Agile
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(0.9f))) //spd
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(0.9f)); //spd
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Agile.Spd);
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcI4(3))) //crit
+        c.GotoNext(MoveType.Before, i => i.MatchLdcI4(3)); //crit
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_I4, cfg.Agile.Crt);
@@ -839,7 +839,7 @@ internal class LuneWoL_ReforgeWeaponIL : ILoadable
         #endregion
 
         #region Nimble
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(0.95f))) //spd
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(0.95f)); //spd
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Nimble.Spd);
@@ -847,17 +847,17 @@ internal class LuneWoL_ReforgeWeaponIL : ILoadable
         #endregion
 
         #region Murderous
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcI4(3))) //crit
+        c.GotoNext(MoveType.Before, i => i.MatchLdcI4(3)); //crit
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_I4, cfg.Murderous.Crt);
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(0.94f))) //spd
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(0.94f)); //spd
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Murderous.Spd);
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(1.07f))) //dmg
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(1.07f)); //dmg
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Murderous.Dmg);
@@ -865,7 +865,7 @@ internal class LuneWoL_ReforgeWeaponIL : ILoadable
         #endregion
 
         #region Slow
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(1.15f))) //spd
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(1.15f)); //spd
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Slow.Spd);
@@ -873,7 +873,7 @@ internal class LuneWoL_ReforgeWeaponIL : ILoadable
         #endregion
 
         #region Sluggish
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(1.2f))) //spd
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(1.2f)); //spd
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Sluggish.Spd);
@@ -881,7 +881,7 @@ internal class LuneWoL_ReforgeWeaponIL : ILoadable
         #endregion
 
         #region Lazy
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(1.08f))) //spd
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(1.08f)); //spd
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Lazy.Spd);
@@ -889,12 +889,12 @@ internal class LuneWoL_ReforgeWeaponIL : ILoadable
         #endregion
 
         #region Annoying
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(0.8f))) //dmg
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(0.8f)); //dmg
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Annoying.Dmg);
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(1.15f))) //spd
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(1.15f)); //spd
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Annoying.Spd);
@@ -902,22 +902,22 @@ internal class LuneWoL_ReforgeWeaponIL : ILoadable
         #endregion
 
         #region Nasty
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(0.9f))) //kb
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(0.9f)); //kb
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Nasty.Kb);
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(0.9f))) //spd
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(0.9f)); //spd
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Nasty.Spd);
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcR4(1.05f))) //dmg
+        c.GotoNext(MoveType.Before, i => i.MatchLdcR4(1.05f)); //dmg
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_R4, cfg.Nasty.Dmg);
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcI4(2))) //crit
+        c.GotoNext(MoveType.Before, i => i.MatchLdcI4(2)); //crit
         {
             c.Remove();
             c.Emit(OpCodes.Ldc_I4, cfg.Nasty.Crt);

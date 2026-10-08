@@ -23,7 +23,7 @@ public class LuneWoL_ServerConfig : ModConfig
         [Header("bool")]
         
         public bool EvilBiomeDoT { get; set; }
-        
+
         public bool MurkyWater { get; set; }
         
         public bool OreDropChance { get; set; }
@@ -34,9 +34,7 @@ public class LuneWoL_ServerConfig : ModConfig
         public bool PoisonousWater { get; set; }
         
         public bool SpaceDoT { get; set; }
-        
-        public bool TundraGivesChilled { get; set; }
-        
+
         public bool UnderworldGivesOnFire { get; set; }
         
         public bool ViscousWater { get; set; }
@@ -48,7 +46,7 @@ public class LuneWoL_ServerConfig : ModConfig
 
         [Header("I4")]
 
-        [Slider, DrawTicks, Range(0, 2)]
+        [Slider, DrawTicks, Range(0, 3)]
         public int DarkerNightsMode { get; set; }
 
         [Slider, DrawTicks, Range(0, 2)]
@@ -63,7 +61,6 @@ public class LuneWoL_ServerConfig : ModConfig
             OreScarcityPatchToggle = false;
             PoisonousWater = false;
             SpaceDoT = false;
-            TundraGivesChilled = false;
             UnderworldGivesOnFire = false;
             ViscousWater = false;
             WeatherEffects = false;

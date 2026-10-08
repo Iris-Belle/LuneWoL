@@ -4,3 +4,6 @@ added custom colours for the debug options in the advanced client pressure confi
 classic localisation shit fucking up
 renamed some options in the config idk
 yes i am extremely out of ideas please suggest something (that isnt stupid or doesnt fit in the mod)
+reworked "murky water"
+added always night mode to darker nights
+removed reduced vision in storms because it looked like fucking shit

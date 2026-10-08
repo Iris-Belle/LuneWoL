@@ -23,7 +23,12 @@ public partial class LuneWoL_Sys : ModSystem
 
     public override void ModifySunLightColor(ref Color tileColor, ref Color backgroundColor)
     {
-        if (ServerConfig.Environment.DarkerNightsMode != 0)
+        if (ServerConfig.Environment.DarkerNightsMode == 3)
+        {
+            tileColor = new Color(0, 0, 0);
+            backgroundColor = new Color(0, 0, 0);
+        }
+        else if (ServerConfig.Environment.DarkerNightsMode != 0)
             DarkerNightsSurfaceLight(ref tileColor, ref backgroundColor);
     }
 

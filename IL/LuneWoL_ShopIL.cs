@@ -19,29 +19,36 @@
             ILCursor c = new(il);
 
             c.GotoNext(MoveType.Before, i => i.MatchLdarg(0), i => i.MatchLdflda<Player>("currentShoppingSettings"));
-            c.RemoveRange(4);
-            c.EmitDelegate<Func<float>>(() => cfg.BuyMult);
-            c.Emit(OpCodes.Conv_R8);
-            c.Emit(OpCodes.Mul);
-            
-            c.GotoNext(MoveType.Before, i => i.MatchLdarg(0), i => i.MatchLdflda<Player>("currentShoppingSettings"));
-            c.RemoveRange(4);
-            c.EmitDelegate<Func<float>>(() => cfg.SellMult);
-            c.Emit(OpCodes.Conv_R8);
-            c.Emit(OpCodes.Mul);
-            
-            c.GotoNext(MoveType.Before, i => i.MatchLdarg(0), i => i.MatchLdflda<Player>("currentShoppingSettings"));
-            c.RemoveRange(4);
-            c.EmitDelegate<Func<float>>(() => cfg.BuyMult);
-            c.Emit(OpCodes.Conv_R8);
-            c.Emit(OpCodes.Mul);
+            {
+                c.RemoveRange(4);
+                c.EmitDelegate<Func<float>>(() => cfg.BuyMult);
+                c.Emit(OpCodes.Conv_R8);
+                c.Emit(OpCodes.Mul);
+            }
 
             c.GotoNext(MoveType.Before, i => i.MatchLdarg(0), i => i.MatchLdflda<Player>("currentShoppingSettings"));
-            c.RemoveRange(4);
-            c.EmitDelegate<Func<float>>(() => cfg.SellMult);
-            c.Emit(OpCodes.Conv_R8);
-            c.Emit(OpCodes.Mul);
-            
+            {
+                c.RemoveRange(4);
+                c.EmitDelegate<Func<float>>(() => cfg.SellMult);
+                c.Emit(OpCodes.Conv_R8);
+                c.Emit(OpCodes.Mul);
+            }
+
+            c.GotoNext(MoveType.Before, i => i.MatchLdarg(0), i => i.MatchLdflda<Player>("currentShoppingSettings"));
+            {            
+                c.RemoveRange(4);
+                c.EmitDelegate<Func<float>>(() => cfg.BuyMult);
+                c.Emit(OpCodes.Conv_R8);
+                c.Emit(OpCodes.Mul);
+            }
+
+            c.GotoNext(MoveType.Before, i => i.MatchLdarg(0), i => i.MatchLdflda<Player>("currentShoppingSettings"));
+            {
+                c.RemoveRange(4);
+                c.EmitDelegate<Func<float>>(() => cfg.SellMult);
+                c.Emit(OpCodes.Conv_R8);
+                c.Emit(OpCodes.Mul);
+            }
         }
     }
 }

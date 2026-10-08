@@ -39,6 +39,7 @@ global using Terraria.DataStructures;
 global using Terraria.GameContent.Biomes;
 global using Terraria.GameContent.Events;
 global using Terraria.GameContent.Generation;
+global using Terraria.Graphics.Light;
 global using Terraria.ID;
 global using Terraria.IO;
 global using Terraria.Localization;

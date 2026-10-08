@@ -26,7 +26,7 @@ public class LuneWoL_AdvServerConfig : ModConfig
 
             [Range(0f, 1f), Increment(0.05f), RoundNumber(2)]
             public float MinBrightness { get; set; }
-            
+
             public MoonPhasesPage MoonPhases { get; set; } = new();
             public class MoonPhasesPage
             {
@@ -66,6 +66,7 @@ public class LuneWoL_AdvServerConfig : ModConfig
                     WaxingGibbousMult = 0.8f;
                 }
             }
+
             public DarkerNightsPage()
             {
                 NightFadeDuration = 60;
@@ -76,12 +77,52 @@ public class LuneWoL_AdvServerConfig : ModConfig
         [SeparatePage]
         public class MurkyWaterPage
         {
-            [Range(0f, 1f), Increment(0.05f), RoundNumber(2)]
-            public float DarkWaterIntensity { get; set; }
+            [Range(0f, 0.91f), Increment(0.005f), RoundNumber(3)]
+            public float SurfaceIntensity { get; set; }
+
+            [Range(0f, 0.91f), Increment(0.005f), RoundNumber(3)]
+            public float CorruptionIntensity { get; set; }
+
+            [Range(0f, 0.91f), Increment(0.005f), RoundNumber(3)]
+            public float JungleIntensity { get; set; }
+
+            [Range(0f, 0.91f), Increment(0.005f), RoundNumber(3)]
+            public float HallowIntensity { get; set; }
+
+            [Range(0f, 0.91f), Increment(0.005f), RoundNumber(3)]
+            public float SnowIntensity { get; set; }
+
+            [Range(0f, 0.91f), Increment(0.005f), RoundNumber(3)]
+            public float DesertIntensity { get; set; }
+
+            [Range(0f, 0.91f), Increment(0.005f), RoundNumber(3)]
+            public float BloodMoonIntensity { get; set; }
+
+            [Range(0f, 0.91f), Increment(0.005f), RoundNumber(3)]
+            public float CrimsonIntensity { get; set; }
+
+            [Range(0f, 0.91f), Increment(0.005f), RoundNumber(3)]
+            public float UndergroundDesertIntensity { get; set; }
+
+            [Range(0f, 0.91f), Increment(0.005f), RoundNumber(3)]
+            public float OceanIntensity { get; set; }
+
+            [Range(0f, 0.91f), Increment(0.005f), RoundNumber(3)]
+            public float ModdedIntensity { get; set; }
 
             public MurkyWaterPage()
             {
-                DarkWaterIntensity = 0.6f;
+                SurfaceIntensity = 0.91f;
+                CorruptionIntensity = 0.91f;
+                JungleIntensity = 0.91f;
+                HallowIntensity = 0.91f;
+                SnowIntensity = 0.91f;
+                DesertIntensity = 0.91f;
+                BloodMoonIntensity = 0.91f;
+                CrimsonIntensity = 0.91f;
+                UndergroundDesertIntensity = 0.91f;
+                OceanIntensity = 0.91f;
+                ModdedIntensity = 0.91f;
             }
         }
 
@@ -877,14 +918,22 @@ public class LuneWoL_AdvServerConfig : ModConfig
         [SeparatePage]
         public class WeatherEffectsPage
         {
-            public bool SandStormEffect { get; set; }
-            
-            public bool BlizzardEffect { get; set; }
+            public bool BlizzardAppliesFrozen { get; set; }
+
+            [Range(1, int.MaxValue)]
+            public int BlizzardFrozenDamage { get; set; }
+
+            public bool TundraAppliesChilled { get; set; }
+
+            [Range(1, int.MaxValue)]
+            public int TundraChilledDamage { get; set; }
 
             public WeatherEffectsPage()
             {
-                SandStormEffect = true;
-                BlizzardEffect = true;
+                BlizzardAppliesFrozen = true;
+                BlizzardFrozenDamage = 50;
+                TundraAppliesChilled = true;
+                TundraChilledDamage = 4;
             }
         }
 

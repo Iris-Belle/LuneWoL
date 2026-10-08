@@ -56,15 +56,13 @@ public partial class LuneWoL_Plr : ModPlayer
 
         ApplyDoTDebuff(Player.LibPlayer().DepthWaterPressure, Player.LibPlayer().CurrentDepthPressure);
 
-        ApplyDoTDebuff(Player.LibPlayer().BlizzardGivesFrozen, 50, Player.buffImmune[BuffID.Frozen]);
+        ApplyDoTDebuff(Player.LibPlayer().BlizzardGivesFrozen, AdvServerConfig.Adv_Environment.WeatherEffects.BlizzardFrozenDamage*2, Player.buffImmune[BuffID.Frozen]);
 
-        ApplyDoTDebuff(Player.LibPlayer().TundraGivesChilled, 4, Player.buffImmune[BuffID.Chilled]);
+        ApplyDoTDebuff(Player.LibPlayer().TundraGivesChilled, AdvServerConfig.Adv_Environment.WeatherEffects.TundraChilledDamage*2, Player.buffImmune[BuffID.Chilled]);
 
         ApplyDoTDebuff(Player.LibPlayer().InEvilBiomeAtNight, 100, false);
 
         Player.lifeRegen -= (int)totalNegativeLifeRegen;
-
-
 
         if (Player.lifeRegen <= 0 && ServerConfig.Player.DebuffMultiplier != 1)
             Player.lifeRegen = (int)(Player.lifeRegen * (ServerConfig.Player.DebuffMultiplier * 2));
@@ -100,11 +98,10 @@ public partial class LuneWoL_Plr : ModPlayer
     public override void PreUpdateBuffs()
     {
         PoisonedWater();
-        MurkyWater();
 
         ApplySpaceVacuum();
         WeatherChanges();
-        FreezingTundra();
+        TundraAppliesChilled();
 
         OnlyEnterEvilAtDay();
     }
@@ -112,7 +109,6 @@ public partial class LuneWoL_Plr : ModPlayer
     public override void PostUpdate()
     {
         ResetDeathPenalty();
-        ReduceVisionInStorms();
         
         // https://steamcommunity.com/sharedfiles/filedetails/?id=2395507804
     }
@@ -274,9 +270,12 @@ public partial class LuneWoL_Plr : ModPlayer
         }
     }
 
-    public void FreezingTundra()
+    public void TundraAppliesChilled()
     {
-        if (!ServerConfig.Environment.TundraGivesChilled || Player.LibPlayer().WearingFullEskimo || Player.HasBuff(BuffID.Campfire) || Player.behindBackWall || Player.HasBuff(BuffID.OnFire) || Player.HasBuff(BuffID.Burning) || Player.HasBuff(BuffID.Warmth))
+        if (!ServerConfig.Environment.WeatherEffects)
+            return;
+
+        if (!AdvServerConfig.Adv_Environment.WeatherEffects.TundraAppliesChilled || Player.LibPlayer().WearingFullEskimo || Player.HasBuff(BuffID.Campfire) || Player.behindBackWall || Player.HasBuff(BuffID.OnFire) || Player.HasBuff(BuffID.Burning) || Player.HasBuff(BuffID.Warmth))
         {
             _timers.Reset(Timers.TundraChilledCounter);
             Player.LibPlayer().TundraGivesChilled = false;
@@ -315,19 +314,6 @@ public partial class LuneWoL_Plr : ModPlayer
         LostMana = tag.GetInt("LostMana");
         HealthCache = tag.GetInt("HealthCache");
         ManaCache = tag.GetInt("ManaCache");
-    }
-
-    public void MurkyWater()
-    {
-        if (Player.whoAmI != Main.myPlayer || ServerConfig.Environment.MurkyWater)
-            return;
-
-        LuneWoL_ServerConfig.EnvironmentPage Config = ServerConfig.Environment;
-
-        if (Player.Submerged() && Config.MurkyWater && Config.DepthPressureMode == 0)
-        {
-            Lighting.GlobalBrightness *= AdvServerConfig.Adv_Environment.MurkyWater.DarkWaterIntensity;
-        }
     }
 
     public void OnlyEnterEvilAtDay()
@@ -508,16 +494,13 @@ public partial class LuneWoL_Plr : ModPlayer
         if (!ServerConfig.Environment.WeatherEffects)
             return;
 
-        Player.LibPlayer().ReducedVisionInStorms = Sandstorm.Happening && Player.ZoneDesert && !Player.behindBackWall && AdvServerConfig.Adv_Environment.WeatherEffects.SandStormEffect;
-        Player.blackout = Player.LibPlayer().ReducedVisionInStorms;
-
         if (Player.LibPlayer().WearingFullEskimo || Player.HasBuff(BuffID.Campfire) || Player.behindBackWall || Player.HasBuff(BuffID.OnFire) || Player.HasBuff(BuffID.Burning) || Player.HasBuff(BuffID.Warmth))
         {
             _timers.Reset(Timers.TundraBlizzardCounter);
             Player.LibPlayer().BlizzardGivesFrozen = false;
 
         }
-        else if (Main.raining && Player.ZoneSnow && _timers.Tick(Timers.TundraBlizzardCounter, 180) && AdvServerConfig.Adv_Environment.WeatherEffects.BlizzardEffect)
+        else if (Main.raining && Player.ZoneSnow && _timers.Tick(Timers.TundraBlizzardCounter, 180) && AdvServerConfig.Adv_Environment.WeatherEffects.BlizzardAppliesFrozen)
         {
                 Player.LibPlayer().BlizzardGivesFrozen = true;
                 Main.buffNoTimeDisplay[BuffID.Frozen] = true;
@@ -530,16 +513,5 @@ public partial class LuneWoL_Plr : ModPlayer
         }
     }
 
-    internal void ReduceVisionInStorms()
-    {
-        float value = 0f;
-        float amount = 0.1f;
-        if (Player.LibPlayer().ReducedVisionInStorms && Player.whoAmI == Main.myPlayer)
-        {
-            value = 0.8f;
-            amount = 0.1f;
-        }
-        ScreenObstruction.screenObstruction = MathHelper.Lerp(ScreenObstruction.screenObstruction, value, amount);
-    }
     #endregion
 }

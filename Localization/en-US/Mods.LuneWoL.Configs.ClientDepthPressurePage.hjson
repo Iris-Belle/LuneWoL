@@ -9,11 +9,12 @@ UpdateIntervalTicks: {
 	Label: Update Interval Ticks
 	Tooltip:
 		'''
-		The amount of ticks between each floodfill.
+		(Mode 2) The amount of ticks between each floodfill.
 		-----------------------------------
 		Maximum recommended is `2` ticks.
 		-----------------------------------
-		Recommended is `0` if your cpu can afford it
+		Recommended is `1`
+		Only use `0` if you dont get stuttering when entering water bodies.
 		-----------------------------------
 		Requested by `Iris`
 		'''
@@ -23,11 +24,12 @@ TileScanLimit: {
 	Label: Max Tile Scans Per Tick
 	Tooltip:
 		'''
-		The maximum amount of tiles scanned for each tick to find the surface.
+		(Mode 2) The maximum amount of tiles scanned for each tick to find the surface.
 		-----------------------------------
 		Minimum recommended is 64 tiles.
 		-----------------------------------
-		Recommended is `-1` and means no limit.
+		Recommended is `512`
+		Only use `-1` if you dont get stuttering when entering water bodies.
 		-----------------------------------
 		Requested by `Iris`
 		'''
@@ -35,12 +37,12 @@ TileScanLimit: {
 
 ShowDebugMarker: {
 	Label: Show Debug Marker
-	Tooltip: Shows you where the surface level of the water body you're in is.
+	Tooltip: Shows you where the system thinks the surface level of the water body you're in is.
 }
 
 ShowScannedDebug: {
 	Label: Show Scanned Debug
-	Tooltip: Shows all tiles the pressure system has scanned.
+	Tooltip: (Mode 2) Shows all tiles the pressure system has scanned.
 }
 
 DebugText: {

@@ -1,20 +1,40 @@
 Tooltip: ""
 
-SandStormEffect: {
-	Label: Sandstorm Effect
+BlizzardAppliesFrozen: {
+	Label: Blizzard Applies `Frozen`
 	Tooltip:
 		'''
-		Toggles whether Sandstorms should reduce vision or not.
+		Applies the `Frozen` debuff when you're in a blizzard.
 		-----------------------------------
 		Requested by `Iris`
 		'''
 }
 
-BlizzardEffect: {
-	Label: Blizzard Effect
+BlizzardFrozenDamage: {
+	Label: Blizzard `Frozen` Damage
 	Tooltip:
 		'''
-		Toggles whether Blizzards should Apply the `Frozen` debuff.
+		Determines how much HP/s the `Frozen` debuff should inflict.
+		-----------------------------------
+		Requested by `Iris`
+		'''
+}
+
+TundraAppliesChilled: {
+	Label: Tundra Applies `Chilled`
+	Tooltip:
+		'''
+		Applies the `Chilled` debuff when you're in the Tundra.
+		-----------------------------------
+		Requested by `Iris`
+		'''
+}
+
+TundraChilledDamage: {
+	Label: Tundra `Chilled` Damage
+	Tooltip:
+		'''
+		Determines how much HP/s the `Chilled` debuff should inflict.
 		-----------------------------------
 		Requested by `Iris`
 		'''

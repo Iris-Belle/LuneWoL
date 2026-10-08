@@ -20,22 +20,22 @@ internal class LuneWoL_ReforgeTooltipIL : ILoadable
         ILCursor c = new(il);
 
         #region defense
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdstr("+1")))  // Hard
+        c.GotoNext(MoveType.Before, i => i.MatchLdstr("+1"));  // Hard
         {
             c.Remove();
             c.Emit(OpCodes.Ldstr, $"+{cfg.Hard.Defense}");
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdstr("+2"))) // Guarding
+        c.GotoNext(MoveType.Before, i => i.MatchLdstr("+2")); // Guarding
         {
             c.Remove();
             c.Emit(OpCodes.Ldstr, $"+{cfg.Guarding.Defense}");
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdstr("+3"))) // Armored
+        c.GotoNext(MoveType.Before, i => i.MatchLdstr("+3")); // Armored
         {
             c.Remove();
             c.Emit(OpCodes.Ldstr, $"+{cfg.Armored.Defense}");
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdstr("+4"))) // Warding
+        c.GotoNext(MoveType.Before, i => i.MatchLdstr("+4")); // Warding
         {
             c.Remove();
             c.Emit(OpCodes.Ldstr, $"+{cfg.Warding.Defense}");
@@ -43,7 +43,7 @@ internal class LuneWoL_ReforgeTooltipIL : ILoadable
         #endregion
 
         #region mana
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdstr("+20 "))) // Arcane
+        c.GotoNext(MoveType.Before, i => i.MatchLdstr("+20 ")); // Arcane
         {
             c.Remove();
             c.Emit(OpCodes.Ldstr, $"+{cfg.Arcane.MaxMana}");
@@ -51,12 +51,12 @@ internal class LuneWoL_ReforgeTooltipIL : ILoadable
         #endregion
 
         #region crit
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdstr("+2"))) // Precise
+        c.GotoNext(MoveType.Before, i => i.MatchLdstr("+2")); // Precise
         {
             c.Remove();
             c.Emit(OpCodes.Ldstr, $"+{cfg.Precise.Crit}");
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdstr("+4"))) // Lucky
+        c.GotoNext(MoveType.Before, i => i.MatchLdstr("+4")); // Lucky
         {
             c.Remove();
             c.Emit(OpCodes.Ldstr, $"+{cfg.Precise.Crit}");
@@ -64,22 +64,22 @@ internal class LuneWoL_ReforgeTooltipIL : ILoadable
         #endregion
         
         #region damage
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdstr("+1"))) // Jagged
+        c.GotoNext(MoveType.Before, i => i.MatchLdstr("+1")); // Jagged
         {
             c.Remove();
             c.Emit(OpCodes.Ldstr, $"+{cfg.Jagged.Damage * 100}");
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdstr("+2"))) // Spiked
+        c.GotoNext(MoveType.Before, i => i.MatchLdstr("+2")); // Spiked
         {
             c.Remove();
             c.Emit(OpCodes.Ldstr, $"+{cfg.Spiked.Damage * 100}");
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdstr("+3"))) // Angry
+        c.GotoNext(MoveType.Before, i => i.MatchLdstr("+3")); // Angry
         {
             c.Remove();
             c.Emit(OpCodes.Ldstr, $"+{cfg.Angry.Damage * 100}");
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdstr("+4"))) // Menacing
+        c.GotoNext(MoveType.Before, i => i.MatchLdstr("+4")); // Menacing
         {
             c.Remove();
             c.Emit(OpCodes.Ldstr, $"+{cfg.Menacing.Damage * 100}");
@@ -87,22 +87,22 @@ internal class LuneWoL_ReforgeTooltipIL : ILoadable
         #endregion
 
         #region move speed
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdstr("+1"))) // Brisk
+        c.GotoNext(MoveType.Before, i => i.MatchLdstr("+1")); // Brisk
         {
             c.Remove();
             c.Emit(OpCodes.Ldstr, $"+{cfg.Brisk.MovementSpeed * 100}");
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdstr("+2"))) // Fleeting
+        c.GotoNext(MoveType.Before, i => i.MatchLdstr("+2")); // Fleeting
         {
             c.Remove();
             c.Emit(OpCodes.Ldstr, $"+{cfg.Fleeting.MovementSpeed * 100}");
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdstr("+3"))) // Hasty2
+        c.GotoNext(MoveType.Before, i => i.MatchLdstr("+3")); // Hasty2
         {
             c.Remove();
             c.Emit(OpCodes.Ldstr, $"+{cfg.Hasty2.MovementSpeed * 100}");
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdstr("+4"))) // Quick2
+        c.GotoNext(MoveType.Before, i => i.MatchLdstr("+4")); // Quick2
         {
             c.Remove();
             c.Emit(OpCodes.Ldstr, $"+{cfg.Quick2.MovementSpeed * 100}");
@@ -110,22 +110,22 @@ internal class LuneWoL_ReforgeTooltipIL : ILoadable
         #endregion
 
         #region melee speed
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdstr("+1"))) // Wild
+        c.GotoNext(MoveType.Before, i => i.MatchLdstr("+1")); // Wild
         {
             c.Remove();
             c.Emit(OpCodes.Ldstr, $"+{cfg.Wild.MeleeSpeed * 100}");
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdstr("+2"))) // Rash
+        c.GotoNext(MoveType.Before, i => i.MatchLdstr("+2")); // Rash
         {
             c.Remove();
             c.Emit(OpCodes.Ldstr, $"+{cfg.Rash.MeleeSpeed * 100}");
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdstr("+3"))) // Intrepid
+        c.GotoNext(MoveType.Before, i => i.MatchLdstr("+3")); // Intrepid
         {
             c.Remove();
             c.Emit(OpCodes.Ldstr, $"+{cfg.Intrepid.MeleeSpeed * 100}");
         }
-        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdstr("+4"))) // Violent
+        c.GotoNext(MoveType.Before, i => i.MatchLdstr("+4")); // Violent
         {
             c.Remove();
             c.Emit(OpCodes.Ldstr, $"+{cfg.Violent.MeleeSpeed * 100}");

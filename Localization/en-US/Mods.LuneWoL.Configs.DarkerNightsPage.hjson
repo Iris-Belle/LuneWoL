@@ -24,5 +24,10 @@ MinBrightness: {
 
 MoonPhases: {
 	Label: Moon Phases
-	Tooltip: Minimum Brightness for moon phases when 'Darker Nights' is set to mode 1.
+	Tooltip:
+		'''
+		Minimum Brightness for moon phases when `Darker Nights` is set to mode 1.
+		-----------------------------------
+		Requested by `Iris`
+		'''
 }

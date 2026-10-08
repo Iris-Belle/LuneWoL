@@ -22,32 +22,32 @@
             int annivmax = Math.Max(min + 1, 11 * AdvServerConfig.Adv_Environment.OreScarcity.HardmodeOreAmountPercent / 100);
             int max = Math.Max(min + 1, 9 * AdvServerConfig.Adv_Environment.OreScarcity.HardmodeOreAmountPercent / 100);
 
-            if (c.TryGotoNext(MoveType.After, i => i.MatchConvR8(), i => i.MatchDiv(), i => i.MatchStloc2()))
+            c.GotoNext(MoveType.After, i => i.MatchConvR8(), i => i.MatchDiv(), i => i.MatchStloc2());
             {
                 c.Emit(OpCodes.Ldloc_2);
                 c.EmitDelegate<Func<double>>(() => percent);
                 c.Emit(OpCodes.Mul);
                 c.Emit(OpCodes.Stloc_2);
             }
-            if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcI4(5)))
+            c.GotoNext(MoveType.Before, i => i.MatchLdcI4(5));
             {
                 c.RemoveRange(2);
                 c.EmitDelegate<Func<int>>(() => min);
                 c.EmitDelegate<Func<int>>(() => annivmax);
             }
-            if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcI4(5)))
+            c.GotoNext(MoveType.Before, i => i.MatchLdcI4(5));
             {
                 c.RemoveRange(2);
                 c.EmitDelegate<Func<int>>(() => min);
                 c.EmitDelegate<Func<int>>(() => annivmax);
             }
-            if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcI4(5)))
+            c.GotoNext(MoveType.Before, i => i.MatchLdcI4(5));
             {
                 c.RemoveRange(2);
                 c.EmitDelegate<Func<int>>(() => min);
                 c.EmitDelegate<Func<int>>(() => max);
             }
-            if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcI4(5)))
+            c.TryGotoNext(MoveType.Before, i => i.MatchLdcI4(5));
             {
                 c.RemoveRange(2);
                 c.EmitDelegate<Func<int>>(() => min);
