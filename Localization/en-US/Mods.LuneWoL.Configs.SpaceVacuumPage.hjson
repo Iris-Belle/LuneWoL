@@ -1,6 +1,26 @@
 Tooltip: ""
 Headers.SpiritMod: Spirit Mod
 
+SpaceVacuumTime: {
+	Label: Space Vacuum Time
+	Tooltip:
+		'''
+		How long this debuff should last in terraria ticks. (usually 60T/s)
+		-----------------------------------
+		Requested by `Iris`
+		'''
+}
+
+DisplaySpaceVacuumTime: {
+	Label: Display Space Vacuum Time
+	Tooltip:
+		'''
+		Whether the debuff should show how long is left until the debuff expires.
+		-----------------------------------
+		Requested by `Iris`
+		'''
+}
+
 BaseDoTRate: {
 	Label: Base DoT Rate
 	Tooltip:

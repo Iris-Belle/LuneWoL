@@ -11,6 +11,7 @@ OnFireTime: {
 		Requested by `Gamma_sol`
 		'''
 }
+
 DisplayOnFireTime: {
 	Label: Display `On-Fire!` Time
 	Tooltip:

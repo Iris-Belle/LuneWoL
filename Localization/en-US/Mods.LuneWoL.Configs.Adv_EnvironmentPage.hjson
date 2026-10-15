@@ -44,3 +44,8 @@ WeatherEffects: {
 	Label: Weather Effects
 	Tooltip: ""
 }
+
+UnderworldAppliesOnFire: {
+	Label: Underworld Applies `On-Fire!`
+	Tooltip: ""
+}

@@ -9,6 +9,7 @@ TimeUntilApplyFrozen: {
 		Requested by `Iris`
 		'''
 }
+
 BlizzardAppliesFrozenTime: {
 	Label: Blizzard Applies `Frozen` Time
 	Tooltip:
@@ -20,6 +21,7 @@ BlizzardAppliesFrozenTime: {
 		Requested by `Iris`
 		'''
 }
+
 DisplayBlizzardAppliesFrozenTime: {
 	Label: Display Blizzard Applies `Frozen` Time
 	Tooltip:
@@ -29,6 +31,7 @@ DisplayBlizzardAppliesFrozenTime: {
 		Requested by `Iris`
 		'''
 }
+
 BlizzardFrozenDamage: {
 	Label: Blizzard `Frozen` Damage
 	Tooltip:
@@ -48,6 +51,7 @@ TimeUntilApplyChilled: {
 		Requested by `Iris`
 		'''
 }
+
 TundraAppliesChilledTime: {
 	Label: Tundra Applies `Chilled` Time
 	Tooltip:
@@ -59,6 +63,7 @@ TundraAppliesChilledTime: {
 		Requested by `Iris`
 		'''
 }
+
 DisplayTundraAppliesChilledTime: {
 	Label: Display Tundra Applies `Chilled` Time
 	Tooltip:
@@ -68,6 +73,7 @@ DisplayTundraAppliesChilledTime: {
 		Requested by `Iris`
 		'''
 }
+
 TundraChilledDamage: {
 	Label: Tundra `Chilled` Damage
 	Tooltip:

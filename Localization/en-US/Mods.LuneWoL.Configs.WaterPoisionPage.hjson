@@ -11,6 +11,7 @@ CorruptFlamesTime: {
 		Requested by `UndoZan`
 		'''
 }
+
 DisplayCorruptFlamesTime: {
 	Label: Display Corrupt Flames Time
 	Tooltip:
@@ -32,6 +33,7 @@ CrimsonIchorTime: {
 		Requested by `UndoZan`
 		'''
 }
+
 DisplayCrimsonIchorTime: {
 	Label: Display Crimson Ichor Time
 	Tooltip:
@@ -53,6 +55,7 @@ HallowConfusionTime: {
 		Requested by `UndoZan`
 		'''
 }
+
 DisplayHallowConfusionTime: {
 	Label: Display Hallow Confusion Time
 	Tooltip:
@@ -74,6 +77,7 @@ JunglePoisonTime: {
 		Requested by `UndoZan`
 		'''
 }
+
 DisplayJunglePoisonTime: {
 	Label: Display Jungle Poison Time
 	Tooltip:

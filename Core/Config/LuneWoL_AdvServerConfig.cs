@@ -856,7 +856,7 @@ public class LuneWoL_AdvServerConfig : ModConfig
         [SeparatePage]
         public class SpaceVacuumPage
         {
-            [Range(0, int.MaxValue)]
+            [Range(1, int.MaxValue)]
             public int SpaceVacuumTime { get; set; }
             public bool DisplaySpaceVacuumTime { get; set; }
 
