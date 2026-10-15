@@ -1,0 +1,22 @@
+Tooltip: ""
+
+OnFireTime: {
+	Label: `On-Fire!` Time
+	Tooltip:
+		'''
+		How long this debuff should last in terraria ticks. (usually 60T/s)
+		-----------------------------------
+		Set to `0` to disable.
+		-----------------------------------
+		Requested by `Gamma_sol`
+		'''
+}
+DisplayOnFireTime: {
+	Label: Display `On-Fire!` Time
+	Tooltip:
+		'''
+		Whether the debuff should show how long is left until the debuff expires.
+		-----------------------------------
+		Requested by `Iris`
+		'''
+}

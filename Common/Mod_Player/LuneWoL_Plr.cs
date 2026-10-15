@@ -4,16 +4,13 @@ public partial class LuneWoL_Plr : ModPlayer
 {
     #region Fields
 
-    public int
-        SpaceDoT = 50;
+    public int SpaceDoT = 50;
 
     internal float _SurfaceDecay, _CorruptionDecay, _JungleDecay, _HallowDecay, _SnowDecay, _DesertDecay, _BloodMoonDecay, _CrimsonDecay, _UndergroundDesertDecay, _OceanDecay, _ModdedDecay;
 
     internal int
-        LostHealth,
-        LostMana,
-        HealthCache,
-        ManaCache;
+        LostHealth, LostMana,
+        HealthCache, ManaCache;
 
     internal bool
         DeathFlag0 = false,
@@ -63,8 +60,6 @@ public partial class LuneWoL_Plr : ModPlayer
 
         ApplyDoTDebuff(Player.LibPlayer().TundraGivesChilled, AdvServerConfig.Adv_Environment.WeatherEffects.TundraChilledDamage*2, Player.buffImmune[BuffID.Chilled]);
 
-        ApplyDoTDebuff(Player.LibPlayer().InEvilBiomeAtNight, 100, false);
-
         Player.lifeRegen -= (int)totalNegativeLifeRegen;
 
         if (Player.lifeRegen <= 0 && ServerConfig.Player.DebuffMultiplier != 1)
@@ -85,7 +80,7 @@ public partial class LuneWoL_Plr : ModPlayer
 
     public override void PostUpdateEquips()
     {
-        UnderworldGivesOnFire();
+        UnderworldAppliesOnFire();
     }
 
     public override void PostUpdateMiscEffects()
@@ -105,8 +100,6 @@ public partial class LuneWoL_Plr : ModPlayer
         ApplySpaceVacuum();
         WeatherChanges();
         TundraAppliesChilled();
-
-        OnlyEnterEvilAtDay();
     }
 
     public override void PostUpdate()
@@ -149,17 +142,8 @@ public partial class LuneWoL_Plr : ModPlayer
         if (!ServerConfig.Environment.SpaceDoT || Player.Submerged() || Player.whoAmI != Main.myPlayer || !Player.ZoneSkyHeight || Player.behindBackWall)
             return;
 
-        Main.buffNoTimeDisplay[ModContent.BuffType<SpaceVacuum>()] = true;
-        Player.AddBuff(ModContent.BuffType<SpaceVacuum>(), 15, true, false);
-    }
-
-    public void ApplyZoneBuff(int buffId, int duration = 180)
-    {
-        Main.buffNoTimeDisplay[buffId] = true;
-        Player.AddBuff(buffId, duration, true, false);
-
-        if (Player.buffTime[buffId] > duration)
-            Player.buffTime[buffId] = duration;
+        Main.buffNoTimeDisplay[ModContent.BuffType<SpaceVacuum>()] = !AdvServerConfig.Adv_Environment.SpaceVacuum.DisplaySpaceVacuumTime;
+        Player.AddBuff(ModContent.BuffType<SpaceVacuum>(), AdvServerConfig.Adv_Environment.SpaceVacuum.SpaceVacuumTime);
     }
 
     public void CloneClientsDeathPenalty(ModPlayer targetCopy)
@@ -280,18 +264,18 @@ public partial class LuneWoL_Plr : ModPlayer
         if (!ServerConfig.Environment.WeatherEffects)
             return;
 
-        if (!AdvServerConfig.Adv_Environment.WeatherEffects.TundraAppliesChilled || Player.LibPlayer().WearingFullEskimo || Player.HasBuff(BuffID.Campfire) || Player.behindBackWall || Player.HasBuff(BuffID.OnFire) || Player.HasBuff(BuffID.Burning) || Player.HasBuff(BuffID.Warmth))
+        if (AdvServerConfig.Adv_Environment.WeatherEffects.TundraAppliesChilledTime == 0 || Player.LibPlayer().WearingFullEskimo || Player.HasBuff(BuffID.Campfire) || Player.behindBackWall || Player.HasBuff(BuffID.OnFire) || Player.HasBuff(BuffID.Burning) || Player.HasBuff(BuffID.Warmth))
         {
             _timers.Reset(Timers.TundraChilledCounter);
             Player.LibPlayer().TundraGivesChilled = false;
         }
         else if (Player.ZoneSnow)
         {
-            if (_timers.Tick(Timers.TundraChilledCounter, 180))
+            if (_timers.Tick(Timers.TundraChilledCounter, (uint)AdvServerConfig.Adv_Environment.WeatherEffects.TimeUntilApplyChilled))
             {
                 Player.LibPlayer().TundraGivesChilled = true;
-                Main.buffNoTimeDisplay[BuffID.Chilled] = true;
-                Player.AddBuff(BuffID.Chilled, 180, true, false);
+                Main.buffNoTimeDisplay[BuffID.Chilled] = !AdvServerConfig.Adv_Environment.WeatherEffects.DisplayTundraAppliesChilledTime;
+                Player.AddBuff(BuffID.Chilled, AdvServerConfig.Adv_Environment.WeatherEffects.TundraAppliesChilledTime);
             }
         }
         else
@@ -301,47 +285,47 @@ public partial class LuneWoL_Plr : ModPlayer
         }
     }
 
-    public void UnderworldGivesOnFire()
+    public void UnderworldAppliesOnFire()
     {
-        if (!ServerConfig.Environment.UnderworldGivesOnFire || !Player.ZoneUnderworldHeight || Player.buffImmune[BuffID.Burning] || Player.fireWalk || Player.buffImmune[BuffID.OnFire] || Player.lavaImmune || Player.wet || (Player.honeyWet && !Player.lavaWet))
+        if (!ServerConfig.Environment.UnderworldAppliesOnFire || !Player.ZoneUnderworldHeight || Player.buffImmune[BuffID.Burning] || Player.fireWalk || Player.buffImmune[BuffID.OnFire] || Player.lavaImmune || Player.wet || (Player.honeyWet && !Player.lavaWet))
             return;
 
-        Main.buffNoTimeDisplay[BuffID.OnFire] = true;
-        Player.AddBuff(BuffID.OnFire, 120, false, false);
+        Main.buffNoTimeDisplay[BuffID.OnFire] = !AdvServerConfig.Adv_Environment.UnderworldAppliesOnFire.DisplayOnFireTime;
+        Player.AddBuff(BuffID.OnFire, AdvServerConfig.Adv_Environment.UnderworldAppliesOnFire.OnFireTime);
     }
 
     public void UpdateConfigState()
     {
         if (!ServerConfig.Environment.MurkyWater)
             return;
-
-        if (Player.DepthPlayer().InWaterBody && AdvClientConfig.ClientDepthPressure.MurkyWaterUpdateTicks == 0 || _timers.Repeat(Timers.UpdateConfig, (uint)AdvClientConfig.ClientDepthPressure.MurkyWaterUpdateTicks))
+        LuneWoL_AdvServerConfig.Adv_EnvironmentPage.MurkyWaterPage cfg = AdvServerConfig.Adv_Environment.MurkyWater;
+        if (Player.DepthPlayer().InWaterBody && (AdvClientConfig.ClientDepthPressure.MurkyWaterUpdateTicks == 0 || _timers.Repeat(Timers.UpdateConfig, (uint)AdvClientConfig.ClientDepthPressure.MurkyWaterUpdateTicks)))
         {
-            _SurfaceDecay = MathHelper.Lerp(AdvServerConfig.Adv_Environment.MurkyWater.SurfaceDecay, 0f, Player.DepthPlayer().lightDepthDiff);
-            _CorruptionDecay = MathHelper.Lerp(AdvServerConfig.Adv_Environment.MurkyWater.CorruptionDecay, 0f, Player.DepthPlayer().lightDepthDiff);
-            _JungleDecay = MathHelper.Lerp(AdvServerConfig.Adv_Environment.MurkyWater.JungleDecay, 0f, Player.DepthPlayer().lightDepthDiff);
-            _HallowDecay = MathHelper.Lerp(AdvServerConfig.Adv_Environment.MurkyWater.HallowDecay, 0f, Player.DepthPlayer().lightDepthDiff);
-            _SnowDecay = MathHelper.Lerp(AdvServerConfig.Adv_Environment.MurkyWater.SnowDecay, 0f, Player.DepthPlayer().lightDepthDiff);
-            _DesertDecay = MathHelper.Lerp(AdvServerConfig.Adv_Environment.MurkyWater.DesertDecay, 0f, Player.DepthPlayer().lightDepthDiff);
-            _BloodMoonDecay = MathHelper.Lerp(AdvServerConfig.Adv_Environment.MurkyWater.BloodMoonDecay, 0f, Player.DepthPlayer().lightDepthDiff);
-            _CrimsonDecay = MathHelper.Lerp(AdvServerConfig.Adv_Environment.MurkyWater.CrimsonDecay, 0f, Player.DepthPlayer().lightDepthDiff);
-            _UndergroundDesertDecay = MathHelper.Lerp(AdvServerConfig.Adv_Environment.MurkyWater.UndergroundDesertDecay, 0f, Player.DepthPlayer().lightDepthDiff);
-            _OceanDecay = MathHelper.Lerp(AdvServerConfig.Adv_Environment.MurkyWater.OceanDecay, 0f, Player.DepthPlayer().lightDepthDiff);
-            _ModdedDecay = MathHelper.Lerp(AdvServerConfig.Adv_Environment.MurkyWater.ModdedDecay, 0f, Player.DepthPlayer().lightDepthDiff);
+            _SurfaceDecay = MathHelper.Lerp(cfg.SurfaceDecay, 0f, Player.DepthPlayer().lightDepthDiff);
+            _CorruptionDecay = MathHelper.Lerp(cfg.CorruptionDecay, 0f, Player.DepthPlayer().lightDepthDiff);
+            _JungleDecay = MathHelper.Lerp(cfg.JungleDecay, 0f, Player.DepthPlayer().lightDepthDiff);
+            _HallowDecay = MathHelper.Lerp(cfg.HallowDecay, 0f, Player.DepthPlayer().lightDepthDiff);
+            _SnowDecay = MathHelper.Lerp(cfg.SnowDecay, 0f, Player.DepthPlayer().lightDepthDiff);
+            _DesertDecay = MathHelper.Lerp(cfg.DesertDecay, 0f, Player.DepthPlayer().lightDepthDiff);
+            _BloodMoonDecay = MathHelper.Lerp(cfg.BloodMoonDecay, 0f, Player.DepthPlayer().lightDepthDiff);
+            _CrimsonDecay = MathHelper.Lerp(cfg.CrimsonDecay, 0f, Player.DepthPlayer().lightDepthDiff);
+            _UndergroundDesertDecay = MathHelper.Lerp(cfg.UndergroundDesertDecay, 0f, Player.DepthPlayer().lightDepthDiff);
+            _OceanDecay = MathHelper.Lerp(cfg.OceanDecay, 0f, Player.DepthPlayer().lightDepthDiff);
+            _ModdedDecay = MathHelper.Lerp(cfg.ModdedDecay, 0f, Player.DepthPlayer().lightDepthDiff);
         }
         if (!Player.DepthPlayer().InWaterBody)
         {
-            _SurfaceDecay = AdvServerConfig.Adv_Environment.MurkyWater.SurfaceDecay;
-            _CorruptionDecay = AdvServerConfig.Adv_Environment.MurkyWater.CorruptionDecay;
-            _JungleDecay = AdvServerConfig.Adv_Environment.MurkyWater.JungleDecay;
-            _HallowDecay = AdvServerConfig.Adv_Environment.MurkyWater.HallowDecay;
-            _SnowDecay = AdvServerConfig.Adv_Environment.MurkyWater.SnowDecay;
-            _DesertDecay = AdvServerConfig.Adv_Environment.MurkyWater.DesertDecay;
-            _BloodMoonDecay = AdvServerConfig.Adv_Environment.MurkyWater.BloodMoonDecay;
-            _CrimsonDecay = AdvServerConfig.Adv_Environment.MurkyWater.CrimsonDecay;
-            _UndergroundDesertDecay = AdvServerConfig.Adv_Environment.MurkyWater.UndergroundDesertDecay;
-            _OceanDecay = AdvServerConfig.Adv_Environment.MurkyWater.OceanDecay;
-            _ModdedDecay = AdvServerConfig.Adv_Environment.MurkyWater.ModdedDecay;
+            _SurfaceDecay = cfg.SurfaceDecay;
+            _CorruptionDecay = cfg.CorruptionDecay;
+            _JungleDecay = cfg.JungleDecay;
+            _HallowDecay = cfg.HallowDecay;
+            _SnowDecay = cfg.SnowDecay;
+            _DesertDecay = cfg.DesertDecay;
+            _BloodMoonDecay = cfg.BloodMoonDecay;
+            _CrimsonDecay = cfg.CrimsonDecay;
+            _UndergroundDesertDecay = cfg.UndergroundDesertDecay;
+            _OceanDecay = cfg.OceanDecay;
+            _ModdedDecay = cfg.ModdedDecay;
         }
     }
 
@@ -354,17 +338,6 @@ public partial class LuneWoL_Plr : ModPlayer
         LostMana = tag.GetInt("LostMana");
         HealthCache = tag.GetInt("HealthCache");
         ManaCache = tag.GetInt("ManaCache");
-    }
-
-    public void OnlyEnterEvilAtDay()
-    {
-        if (Main.dayTime || !ServerConfig.Environment.EvilBiomeDoT)
-            return;
-
-        if (Player.ZoneCorrupt || Player.ZoneCrimson)
-            Player.LibPlayer().InEvilBiomeAtNight = true;
-        else
-            Player.LibPlayer().InEvilBiomeAtNight = false;
     }
 
     public void PlrStats()
@@ -434,26 +407,29 @@ public partial class LuneWoL_Plr : ModPlayer
 
     public void PoisonedWater()
     {
-        LuneWoL_AdvServerConfig.Adv_EnvironmentPage.WaterPoisionPage cfg = AdvServerConfig.Adv_Environment.WaterPoision;
-
         if (!ServerConfig.Environment.PoisonousWater || !Player.wet || Player.lavaWet || Player.honeyWet)
             return;
 
-        if (Player.ZoneCrimson && cfg.CrimsonIchor)
+        LuneWoL_AdvServerConfig.Adv_EnvironmentPage.WaterPoisionPage cfg = AdvServerConfig.Adv_Environment.WaterPoision;
+        if (Player.ZoneCrimson && cfg.CrimsonIchorTime != 0)
         {
-            ApplyZoneBuff(BuffID.Ichor);
+            Main.buffNoTimeDisplay[BuffID.Ichor] = !cfg.DisplayCrimsonIchorTime;
+            Player.AddBuff(BuffID.Ichor, cfg.CrimsonIchorTime);
         }
-        else if (Player.ZoneCorrupt && cfg.CorruptFlames)
+        else if (Player.ZoneCorrupt && cfg.CorruptFlamesTime != 0)
         {
-            ApplyZoneBuff(BuffID.CursedInferno);
+            Main.buffNoTimeDisplay[BuffID.CursedInferno] = !cfg.DisplayCorruptFlamesTime;
+            Player.AddBuff(BuffID.CursedInferno, cfg.CorruptFlamesTime);
         }
-        else if (Player.ZoneJungle && cfg.JunglePoison)
+        else if (Player.ZoneJungle && cfg.JunglePoisonTime != 0)
         {
-            ApplyZoneBuff(BuffID.Poisoned);
+            Main.buffNoTimeDisplay[BuffID.Poisoned] = !cfg.DisplayJunglePoisonTime;
+            Player.AddBuff(BuffID.Poisoned, cfg.JunglePoisonTime);
         }
-        else if (Player.ZoneHallow && cfg.HallowConfusion)
+        else if (Player.ZoneHallow && cfg.HallowConfusionTime != 0)
         {
-            ApplyZoneBuff(BuffID.Confused);
+            Main.buffNoTimeDisplay[BuffID.Confused] = !cfg.DisplayHallowConfusionTime;
+            Player.AddBuff(BuffID.Confused, cfg.HallowConfusionTime);
         }
     }
 
@@ -534,17 +510,17 @@ public partial class LuneWoL_Plr : ModPlayer
         if (!ServerConfig.Environment.WeatherEffects)
             return;
 
-        if (Player.LibPlayer().WearingFullEskimo || Player.HasBuff(BuffID.Campfire) || Player.behindBackWall || Player.HasBuff(BuffID.OnFire) || Player.HasBuff(BuffID.Burning) || Player.HasBuff(BuffID.Warmth))
+        if (AdvServerConfig.Adv_Environment.WeatherEffects.BlizzardAppliesFrozenTime == 0 || Player.LibPlayer().WearingFullEskimo || Player.HasBuff(BuffID.Campfire) || Player.behindBackWall || Player.HasBuff(BuffID.OnFire) || Player.HasBuff(BuffID.Burning) || Player.HasBuff(BuffID.Warmth))
         {
             _timers.Reset(Timers.TundraBlizzardCounter);
             Player.LibPlayer().BlizzardGivesFrozen = false;
 
         }
-        else if (Main.raining && Player.ZoneSnow && _timers.Tick(Timers.TundraBlizzardCounter, 180) && AdvServerConfig.Adv_Environment.WeatherEffects.BlizzardAppliesFrozen)
+        else if (Main.raining && Player.ZoneSnow && _timers.Tick(Timers.TundraBlizzardCounter, (uint)AdvServerConfig.Adv_Environment.WeatherEffects.TimeUntilApplyFrozen))
         {
                 Player.LibPlayer().BlizzardGivesFrozen = true;
-                Main.buffNoTimeDisplay[BuffID.Frozen] = true;
-                Player.AddBuff(BuffID.Frozen, 60, true, false);
+                Main.buffNoTimeDisplay[BuffID.Frozen] = !AdvServerConfig.Adv_Environment.WeatherEffects.DisplayBlizzardAppliesFrozenTime;
+                Player.AddBuff(BuffID.Frozen, AdvServerConfig.Adv_Environment.WeatherEffects.BlizzardAppliesFrozenTime);
         }
         else
         {

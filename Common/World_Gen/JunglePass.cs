@@ -1,6 +1,6 @@
 ﻿namespace LuneWoL.Common.World_Gen;
 
-public class JunglePass : GenPass
+public class JunglePass : GenPass //oh my fucking god past me ur fucking retarded, get adhd meds if ur gonna code at 4am ffs
 {
     private double _worldScale;
 

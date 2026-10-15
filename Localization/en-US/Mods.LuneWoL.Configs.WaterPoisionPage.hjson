@@ -1,41 +1,85 @@
 Tooltip: ""
 
-JunglePoison: {
-	Label: Jungle Poison
+CorruptFlamesTime: {
+	Label: Corrupt Flames Time
 	Tooltip:
 		'''
-		Being submerged in Jungle water Applies the `Posion` debuff.
+		How long this debuff should last in terraria ticks. (usually 60T/s)
+		-----------------------------------
+		Set to `0` to disable.
 		-----------------------------------
 		Requested by `UndoZan`
 		'''
 }
-
-HallowConfusion: {
-	Label: Hallow Confusion
+DisplayCorruptFlamesTime: {
+	Label: Display Corrupt Flames Time
 	Tooltip:
 		'''
-		Being submerged in Hallow water Applies the `Confusion` debuff.
+		Whether the debuff should show how long is left until the debuff expires.
+		-----------------------------------
+		Requested by `Iris`
+		'''
+}
+
+CrimsonIchorTime: {
+	Label: Crimson Ichor Time
+	Tooltip:
+		'''
+		How long this debuff should last in terraria ticks. (usually 60T/s)
+		-----------------------------------
+		Set to `0` to disable.
 		-----------------------------------
 		Requested by `UndoZan`
 		'''
 }
-
-CrimsonIchor: {
-	Label: Crimson Ichor
+DisplayCrimsonIchorTime: {
+	Label: Display Crimson Ichor Time
 	Tooltip:
 		'''
-		Being submerged in Crimson water Applies the `Ichor` debuff.
+		Whether the debuff should show how long is left until the debuff expires.
+		-----------------------------------
+		Requested by `Iris`
+		'''
+}
+
+HallowConfusionTime: {
+	Label: Hallow Confusion Time
+	Tooltip:
+		'''
+		How long this debuff should last in terraria ticks. (usually 60T/s)
+		-----------------------------------
+		Set to `0` to disable.
 		-----------------------------------
 		Requested by `UndoZan`
 		'''
 }
-
-CorruptFlames: {
-	Label: Corrupt Flames
+DisplayHallowConfusionTime: {
+	Label: Display Hallow Confusion Time
 	Tooltip:
 		'''
-		Being submerged in Corrupt water Applies the `Cursed Flames` debuff.
+		Whether the debuff should show how long is left until the debuff expires.
+		-----------------------------------
+		Requested by `Iris`
+		'''
+}
+
+JunglePoisonTime: {
+	Label: Jungle Poison Time
+	Tooltip:
+		'''
+		How long this debuff should last in terraria ticks. (usually 60T/s)
+		-----------------------------------
+		Set to `0` to disable.
 		-----------------------------------
 		Requested by `UndoZan`
+		'''
+}
+DisplayJunglePoisonTime: {
+	Label: Display Jungle Poison Time
+	Tooltip:
+		'''
+		Whether the debuff should show how long is left until the debuff expires.
+		-----------------------------------
+		Requested by `Iris`
 		'''
 }

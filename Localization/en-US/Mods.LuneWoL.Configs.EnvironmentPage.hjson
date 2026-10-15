@@ -40,16 +40,6 @@ DepthPressureMode: {
 		'''
 }
 
-EvilBiomeDoT: {
-	Label: Evil Biome DoT
-	Tooltip:
-		'''
-		Makes evil biomes (Crimson and Corruption) inflict DoT.
-		-----------------------------------
-		Requested by `Iris`
-		'''
-}
-
 MurkyWater: {
 	Label: Murkier Water
 	Tooltip:
@@ -112,7 +102,7 @@ SpaceDoT: {
 		'''
 }
 
-UnderworldGivesOnFire: {
+UnderworldAppliesOnFire: {
 	Label: Underworld Applies `On-Fire!`
 	Tooltip:
 		'''

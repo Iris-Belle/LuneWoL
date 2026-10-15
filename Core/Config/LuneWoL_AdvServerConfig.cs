@@ -857,6 +857,10 @@ public class LuneWoL_AdvServerConfig : ModConfig
         public class SpaceVacuumPage
         {
             [Range(0, int.MaxValue)]
+            public int SpaceVacuumTime { get; set; }
+            public bool DisplaySpaceVacuumTime { get; set; }
+
+            [Range(0, int.MaxValue)]
             public int BaseDoTRate { get; set; }
 
             [Range(0, int.MaxValue)]
@@ -872,10 +876,27 @@ public class LuneWoL_AdvServerConfig : ModConfig
 
             public SpaceVacuumPage()
             {
+                SpaceVacuumTime = 15;
+                DisplaySpaceVacuumTime = false;
+
                 BaseDoTRate = 50;
                 FishBowlReduction = 10;
                 AstroHelmReduction = 10;
                 AstraliteVisorReduction = 15;
+            }
+        }
+
+        [SeparatePage]
+        public class UnderworldAppliesOnFirePage
+        {
+            [Range(0, int.MaxValue)]
+            public int OnFireTime { get; set; }
+            public bool DisplayOnFireTime { get; set; }
+
+            public UnderworldAppliesOnFirePage()
+            {
+                OnFireTime = 120;
+                DisplayOnFireTime = false;
             }
         }
 
@@ -898,41 +919,75 @@ public class LuneWoL_AdvServerConfig : ModConfig
         [SeparatePage]
         public class WaterPoisionPage
         {
-            public bool JunglePoison { get; set; }
+            [Range(0, int.MaxValue)]
+            public int JunglePoisonTime { get; set; }
+            public bool DisplayJunglePoisonTime { get; set; }
 
-            public bool HallowConfusion { get; set; }
+            [Range(0, int.MaxValue)]
+            public int HallowConfusionTime { get; set; }
+            public bool DisplayHallowConfusionTime { get; set; }
+
+            [Range(0, int.MaxValue)]
+            public int CrimsonIchorTime { get; set; }
+            public bool DisplayCrimsonIchorTime { get; set; }
             
-            public bool CrimsonIchor { get; set; }
-            
-            public bool CorruptFlames { get; set; }
+            [Range(0, int.MaxValue)]
+            public int CorruptFlamesTime { get; set; }
+            public bool DisplayCorruptFlamesTime { get; set; }
 
             public WaterPoisionPage()
             {
-                JunglePoison = true;
-                HallowConfusion = true;
-                CrimsonIchor = true;
-                CorruptFlames = true;
+                JunglePoisonTime = 180;
+                DisplayJunglePoisonTime = false;
+
+                HallowConfusionTime = 180;
+                DisplayHallowConfusionTime = false;
+
+                CrimsonIchorTime = 180;
+                DisplayCrimsonIchorTime = false;
+
+                CorruptFlamesTime = 180;
+                DisplayCorruptFlamesTime = false;
             }
         }
 
         [SeparatePage]
         public class WeatherEffectsPage
         {
-            public bool BlizzardAppliesFrozen { get; set; }
+            [Range(0, int.MaxValue)]
+            public int TimeUntilApplyFrozen { get; set; }
+
+            [Range(0, int.MaxValue)]
+            public int BlizzardAppliesFrozenTime { get; set; }
+
+            public bool DisplayBlizzardAppliesFrozenTime { get; set; }
 
             [Range(1, int.MaxValue)]
             public int BlizzardFrozenDamage { get; set; }
 
-            public bool TundraAppliesChilled { get; set; }
+            [Range(0, int.MaxValue)]
+            public int TimeUntilApplyChilled { get; set; }
+
+            [Range(0, int.MaxValue)]
+            public int TundraAppliesChilledTime { get; set; }
+
+            public bool DisplayTundraAppliesChilledTime { get; set; }
 
             [Range(1, int.MaxValue)]
             public int TundraChilledDamage { get; set; }
 
             public WeatherEffectsPage()
             {
-                BlizzardAppliesFrozen = true;
+                TimeUntilApplyFrozen = 180;
+                BlizzardAppliesFrozenTime = 60;
+                DisplayBlizzardAppliesFrozenTime = false;
+
                 BlizzardFrozenDamage = 50;
-                TundraAppliesChilled = true;
+
+                TimeUntilApplyChilled = 180;
+                TundraAppliesChilledTime = 120;
+                DisplayTundraAppliesChilledTime = false;
+
                 TundraChilledDamage = 4;
             }
         }
@@ -949,6 +1004,8 @@ public class LuneWoL_AdvServerConfig : ModConfig
         public ServerDepthPressurePage ServerDepthPressure = new();
 
         public SpaceVacuumPage SpaceVacuum = new();
+
+        public UnderworldAppliesOnFirePage UnderworldAppliesOnFire = new();
 
         public ViscousWaterPage ViscousWater = new();
 
@@ -3017,12 +3074,6 @@ public class LuneWoL_AdvServerConfig : ModConfig
         public PlayerStatPage PlayerStats = new();
         #endregion
     }
-
-    //[SeparatePage]
-    //public class Adv_RecipesPage
-    //{
-
-    //}
 
     #endregion
 

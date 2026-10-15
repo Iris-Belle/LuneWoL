@@ -10,7 +10,6 @@ WaterVelocityX: {
 		Set to `1` to disable.
 		--------------------------------
 		Requested by `Iris`
-		--------------------------------
 		'''
 }
 
@@ -24,6 +23,5 @@ WaterVelocityY: {
 		Set to `1` to disable.
 		--------------------------------
 		Requested by `Iris`
-		--------------------------------
 		'''
 }

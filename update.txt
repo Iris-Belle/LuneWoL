@@ -1,3 +1,7 @@
-- Fixed Disable Auto-reuse.. i forgot to plug the method into the hook my bad chat
-- Added an option to make murky water change depending on how deep the palyer is in a waterbody.. obv u need the pressure system on for that
-- Fixed Viscous water morer
+- Added uhh config for showing time left on the water posion thing
+- Changed the toggles for the water posion stuff to integers so u can specify how long they should last
+- Did the same above but for the underworld applies on-fire config feature thingy
+- Did the same for space vacuum
+- Did the same for Weather effects
+- Removed Evil Biome DoT because it doesnt fit in the mod
+- augh (part 2)

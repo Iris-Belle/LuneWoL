@@ -2,7 +2,7 @@
 
 public partial class LuneWoL_GT : GlobalTile
 {
-    public override bool CanDrop(int i, int j, int type)
+    public override bool CanDrop(int i, int j, int type) // "it just works" -Todd Howard
     {
         if (LuneLib.LuneLib.instance.CalamityModLoaded)
             return CalOreDropChance(i, j, type);

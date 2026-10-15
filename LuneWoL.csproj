@@ -16,6 +16,7 @@
 	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs.SpawnRatePage.hjson" />
 	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs.SpiritModPage.hjson" />
 	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs.ThoriumModPage.hjson" />
+	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs.UnderworldAppliesOnFirePage.hjson" />
 	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs.WaterPoisionPage.hjson" />
 	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs.WeaponReforgeNerf.hjson" />
 	  <AdditionalFiles Remove="Localization\en-US\Mods.LuneWoL.Configs.WeatherEffectsPage.hjson" />
@@ -138,6 +139,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs.UnderworldAppliesOnFirePage.hjson" />
 	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs.SpaceVacuumPage.hjson" />
 	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs.CalamityModPage.hjson" />
 	  <Compile Include="Localization\en-US\Mods.LuneWoL.Configs.ThoriumModPage.hjson" />

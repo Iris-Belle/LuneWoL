@@ -21,8 +21,6 @@ public class LuneWoL_ServerConfig : ModConfig
     public class EnvironmentPage
     {
         [Header("bool")]
-        
-        public bool EvilBiomeDoT { get; set; }
 
         public bool MurkyWater { get; set; }
         
@@ -35,7 +33,7 @@ public class LuneWoL_ServerConfig : ModConfig
         
         public bool SpaceDoT { get; set; }
 
-        public bool UnderworldGivesOnFire { get; set; }
+        public bool UnderworldAppliesOnFire { get; set; }
         
         public bool ViscousWater { get; set; }
         
@@ -55,13 +53,12 @@ public class LuneWoL_ServerConfig : ModConfig
         public EnvironmentPage()
         {
             //bool
-            EvilBiomeDoT = false;
             MurkyWater = false;
             OreDropChance = false;
             OreScarcityPatchToggle = false;
             PoisonousWater = false;
             SpaceDoT = false;
-            UnderworldGivesOnFire = false;
+            UnderworldAppliesOnFire = false;
             ViscousWater = false;
             WeatherEffects = false;
             WindAffectsArrows = false;

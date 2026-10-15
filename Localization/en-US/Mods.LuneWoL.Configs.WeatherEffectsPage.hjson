@@ -1,15 +1,34 @@
 Tooltip: ""
 
-BlizzardAppliesFrozen: {
-	Label: Blizzard Applies `Frozen`
+TimeUntilApplyFrozen: {
+	Label: Time Until `Frozen` Is Applied
 	Tooltip:
 		'''
-		Applies the `Frozen` debuff when you're in a blizzard.
+		Determines how long it should take until the debuff is applied while youre in the right conditions.
 		-----------------------------------
 		Requested by `Iris`
 		'''
 }
-
+BlizzardAppliesFrozenTime: {
+	Label: Blizzard Applies `Frozen` Time
+	Tooltip:
+		'''
+		How long this debuff should last in terraria ticks. (usually 60T/s)
+		-----------------------------------
+		Set to `0` to disable.
+		-----------------------------------
+		Requested by `Iris`
+		'''
+}
+DisplayBlizzardAppliesFrozenTime: {
+	Label: Display Blizzard Applies `Frozen` Time
+	Tooltip:
+		'''
+		Whether the debuff should show how long is left until the debuff expires.
+		-----------------------------------
+		Requested by `Iris`
+		'''
+}
 BlizzardFrozenDamage: {
 	Label: Blizzard `Frozen` Damage
 	Tooltip:
@@ -20,16 +39,35 @@ BlizzardFrozenDamage: {
 		'''
 }
 
-TundraAppliesChilled: {
-	Label: Tundra Applies `Chilled`
+TimeUntilApplyChilled: {
+	Label: Time Until `Chilled` Is Applied
 	Tooltip:
 		'''
-		Applies the `Chilled` debuff when you're in the Tundra.
+		Determines how long it should take until the debuff is applied while youre in the right conditions.
 		-----------------------------------
 		Requested by `Iris`
 		'''
 }
-
+TundraAppliesChilledTime: {
+	Label: Tundra Applies `Chilled` Time
+	Tooltip:
+		'''
+		How long this debuff should last in terraria ticks. (usually 60T/s)
+		-----------------------------------
+		Set to `0` to disable.
+		-----------------------------------
+		Requested by `Iris`
+		'''
+}
+DisplayTundraAppliesChilledTime: {
+	Label: Display Tundra Applies `Chilled` Time
+	Tooltip:
+		'''
+		Whether the debuff should show how long is left until the debuff expires.
+		-----------------------------------
+		Requested by `Iris`
+		'''
+}
 TundraChilledDamage: {
 	Label: Tundra `Chilled` Damage
 	Tooltip:

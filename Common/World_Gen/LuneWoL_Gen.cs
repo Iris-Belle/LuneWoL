@@ -1,6 +1,6 @@
 ﻿namespace LuneWoL.Common.World_Gen;
 
-internal class LuneWoL_Gen : ModSystem
+internal class LuneWoL_Gen : ModSystem // durr
 {
     public override bool IsLoadingEnabled(Mod mod) => ServerConfig.Environment.OreScarcityPatchToggle;
 

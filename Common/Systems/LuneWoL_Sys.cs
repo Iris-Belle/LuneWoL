@@ -100,7 +100,7 @@ public partial class LuneWoL_Sys : ModSystem
             {
                 if (item.stack > 0 && !Config.IgnoreStacksOfOne)
                 {
-                    item.stack = (int)(item.stack * multiplier);
+                    item.stack = (int)(item.stack * multiplier); // i could make it round properly ig.. but.. the real question is.. who the fuck cares
                 }
                 else if (item.stack > 1 && Config.IgnoreStacksOfOne)
                 {
