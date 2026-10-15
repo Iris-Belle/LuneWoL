@@ -2963,23 +2963,23 @@ public class LuneWoL_AdvServerConfig : ModConfig
             [Slider, Range(1, 100)]
             public int LifeRegenPercent;
 
-            [Range(1f, 100f), Increment(1f), ReloadRequired]
+            [Range(1f, 100f), Increment(1f)]
             public float DefensePercent;
 
-            [Range(1f, 100f), Increment(1f), ReloadRequired]
+            [Range(1f, 100f), Increment(1f)]
             public float EndurancePercent;
 
             #endregion
 
             #region Offense
 
-            [Range(1f, 100f), Increment(1f), ReloadRequired]
+            [Range(1f, 100f), Increment(1f)]
             public float DamagePercent;
 
-            [Range(1f, 100f), Increment(1f), ReloadRequired]
+            [Range(1f, 100f), Increment(1f)]
             public float ArmorPenetrationPercent;
 
-            [Range(1f, 100f), Increment(1f), ReloadRequired]
+            [Range(1f, 100f), Increment(1f)]
             public float AttackSpeedPercent;
 
             #endregion
@@ -2992,12 +2992,12 @@ public class LuneWoL_AdvServerConfig : ModConfig
             [Slider, Range(1, 100)]
             public int ManaRegenPercent;
 
-            [Range(1f, 100f), Increment(1f), ReloadRequired]
+            [Range(1f, 100f), Increment(1f)]
             public float ManaCostPercent;
 
             #endregion
 
-            #region Slavery
+            #region Slavery (summoner)
 
             [Slider, Range(1, 100)]
             public int MaxMinionsPercent;
@@ -3009,10 +3009,10 @@ public class LuneWoL_AdvServerConfig : ModConfig
 
             #region Mobility
 
-            [Range(1f, 100f), Increment(1f), ReloadRequired]
+            [Range(1f, 100f), Increment(1f)]
             public float MoveSpeedPercent;
 
-            [Range(1f, 100f), Increment(1f), ReloadRequired]
+            [Range(1f, 100f), Increment(1f)]
             public float JumpSpeedPercent;
 
             [Slider, Range(1, 100)]
@@ -3025,13 +3025,13 @@ public class LuneWoL_AdvServerConfig : ModConfig
 
             #region World Shaping
 
-            [Range(1f, 100f), Increment(1f), ReloadRequired]
+            [Range(1f, 100f), Increment(1f)]
             public float PickSpeedPercent;
 
-            [Range(1f, 100f), Increment(1f), ReloadRequired]
+            [Range(1f, 100f), Increment(1f)]
             public float TileSpeedPercent;
 
-            [Range(1f, 100f), Increment(1f), ReloadRequired]
+            [Range(1f, 100f), Increment(1f)]
             public float WallSpeedPercent;
 
             
@@ -3072,6 +3072,7 @@ public class LuneWoL_AdvServerConfig : ModConfig
         #region new()
         
         public PlayerStatPage PlayerStats = new();
+
         #endregion
     }
 
